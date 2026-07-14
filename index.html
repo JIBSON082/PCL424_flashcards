@@ -1813,8 +1813,9 @@ window.LIVER_CARDS = [
       });
     }
 
-    return 
-e("div", { className: "scan-overlay", ref: overlayRef, "aria-hidden": "true" }),
+    return e(
+      "div",
+      { className: "app-root", ref: rootRef },
       body,
       e("footer", { className: "app-footer" }, "Roundcards \u00B7 built for pharmacy exam prep")
     );
@@ -1824,7 +1825,6 @@ e("div", { className: "scan-overlay", ref: overlayRef, "aria-hidden": "true" }),
   var root = ReactDOM.createRoot(rootEl);
   root.render(e(App, null));
 })();
-
 </script>
 </body>
 </html>
