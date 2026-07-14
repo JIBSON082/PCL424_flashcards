@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Roundcards — GERD, PUD &amp; Hepatobiliary Pharmacotherapy</title>
+<meta name="description" content="An exam-prep flashcard deck covering GERD, peptic ulcer disease, and liver and biliary tract disorders for Organ Systems Pharmacotherapeutics." />
+<meta name="theme-color" content="#0b0f17" />
+<link rel="icon" href="data:," />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+/* ===================================================================
+   Roundcards — design tokens & layout
+   =================================================================== */
+
+:root {
+  --bg: #0b0f17;
+  --panel: #121a29;
+  --panel-2: #0f1622;
+  --line: rgba(150, 163, 196, 0.14);
+  --line-strong: rgba(150, 163, 196, 0.28);
+  --text: #edf0f6;
+  --text-dim: #97a2ba;
+  --text-faint: #5b6580;
+
+  --amber: #c9772f;
+  --amber-bright: #e2954a;
+  --amber-soft: rgba(201, 119, 47, 0.14);
+
+  --garnet: #a63a4c;
+  --garnet-bright: #cf5064;
+  --garnet-soft: rgba(166, 58, 76, 0.14);
+
+  --mint: #49a988;
+  --mint-bright: #5ec49f;
+  --mint-soft: rgba(73, 169, 136, 0.16);
+
+  --slate: #7c89a6;
+
+  --accent: var(--slate);
+  --accent-bright: #97a2ba;
+  --accent-soft: rgba(124, 137, 166, 0.14);
+
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 9px;
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --shadow-lg: 0 30px 70px -24px rgba(0, 0, 0, 0.7);
+  --shadow-sm: 0 10px 26px -14px rgba(0, 0, 0, 0.55);
+
+  color-scheme: dark;
+}
+
+.theme-amber { --accent: var(--amber); --accent-bright: var(--amber-bright); --accent-soft: var(--amber-soft); }
+.theme-garnet { --accent: var(--garnet); --accent-bright: var(--garnet-bright); --accent-soft: var(--garnet-soft); }
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1100px 720px at 12% -8%, #172136 0%, transparent 60%),
+    radial-gradient(900px 620px at 108% 8%, #16202f 0%, transparent 55%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(150, 163, 196, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(150, 163, 196, 0.035) 1px, transparent 1px);
+  background-size: 42px 42px;
+  mask-image: radial-gradient(1200px 800px at 50% 0%, black, transparent 75%);
+}
+
+h1, h2, h3, p, ul, li, button, input, label {
+  margin: 0;
+  padding: 0;
+}
+
+button, input {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+a { color: inherit; }
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
+}
+
+/* ---------------- layout scaffolding ---------------- */
+
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(28px, 6vw, 64px) 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.container-narrow {
+  max-width: 600px;
+}
+
+.app-footer {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 18px 20px 26px;
+}
+
+/* ---------------- scan-line transition overlay ---------------- */
+
+.scan-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  transform: translateX(-130%);
+  opacity: 0;
+  --scan-tint: var(--slate);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--scan-tint) 46%,
+    var(--scan-tint) 54%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  filter: blur(6px);
+}
+
+/* ---------------- typography ---------------- */
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  margin-bottom: 10px;
+}
+
+.display-hero {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px;
+  color: var(--text);
+}
+
+.hero-italic {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--amber-bright);
+  background: linear-gradient(90deg, var(--amber-bright), var(--garnet-bright));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.display-h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 4.4vw, 2.5rem);
+  line-height: 1.08;
+  color: var(--text);
+}
+
+.lede {
+  font-size: clamp(0.98rem, 2vw, 1.12rem);
+  line-height: 1.55;
+  color: var(--text-dim);
+  max-width: 46ch;
+  margin-bottom: 26px;
+}
+
+.section-note {
+  font-size: 0.95rem;
+  color: var(--text-dim);
+  margin: 18px 0 20px;
+}
+
+.fine-print {
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  margin-top: 22px;
+  line-height: 1.5;
+  max-width: 42ch;
+}
+
+/* ---------------- pulse line signature element ---------------- */
+
+.pulse-strip {
+  width: 100%;
+  max-width: 420px;
+  height: 34px;
+  overflow: hidden;
+  margin: 6px 0 22px;
+  opacity: 0.9;
+}
+
+.pulse-svg {
+  width: 200%;
+  height: 100%;
+  display: block;
+}
+
+.pulse-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.65;
+}
+
+/* ---------------- form controls ---------------- */
+
+.field-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+
+.name-form {
+  margin-top: 4px;
+}
+
+.name-input-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input {
+  flex: 1 1 220px;
+  min-width: 0;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  font-size: 1rem;
+  color: var(--text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--text-faint);
+}
+
+.input:focus-visible {
+  outline: none;
+  border-color: var(--amber-bright);
+  box-shadow: 0 0 0 3px var(--amber-soft);
+}
+
+/* ---------------- buttons ---------------- */
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0b0f17;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: var(--accent-bright);
+  border-color: var(--accent-bright);
+  color: #0b0f17;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--text-faint);
+}
+
+.btn-ghost:hover {
+  color: var(--text-dim);
+  border-color: var(--line-strong);
+}
+
+.btn-icon {
+  padding: 12px 16px;
+}
+
+.btn-label {
+  display: inline;
+}
+
+.btn-mastered.is-active {
+  background: var(--mint);
+  border-color: var(--mint);
+  color: #0b0f17;
+}
+
+.btn-mastered:not(.is-active):hover {
+  color: var(--mint-bright);
+  border-color: var(--mint);
+}
+
+.link-btn {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 4px;
+  transition: color 0.2s ease;
+}
+
+.link-btn:hover {
+  color: var(--text);
+}
+
+.link-btn:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ===================================================================
+   Topics screen
+   =================================================================== */
+
+.topics-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 8px;
+}
+
+@media (max-width: 760px) {
+  .topics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.topic-card {
+  text-align: left;
+  background: linear-gradient(165deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.topic-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(360px 200px at 100% 0%, var(--accent-soft), transparent 70%);
+  pointer-events: none;
+}
+
+.topic-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-lg);
+}
+
+.topic-card:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 3px;
+}
+
+.topic-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topic-monogram {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #0b0f17;
+  background: var(--accent);
+  border-radius: 999px;
+  padding: 5px 11px;
+}
+
+.topic-count {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  letter-spacing: 0.03em;
+}
+
+.topic-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  line-height: 1.18;
+  color: var(--text);
+}
+
+.topic-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+
+.topic-progress-track {
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.topic-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.topic-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  margin-top: 2px;
+}
+
+.topic-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent-bright);
+  font-weight: 600;
+}
+
+/* ===================================================================
+   Deck screen
+   =================================================================== */
+
+.deck-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.deck-header-title {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+}
+
+.deck-header-title .eyebrow {
+  margin-bottom: 2px;
+}
+
+.deck-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+}
+
+.deck-counter {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  min-width: 64px;
+  text-align: right;
+}
+
+.progress-track {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  margin: 4px 0 30px;
+}
+
+.progress-fill {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background: var(--text-faint);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.progress-mastered {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  background: var(--mint);
+  border-radius: 999px;
+  opacity: 0.9;
+  transition: width 0.35s ease;
+}
+
+/* ---------------- flashcard ---------------- */
+
+.card-stage {
+  perspective: 1800px;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  touch-action: pan-y;
+}
+
+.card-outer {
+  width: 100%;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: clamp(340px, 48vh, 440px);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  border-radius: var(--radius-lg);
+}
+
+.card-inner:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 4px;
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(160deg, var(--panel) 0%, #0d1420 100%);
+  padding: clamp(26px, 5vw, 46px);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-lg);
+  overflow-y: auto;
+}
+
+.card-face::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent 75%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.card-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  margin-bottom: 18px;
+}
+
+.card-eyebrow-answer {
+  color: var(--mint-bright);
+}
+
+.card-body-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.card-question {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.2rem, 3vw, 1.55rem);
+  line-height: 1.36;
+  color: var(--text);
+}
+
+.card-answer {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 2vw, 1.08rem);
+  line-height: 1.62;
+  color: var(--text);
+}
+
+.card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.9vw, 1.04rem);
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.card-list li {
+  position: relative;
+  padding-left: 20px;
+}
+
+.card-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.card-hint {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  color: var(--text-faint);
+  margin-top: 18px;
+}
+
+/* ---------------- controls ---------------- */
+
+.controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 28px 0 18px;
+}
+
+.btn-flip {
+  order: 0;
+  min-width: 190px;
+}
+
+.deck-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.focus-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.focus-toggle input {
+  width: 15px;
+  height: 15px;
+  accent-color: var(--accent);
+}
+
+.stats-row {
+  display: flex;
+  gap: 16px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--text-faint);
+}
+
+.keys-hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  letter-spacing: 0.03em;
+  margin-top: 22px;
+  display: none;
+}
+
+@media (min-width: 760px) {
+  .keys-hint {
+    display: block;
+  }
+}
+
+/* ---------------- complete panel ---------------- */
+
+.complete-panel {
+  text-align: center;
+  background: linear-gradient(165deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-lg);
+  padding: clamp(36px, 6vw, 56px) clamp(24px, 5vw, 40px);
+  box-shadow: var(--shadow-lg);
+}
+
+.complete-panel .lede {
+  margin: 12px auto 24px;
+}
+
+.complete-stats {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.stat-pill {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  padding: 8px 16px;
+}
+
+.stat-pill strong {
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.complete-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------------- fade in stagger (topics screen) ---------------- */
+
+.fade-in-item {
+  will-change: transform, opacity;
+}
+
+/* ---------------- reduced motion & accessibility ---------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .btn-label { display: none; }
+  .btn-flip { min-width: 0; flex: 1 1 100%; order: -1; }
+  .deck-header-title { order: -1; flex-basis: 100%; text-align: left; }
+  .deck-counter { margin-left: auto; }
+}
+</style>
+</head>
+<body>
+<div id="root">
+  <noscript>Roundcards needs JavaScript enabled to run.</noscript>
+</div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<script>
+/* ===================================================================
+   Flashcard data — GERD & Peptic Ulcer Disease (Gastrointestinal Tract)
+   =================================================================== */
+window.GIT_CARDS = [
+  { id:'g1', cat:'GI Foundations', q:'What are the four layers of the gastrointestinal wall, from the lumen outward?', a:'Mucosa, submucosa, muscularis externa, and serosa.' },
+  { id:'g2', cat:'GI Foundations', q:'Which stomach cells secrete acid and intrinsic factor, and where are they located?', a:'Parietal (oxyntic) cells, located in the body (corpus) of the stomach, secrete hydrogen ions (acid) and intrinsic factor.' },
+  { id:'g3', cat:'GI Foundations', q:'Which stomach cells secrete pepsinogen, and where are they located?', a:'Chief cells, located in the fundus, secrete the protein-digesting pre-enzyme pepsinogen.' },
+  { id:'g4', cat:'GI Foundations', q:'Which stomach cells secrete gastrin, and what is its effect?', a:'G (enteroendocrine) cells in the antrum secrete gastrin, which acts on parietal cells to stimulate acid secretion.' },
+  { id:'g5', cat:'GI Foundations', q:'What do the columnar cells of the stomach secrete?', a:'Mucin.' },
+
+  { id:'g6', cat:'GERD Background', q:'Define GERD.', a:'A digestive disorder of the lower esophageal sphincter (LES) in which the amount of gastric juice refluxing into the esophagus exceeds normal limits, producing symptoms with or without esophageal mucosal injury (esophagitis).' },
+  { id:'g7', cat:'GERD Background', q:'What are the two main endogenous defense mechanisms that normally limit reflux damage?', a:'Action of the lower esophageal sphincter (LES) and normal esophageal motility, which clears refluxed material.' },
+  { id:'g8', cat:'GERD Background', q:'List the typical symptoms of GERD.', a:'- Heartburn (pyrosis)\n- Regurgitation\n- Dysphagia' },
+  { id:'g9', cat:'GERD Background', q:'List the atypical symptoms of GERD.', a:'- Non-cardiac chest pain\n- Asthma\n- Pneumonia\n- Voice changes and hoarseness\n- Aspiration' },
+  { id:'g10', cat:'GERD Background', q:'Which two tests are considered essential before anti-reflux surgery?', a:'Esophageal manometry and pH monitoring.' },
+  { id:'g11', cat:'GERD Background', q:'Name the three pathophysiological mechanisms that predispose a patient to reflux.', a:'- Spontaneous transient relaxation of the LES\n- Low resting LES pressure\n- Transient increase in abdominal pressure (e.g., deep inspiration, bending over)' },
+  { id:'g12', cat:'GERD Background', q:'What three variables determine whether reflux progresses to esophageal damage?', a:'- The amount of acid and pepsin refluxed within 24 hours\n- The length of time acid and pepsin remain in the esophagus\n- The natural sensitivity of the esophageal mucosa to damage' },
+
+  { id:'g13', cat:'GERD Etiology & Risk Factors', q:'What is the most common underlying cause of GERD?', a:'A functional problem (frequent transient LES relaxation) or a mechanical problem (hypotensive LES) of the lower esophageal sphincter.' },
+  { id:'g14', cat:'GERD Etiology & Risk Factors', q:'What can trigger transient relaxation of the LES?', a:'- Foods: coffee, alcohol, chocolate, fatty meals\n- Medications: beta-agonists, nitrates, calcium channel blockers, benzodiazepines, anticholinergics\n- Hormones (e.g., progesterone)\n- Nicotine' },
+  { id:'g15', cat:'GERD Etiology & Risk Factors', q:'List the major dietary and lifestyle risk factors for GERD.', a:'- Obesity and weight gain\n- Pregnancy\n- Smoking or chewing tobacco\n- High-fat, large meals near bedtime\n- Caffeine, peppermint/spearmint, chocolate\n- Tomatoes, citrus juice, onions\n- Carbonated and alcoholic beverages\n- Tight clothing, bending, lying flat after meals' },
+  { id:'g16', cat:'GERD Etiology & Risk Factors', q:'Which drug classes are recognized risk factors for GERD?', a:'Benzodiazepines, calcium channel blockers, NSAIDs, theophylline, codeine, and anticholinergics.' },
+
+  { id:'g17', cat:'GERD Classification', q:'Describe physiologic (functional) gastroesophageal reflux.', a:'No underlying predisposing factors; growth and development are normal; pharmacologic treatment is usually unnecessary. Most patients (50 to 70 percent) have typical symptoms without evidence of mucosal injury, known as nonerosive reflux disease (NERD).' },
+  { id:'g18', cat:'GERD Classification', q:'Describe pathologic GERD.', a:'Patients frequently experience complications requiring careful evaluation. When reflux causes inflammation with or without erosions or ulcerations, it is termed reflux (erosive) esophagitis.' },
+  { id:'g19', cat:'GERD Classification', q:'Describe secondary gastroesophageal reflux.', a:'Reflux caused by an underlying predisposing condition, such as asthma or gastric outlet obstruction.' },
+
+  { id:'g20', cat:'GERD Treatment: Goals & Lifestyle', q:'What are the three goals of GERD treatment?', a:'- Control symptoms\n- Heal esophagitis\n- Prevent recurrent esophagitis or other complications' },
+  { id:'g21', cat:'GERD Treatment: Goals & Lifestyle', q:'List the recommended lifestyle modifications for GERD.', a:'- Lose weight if overweight\n- Avoid alcohol, chocolate, citrus juice, peppermint, coffee, and onions\n- Avoid large meals\n- Wait 3 hours after eating before lying down\n- Elevate the head of the bed 8 inches\n- Avoid bending or stooping\n- Eat small, frequent meals; avoid food within 3 hours of bedtime' },
+
+  { id:'g22', cat:'GERD Antacids', q:'By what mechanisms do antacids relieve GERD symptoms?', a:'They neutralize and reduce the concentration/load of gastric acid, raise gastric pH (which inhibits pepsin activity), and strengthen the gastric mucosal barrier. They give quick relief but do not heal inflammation.' },
+  { id:'g23', cat:'GERD Antacids', q:'Why are non-systemic antacids (magnesium or aluminum salts) preferred over systemic antacids (sodium bicarbonate)?', a:'Non-systemic antacids avoid the risk of systemic alkalosis.' },
+  { id:'g24', cat:'GERD Antacids', q:'Compare liquid and tablet antacid dosage forms.', a:'Liquid antacids have greater buffering capacity, while tablets are more convenient to carry. With either form, dose size and frequency may limit compliance.' },
+  { id:'g25', cat:'GERD Antacids', q:'Why are antacid mixtures (e.g., aluminum hydroxide with magnesium hydroxide) preferred over single-agent antacids?', a:'They provide more even, sustained action; allow lower doses of each compound; and the agents can offset each other adverse effects (aluminum hydroxide constipating effect counters magnesium hydroxide diarrhea).' },
+  { id:'g26', cat:'GERD Antacids', q:'Why is calcium carbonate generally avoided as an antacid?', a:'It causes acid rebound, may delay pain relief and ulcer healing, induces constipation, and risks hypercalcemia, especially if taken with milk or another alkaline substance, which can trigger milk-alkali syndrome (hypercalcemia, alkalosis, azotemia, nephrocalcinosis).' },
+  { id:'g27', cat:'GERD Antacids', q:'In which patients is sodium bicarbonate antacid contraindicated?', a:'Patients with hypertension, congestive heart failure, severe renal disease, and edema; it should not be used for ulcer therapy.' },
+  { id:'g28', cat:'GERD Antacids', q:'Which drugs have reduced absorption when co-administered with antacids?', a:'- Tetracyclines and fluoroquinolones (bind directly to antacids)\n- Cimetidine, ranitidine, digoxin, isoniazid\n- Anticholinergics, iron products\n- Azole antifungals (ketoconazole), phenothiazines' },
+  { id:'g29', cat:'GERD Antacids', q:'Why should antacids be separated from enteric-coated drugs?', a:'Antacids can destroy the enteric coating, causing premature drug dissolution in the stomach.' },
+
+  { id:'g30', cat:'GERD H2 Receptor Antagonists', q:'What is the mechanism of action of H2 receptor antagonists (H2RAs)?', a:'They competitively inhibit histamine at parietal cell H2 receptors, reducing the volume and hydrogen-ion concentration of gastric acid secretion.' },
+  { id:'g31', cat:'GERD H2 Receptor Antagonists', q:'Rank the four H2RAs by potency and describe their effect on acid secretion.', a:'- Cimetidine: reduces acid secretion by about 50% (1000 mg/day)\n- Ranitidine: about 70% reduction (300 mg/day)\n- Famotidine: most potent; 94% reduction after a 40 mg dose\n- Nizatidine: about 90% reduction in nocturnal acid secretion' },
+  { id:'g32', cat:'GERD H2 Receptor Antagonists', q:'What hematologic adverse effects can cimetidine cause?', a:'Thrombocytopenia, agranulocytosis, and aplastic anemia.' },
+  { id:'g33', cat:'GERD H2 Receptor Antagonists', q:'Why does cimetidine cause so many drug interactions?', a:'It binds and inhibits hepatic cytochrome P450, interfering with the metabolism of phenytoin, theophylline, phenobarbital, lidocaine, warfarin, imipramine, diazepam, and propranolol; it also decreases hepatic blood flow, reducing clearance of propranolol and lidocaine.' },
+  { id:'g34', cat:'GERD H2 Receptor Antagonists', q:'What limits the long-term effectiveness of H2RAs?', a:'Tolerance develops frequently with H2RAs, which may explain diminished responses over time.' },
+
+  { id:'g35', cat:'GERD Proton Pump Inhibitors', q:'What is the mechanism of action of proton pump inhibitors (PPIs)?', a:'The activated sulfonamide form binds irreversibly to a sulfhydryl group on the gastric H+/K+-ATPase proton pump, forming a stable disulfide bond that inactivates the pump and shuts off acid secretion.' },
+  { id:'g36', cat:'GERD Proton Pump Inhibitors', q:'List the PPIs available for GERD treatment.', a:'Omeprazole, lansoprazole, rabeprazole, pantoprazole, esomeprazole, and dexlansoprazole.' },
+  { id:'g37', cat:'GERD Proton Pump Inhibitors', q:'When should PPIs optimally be taken, and why?', a:'In the morning, 30 to 60 minutes before eating, because food activates parietal cells and maximizes PPI binding to actively secreting proton pumps.' },
+  { id:'g38', cat:'GERD Proton Pump Inhibitors', q:'How long is erosive esophagitis typically treated with omeprazole (or an equivalent PPI dose)?', a:'20 mg daily for 8 to 12 weeks.' },
+  { id:'g39', cat:'GERD Proton Pump Inhibitors', q:'How should delayed-release PPI capsules (esomeprazole, lansoprazole, omeprazole) be administered?', a:'Taken before eating; must not be chewed or crushed. Capsule contents can be sprinkled on food such as applesauce or mixed with acidic juices.' },
+  { id:'g40', cat:'GERD Proton Pump Inhibitors', q:'Which drugs metabolism does omeprazole interfere with, and by what mechanism?', a:'Diazepam, warfarin, and phenytoin, through inhibition of hepatic CYP450 microsomal metabolism.' },
+  { id:'g41', cat:'GERD Proton Pump Inhibitors', q:'How can prolonged PPI-induced acid inhibition affect other drugs?', a:'It may decrease the bioavailability of ketoconazole, ampicillin esters, and iron salts. PPIs may also decrease the antiplatelet activity of clopidogrel, though clinical significance is unclear.' },
+  { id:'g42', cat:'GERD Proton Pump Inhibitors', q:'How does food affect PPI bioavailability?', a:'Food reduces the bioavailability of esomeprazole and lansoprazole by 50%, but does not reduce the bioavailability of omeprazole or rabeprazole.' },
+
+  { id:'g43', cat:'GERD Prokinetics', q:'How do prokinetic agents help control GERD?', a:'They strengthen the LES and speed gastric emptying, allowing less time for acid reflux to occur; they are effective mainly for patients with mild symptoms.' },
+  { id:'g44', cat:'GERD Prokinetics', q:'Name the prokinetic agents used in GERD.', a:'Metoclopramide, domperidone, cisapride, and bethanechol.' },
+  { id:'g45', cat:'GERD Prokinetics', q:'What is a key caution regarding long-term prokinetic use?', a:'Long-term use may cause serious, even potentially fatal complications, and should be discouraged.' },
+
+  { id:'g46', cat:'PUD Definitions & Types', q:'Define peptic ulcer disease (PUD).', a:'A group of disorders with circumscribed mucosal lesions of the upper GI tract, mainly the stomach and duodenum; a defect that extends through the muscularis mucosa into deeper layers of the wall.' },
+  { id:'g47', cat:'PUD Definitions & Types', q:'What are the two major types of peptic ulcers?', a:'Gastric ulcers, which form on the stomach lining, and duodenal ulcers, which form on the lining of the upper duodenum.' },
+  { id:'g48', cat:'PUD Definitions & Types', q:'How does the timing of epigastric pain differ between gastric and duodenal ulcers?', a:'Gastric ulcer pain typically occurs 45 to 60 minutes after a meal. Duodenal ulcer pain occurs 2 to 4 hours after meals and often causes nocturnal pain between midnight and 2am.' },
+  { id:'g49', cat:'PUD Definitions & Types', q:'How does food affect gastric versus duodenal ulcer pain, and how does this relate to weight change?', a:'Food usually relieves duodenal ulcer pain but may worsen gastric ulcer pain, which helps explain why duodenal ulcer patients tend to gain weight while gastric ulcer patients tend to lose weight.' },
+  { id:'g50', cat:'PUD Definitions & Types', q:'Describe stress ulcers.', a:'They result from serious trauma, illness, or major burns; the most common site of formation is the proximal stomach.' },
+  { id:'g51', cat:'PUD Definitions & Types', q:'Describe Zollinger-Ellison syndrome.', a:'A severe form of PUD in which intractable ulcers are accompanied by extreme gastric hyperacidity.' },
+  { id:'g52', cat:'PUD Definitions & Types', q:'What causes drug-associated ulcers?', a:'Chronic ingestion of substances that damage the gastric mucosa, such as NSAIDs.' },
+
+  { id:'g53', cat:'PUD Pathophysiology', q:'What underlying imbalance causes peptic ulcers?', a:'A disruption of the balance between aggressive (offensive) factors and defensive (protective) mucosal mechanisms.' },
+  { id:'g54', cat:'PUD Pathophysiology', q:'List the defensive (protective) mechanisms of the gastroduodenal mucosa.', a:'- Thick mucus secretion\n- Mucosal blood flow, which removes damaging acid\n- Alkaline, neutral biliary juices that buffer acid entering the duodenum\n- Tight intercellular junctions\n- Rapid, continual epithelial renewal\n- Prostaglandins, which inhibit acid secretion and stimulate mucus/bicarbonate production' },
+  { id:'g55', cat:'PUD Pathophysiology', q:'List the aggressive (offensive) factors in PUD.', a:'- Helicobacter pylori infection\n- Alcohol\n- NSAIDs and aspirin\n- Tobacco smoking\n- Bile salts\n- Gastric acid (HCl) and pepsin' },
+
+  { id:'g56', cat:'PUD H pylori Pathogenesis', q:'Describe the organism H pylori and its likely transmission route.', a:'A gram-negative, multi-flagellated spiral bacterium; transmission is unclear but appears to be person-to-person via the fecal-oral route, with water suspected as a reservoir.' },
+  { id:'g57', cat:'PUD H pylori Pathogenesis', q:'How common is H pylori infection in duodenal versus gastric ulcer patients?', a:'Present in almost all patients with duodenal ulcers and in about 70% of patients with gastric ulcers.' },
+  { id:'g58', cat:'PUD H pylori Pathogenesis', q:'How does the urease enzyme produced by H pylori damage the stomach?', a:'Urease splits urea into ammonia and carbon dioxide. The ammonia shields the bacterium from stomach acid but also damages the protective mucous layer and the underlying gastric cells.' },
+  { id:'g59', cat:'PUD H pylori Pathogenesis', q:'What other tissue-damaging enzymes does H pylori produce?', a:'Haemolysins, fucosidase, and neuraminidase.' },
+  { id:'g60', cat:'PUD H pylori Pathogenesis', q:'How does H pylori infection raise gastrin and contribute to hyperacidity?', a:'It decreases antral D cells that secrete somatostatin, removing the inhibitory control on gastrin, and directly stimulates gastrin cells through cytokines released during the inflammatory process, both of which raise gastrin and acid secretion.' },
+
+  { id:'g61', cat:'PUD NSAID Pathogenesis', q:'By what mechanisms do NSAIDs cause ulcers independent of H pylori?', a:'- Topical acidic injury to the mucosa on contact\n- Promotion of hydrogen-ion back-diffusion by reducing mucus hydrophobicity\n- Systemically, decreased synthesis of cytoprotective prostaglandins (PGE2 and PGI2)' },
+  { id:'g62', cat:'PUD NSAID Pathogenesis', q:'How does the COX inhibition of aspirin differ from that of traditional nonselective NSAIDs?', a:'Aspirin causes irreversible inhibition of both COX-1 and COX-2, while traditional nonselective NSAIDs inhibit both reversibly.' },
+  { id:'g63', cat:'PUD NSAID Pathogenesis', q:'Why do selective COX-2 inhibitors (coxibs) cause fewer ulcers than nonselective NSAIDs?', a:'By sparing COX-1-mediated protective prostaglandin synthesis, coxibs such as celecoxib and rofecoxib are associated with fewer ulcers than nonselective NSAIDs.' },
+
+  { id:'g64', cat:'PUD Other Risk Factors', q:'Which blood type carries an above-normal incidence of duodenal ulcers?', a:'Blood type O.' },
+  { id:'g65', cat:'PUD Other Risk Factors', q:'How does smoking worsen peptic ulcer disease?', a:'It increases the risk of developing PUD, delays ulcer healing, increases the risk and speed of relapse, decreases biliary and pancreatic bicarbonate secretion, and accelerates gastric emptying into the duodenum.' },
+  { id:'g66', cat:'PUD Other Risk Factors', q:'At what alcohol concentration does marked gastric mucosal irritation occur?', a:'Concentrations of 20% or greater.' },
+  { id:'g67', cat:'PUD Other Risk Factors', q:'Which comorbid conditions are associated with a higher risk of PUD?', a:'Hyperparathyroidism, emphysema, rheumatoid arthritis, and alcoholic cirrhosis.' },
+
+  { id:'g68', cat:'PUD Gastric Ulcer Staging', q:'Describe Johnson Type I gastric ulcers.', a:'Located near the angularis incisura on the lesser curvature, close to the antrum-body border. Gastric acid secretion is usually normal or decreased.' },
+  { id:'g69', cat:'PUD Gastric Ulcer Staging', q:'Describe Johnson Type II gastric ulcers.', a:'A combination of gastric and duodenal ulcers, associated with normal or increased gastric acid secretion.' },
+  { id:'g70', cat:'PUD Gastric Ulcer Staging', q:'Describe Johnson Type III gastric ulcers.', a:'Prepyloric ulcers, associated with normal or increased gastric acid secretion.' },
+  { id:'g71', cat:'PUD Gastric Ulcer Staging', q:'Describe Johnson Type IV gastric ulcers.', a:'Located near the gastroesophageal junction, with normal or below-normal gastric acid secretion.' },
+
+  { id:'g72', cat:'PUD Etiology', q:'What are the three distinct recognized causes of PUD?', a:'- Helicobacter pylori infection\n- NSAIDs, such as aspirin\n- Hypersecretion of HCl, as in Zollinger-Ellison syndrome' },
+  { id:'g73', cat:'PUD Etiology', q:'List additional recognized risk factors for PUD beyond the three main causes.', a:'Previous history of peptic ulceration, genetic factors, corticosteroids, cigarette smoking, advanced age, associated disorders, and psychological factors. Controversial factors include gender, caffeine, milk, cola, spicy foods, and alcohol.' },
+
+  { id:'g74', cat:'PUD Clinical Manifestations', q:'What is the hallmark symptom of PUD, how common is it, and how is it described?', a:'Epigastric pain (dyspepsia), present in 80 to 90% of patients; described as gnawing, dull, aching, or hunger-like.' },
+  { id:'g75', cat:'PUD Clinical Manifestations', q:'What other symptoms accompany the epigastric pain of PUD?', a:'Nausea, vomiting, heartburn, belching, bloating, anorexia, and, unusually, weight loss.' },
+  { id:'g76', cat:'PUD Clinical Manifestations', q:'List the major complications that can occur with PUD.', a:'Hemorrhage, chronic iron deficiency anemia, pyloric stenosis, and perforation.' },
+
+  { id:'g77', cat:'PUD Clinical Evaluation', q:'What physical exam findings suggest PUD?', a:'Superficial and deep epigastric tenderness with voluntary muscle guarding; duodenal ulcer may show unilateral spasm over the duodenal bulb; gastric ulcer patients may show weight loss.' },
+  { id:'g78', cat:'PUD Clinical Evaluation', q:'What might blood and stool tests reveal in a patient with PUD?', a:'Blood tests may show hypochromic anemia. Stool tests may detect occult blood (melena) if the ulcer is chronic.' },
+  { id:'g79', cat:'PUD Clinical Evaluation', q:'How do gastric secretion test results differ between duodenal and gastric ulcer patients?', a:'They may reveal hypersecretion of HCl in duodenal ulcer patients, versus normal or subnormal HCl secretion in gastric ulcer patients.' },
+  { id:'g80', cat:'PUD Clinical Evaluation', q:'Why is upper GI endoscopy the most valuable diagnostic test for PUD?', a:'It is the most specific test, confirming an ulcer in at least 95% of cases and detecting ulcers not seen on radiography; biopsy can also determine whether a gastric ulcer is malignant.' },
+  { id:'g81', cat:'PUD Clinical Evaluation', q:'What is the noninvasive test of choice for H pylori, and what is a key limitation of the urea breath test?', a:'Serology is the noninvasive test of choice when endoscopy is not indicated. False-negative urea breath tests can occur in patients taking proton pump inhibitors, antibiotics, or bismuth compounds.' },
+  { id:'g82', cat:'PUD Clinical Evaluation', q:'What can PCR testing detect for H pylori, and what samples can be used?', a:'PCR can detect H pylori DNA in stool, gastric biopsies, or saliva; it is a sensitive and specific diagnostic method.' },
+
+  { id:'g83', cat:'PUD Treatment Goals & Approach', q:'What are the five goals of PUD pharmacotherapy?', a:'- Relieve dyspeptic symptoms\n- Reduce acid secretion\n- Promote epithelial healing\n- Prevent ulcer-related complications\n- Prevent recurrence by eradicating H pylori infection' },
+  { id:'g84', cat:'PUD Treatment Goals & Approach', q:'What does the non-pharmacologic approach to PUD involve?', a:'Reducing psychological stress and avoiding cigarette smoking, alcohol, and foods or beverages that worsen symptoms. Surgery is generally reserved for complicated or refractory PUD.' },
+  { id:'g85', cat:'PUD Treatment Goals & Approach', q:'Into what three categories is PUD pharmacotherapy divided?', a:'Acid-antisecretory agents, mucosal protective (cytoprotective) agents, and agents that promote healing through eradication of H pylori.' },
+
+  { id:'g86', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is vonoprazan and its mechanism of action?', a:'A potassium-competitive acid blocker (P-CAB) that reversibly inhibits gastric acid output through potassium-competitive ionic binding to H+/K+-ATPase.' },
+  { id:'g87', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is the mechanism of action of sucralfate?', a:'A nonabsorbable aluminum-sucrose disaccharide that adheres to the base of the ulcer crater, forming a protective barrier against gastric acid and bile salts.' },
+  { id:'g88', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is the standard dosing schedule for sucralfate?', a:'1 g four times daily, one hour before meals and at bedtime.' },
+  { id:'g89', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is the most common adverse effect of sucralfate, and its key interaction caution?', a:'Constipation is most common. Sucralfate can impair absorption of digoxin, tetracycline, phenytoin, iron, ciprofloxacin, other fluoroquinolones, and cimetidine if co-administered; separate doses from antacids by 30 to 60 minutes.' },
+  { id:'g90', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is the mechanism and approved use of misoprostol?', a:'A prostaglandin analog with antisecretory and mucosal-protective properties, including increased bicarbonate and mucus production and maintained mucosal blood flow. Approved for prevention of NSAID-induced gastric ulcers.' },
+  { id:'g91', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is the standard dosing of misoprostol?', a:'200 mcg four times daily with food, continued for the duration of NSAID therapy; 100 mcg four times daily can be used if the higher dose is not tolerated.' },
+  { id:'g92', cat:'PUD Antisecretory & Cytoprotective Agents', q:'Why is misoprostol contraindicated in pregnancy?', a:'It has abortifacient properties.' },
+  { id:'g93', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What are the common adverse effects of misoprostol?', a:'Diarrhea, occurring in 14 to 40% of patients, dose-related, usually early in therapy and self-limiting, and abdominal pain, occurring in 13 to 20%. Taking the drug with food minimizes the diarrhea.' },
+  { id:'g94', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What is the mechanism of action of bismuth subsalicylate?', a:'It prevents adhesion of H pylori to the gastric mucosa, decreases bacterial resistance when combined with other anti-H pylori agents, inhibits release of proteolytic enzymes, and suppresses H pylori growth.' },
+  { id:'g95', cat:'PUD Antisecretory & Cytoprotective Agents', q:'What toxicities are associated with high-dose bismuth subsalicylate?', a:'CNS toxicity including neurotoxicity, plus tinnitus, hyperpyrexia, tachycardia, and confusion, collectively known as salicylism.' },
+
+  { id:'g96', cat:'PUD H pylori Eradication', q:'What is the recommended primary therapy for H pylori infection, and its cure rate?', a:'Proton pump inhibitor (PPI)-based triple therapy, which cures infection and heals ulcers in approximately 85 to 90% of cases.' },
+  { id:'g97', cat:'PUD H pylori Eradication', q:'What three drugs make up standard PPI-based triple therapy, and for how long is it given?', a:'A PPI, amoxicillin, and clarithromycin, given for 7 to 14 days; 14 days is more effective and currently recommended.' },
+  { id:'g98', cat:'PUD H pylori Eradication', q:'When should amoxicillin be replaced with metronidazole in triple therapy?', a:'Only in penicillin-allergic patients.' },
+  { id:'g99', cat:'PUD H pylori Eradication', q:'What defines quadruple therapy for H pylori, and when is it used?', a:'Bismuth subsalicylate plus metronidazole plus tetracycline plus a PPI (or ranitidine), given for 14 days. It is reserved for patients in whom standard therapy has failed, with eradication rates greater than 90%.' },
+  { id:'g100', cat:'PUD H pylori Eradication', q:'What factors commonly reduce patient adherence to H pylori eradication therapy?', a:'Use of a large number of medications, frequent dosing or long treatment duration, and intolerable side effects such as taste disturbance (clarithromycin, metronidazole), nausea, vomiting, abdominal pain, or diarrhea.' },
+
+  { id:'g101', cat:'PUD NSAID-Induced Management', q:'How are active NSAID-induced ulcers treated?', a:'An appropriate course of PPI therapy combined with cessation of NSAID use.' },
+  { id:'g102', cat:'PUD NSAID-Induced Management', q:'If NSAID use cannot be stopped, what strategies reduce ulcer risk?', a:'Use the lowest possible dose and duration with co-therapy of a PPI or misoprostol, or switch to a COX-2 selective inhibitor such as celecoxib or rofecoxib.' },
+  { id:'g103', cat:'PUD NSAID-Induced Management', q:'List the primary prevention strategies for NSAID-induced ulcers.', a:'- Avoid unnecessary NSAID use\n- Use acetaminophen or nonacetylated salicylates when possible\n- Use the lowest effective NSAID dose, or switch to less toxic or COX-2 selective NSAIDs' },
+  { id:'g104', cat:'PUD NSAID-Induced Management', q:'Which patients are candidates for prophylactic therapy against NSAID-induced ulcers?', a:'Those requiring chronic daily NSAID therapy (e.g., age over 60), those with a history of PUD or GI bleeding, and those on concomitant steroids or anticoagulants or with significant comorbid illness.' },
+  { id:'g105', cat:'PUD NSAID-Induced Management', q:'What are the recommended prophylactic drug regimens for NSAID-induced ulcers?', a:'Misoprostol 100 to 200 mcg orally four times daily, omeprazole 20 to 40 mg orally once daily, or lansoprazole 15 to 30 mg orally once daily.' },
+
+  { id:'g106', cat:'PUD Refractory Ulcers & Complications', q:'How is a refractory (intractable) peptic ulcer defined?', a:'An ulcer that fails to heal completely after 8 weeks (duodenal ulcer) or 12 weeks (gastric ulcer) of appropriate modern antiulcer therapy in a compliant patient.' },
+  { id:'g107', cat:'PUD Refractory Ulcers & Complications', q:'What work-up should be done for a suspected refractory ulcer?', a:'- Repeat endoscopy with biopsy to rule out malignancy\n- Serum gastrin level to rule out Zollinger-Ellison syndrome\n- Assessment of patient compliance\n- Review of recent NSAID use' },
+  { id:'g108', cat:'PUD Refractory Ulcers & Complications', q:'When is surgery indicated for refractory peptic ulcers?', a:'Only when ulcers fail to respond to optimal medical therapy, or when complications develop that require surgical intervention.' },
+  { id:'g109', cat:'PUD Refractory Ulcers & Complications', q:'What are the four major complications of PUD?', a:'Hemorrhage, perforation, obstruction, and refractory ulcer.' },
+];
+
+
+/* ===================================================================
+   Flashcard data — Liver & Biliary Tract Disorders
+   =================================================================== */
+window.LIVER_CARDS = [
+  { id:'l1', cat:'Liver Anatomy & Histology', q:'What is the approximate weight of the liver and where is it located?', a:'It weighs 1200 to 1500 g, about 4 to 5% of adult body weight, and is located in the upper abdomen, occupying the right hypochondriac region and part of the epigastric region.' },
+  { id:'l2', cat:'Liver Anatomy & Histology', q:'What are the two main anatomic lobes of the liver, and what divides them?', a:'The right lobe (larger) and the left lobe, divided by the line of insertion of the falciform ligament.' },
+  { id:'l3', cat:'Liver Anatomy & Histology', q:'Name the two smaller lobes on the posterior-inferior surface of the right lobe.', a:'The caudate lobe and the quadrate lobe.' },
+  { id:'l4', cat:'Liver Anatomy & Histology', q:'What is the capsule of Glisson?', a:'The fibrous capsule that covers the entire liver.' },
+  { id:'l5', cat:'Liver Anatomy & Histology', q:'Describe the location, shape, and function of the gallbladder.', a:'A pear-shaped sac with an average volume of 30 to 50 mL, located under the right liver lobe and connected to the GI tract via the cystic and common bile ducts. It concentrates and stores bile, releasing it into the duodenum for fat digestion.' },
+  { id:'l6', cat:'Liver Anatomy & Histology', q:'Which hormone primarily triggers gallbladder contraction, and when is it released?', a:'Cholecystokinin (CCK), released in response to the products of digestion in the gastrointestinal tract.' },
+  { id:'l7', cat:'Liver Anatomy & Histology', q:'What percentage of liver parenchyma is made up of hepatocytes, and how are they arranged?', a:'Hepatocytes make up 80% of liver parenchyma, arranged into hexagonal lobules centered on a hepatic venule (central vein).' },
+  { id:'l8', cat:'Liver Anatomy & Histology', q:'What three structures make up the portal triad, and what proportion of hepatic blood flow does each vessel contribute?', a:'The hepatic artery (25% of blood supply), the portal vein (75% of blood supply), and the bile and lymph ducts.' },
+  { id:'l9', cat:'Liver Anatomy & Histology', q:'List the four cell types of the liver and their main functions.', a:'- Hepatocytes: bulk of the liver parenchyma\n- Endothelial cells: line the sinusoids, forming fenestrations that control solute entry and exclude red blood cells\n- Kupffer cells: liver macrophages that phagocytose bacteria and particles\n- Stellate (Ito) cells: store fat droplets and retinoids' },
+  { id:'l10', cat:'Liver Anatomy & Histology', q:'What is notable about the regenerative reserve capacity of the liver?', a:'It can function normally despite surgical removal of 70 to 80% of the organ and regenerates rapidly, though critical damage leads to multi-system complications.' },
+  { id:'l11', cat:'Liver Anatomy & Histology', q:'What metabolic functions dominate in Zone I (periportal) hepatocytes?', a:'Beta oxidation, amino acid metabolism, ureagenesis, gluconeogenesis, cholesterol synthesis, and bile formation. Zone I is most resistant to circulatory demise and regenerates first.' },
+  { id:'l12', cat:'Liver Anatomy & Histology', q:'What metabolic functions dominate in Zone III (pericentral) hepatocytes?', a:'Glycogen synthesis from glucose, glycolysis, liponeogenesis, ketogenesis, xenobiotic metabolism, and glutamine formation.' },
+
+  { id:'l13', cat:'Liver Functions: Metabolism', q:'How does the liver regulate glucose homeostasis?', a:'It stores glucose as glycogen under insulin control, releases glucose via glycogenolysis as the first response to starvation, and later via gluconeogenesis from lactate, amino acids, and glycerol; fatty acids are beta-oxidized to ketone bodies during prolonged starvation.' },
+  { id:'l14', cat:'Liver Functions: Metabolism', q:'What is the liver role in plasma protein synthesis, and how much albumin is produced daily?', a:'The liver synthesizes all circulating plasma proteins except gamma-globulins, including about 10 to 12 g of albumin daily, which maintains oncotic pressure and transports insoluble compounds, plus coagulation factors and acute-phase proteins.' },
+  { id:'l15', cat:'Liver Functions: Metabolism', q:'How does the liver handle nitrogen excretion?', a:'Amino acid transamination and oxidative deamination form ammonia, which the liver converts to urea for renal excretion.' },
+  { id:'l16', cat:'Liver Functions: Metabolism', q:'Describe the liver role in lipid metabolism.', a:'It synthesizes triglycerides from free fatty acids for transport as VLDL, oxidizes fatty acids for energy, controls lipoprotein production, regulates cholesterol formation and excretion through LDL receptors, and esterifies cholesterol to fatty acids.' },
+  { id:'l17', cat:'Liver Functions: Metabolism', q:'Which vitamins and minerals does the liver store, and what unique step does it perform for vitamin D?', a:'It stores vitamins A, D, B12, iron, and copper, and performs 25-hydroxylation of cholecalciferol (vitamin D).' },
+
+  { id:'l18', cat:'Bile & Bilirubin', q:'What is bile composed of, and roughly how much is produced daily?', a:'Water, electrolytes, bile acids, bilirubin, phospholipids, cholesterol, and conjugated waste products; approximately 600 mL is produced each day.' },
+  { id:'l19', cat:'Bile & Bilirubin', q:'What controls bile formation and its release after a meal?', a:'Bile formation is stimulated by secretin and inhibited by somatostatin. After a meal, cholecystokinin stimulates gallbladder contraction and relaxation of the sphincter of Oddi.' },
+  { id:'l20', cat:'Bile & Bilirubin', q:'Describe the enterohepatic circulation of bile acids.', a:'Primary bile acids, synthesized from cholesterol in the liver, are converted to secondary bile acids by gut microbiota. About 95% are reabsorbed in the terminal ileum, returned to the liver via the portal circulation, and resecreted into bile.' },
+  { id:'l21', cat:'Bile & Bilirubin', q:'How is bilirubin formed and processed by the body?', a:'It is formed from the breakdown of erythrocytes, conjugated with glucuronic acid in the liver to become water-soluble, and excreted in bile. Some is reabsorbed via the enterohepatic circulation after bacterial hydrolysis to urobilinogen.' },
+  { id:'l22', cat:'Bile & Bilirubin', q:'How does the liver metabolize drugs and hormones?', a:'Most xenobiotics are inactivated by cytochrome P450-mediated methylation or hydroxylation, then excreted in bile or urine after conjugation. The liver also catabolizes hormones such as estrogens, insulin, growth hormone, glucocorticoids, and parathyroid hormone, and produces angiotensinogen.' },
+  { id:'l23', cat:'Bile & Bilirubin', q:'What is the immunological role of the liver?', a:'As part of the reticuloendothelial system, it presents gut-derived antigens to Kupffer cells, NK cells, and sinusoidal endothelium, and participates in adaptive immunity through lymphocyte trafficking from the GI tract.' },
+
+  { id:'l24', cat:'Liver Function Tests & Assessment', q:'Which liver enzymes mark hepatocyte damage, and which mark cholestasis?', a:'ALT and AST reflect hepatocellular damage. Alkaline phosphatase (ALP) and gamma-glutamyl transpeptidase (gamma-GT) reflect intrahepatic cholestasis or extrahepatic bile duct obstruction; ALP also occurs in bone and placenta, and gamma-GT is inducible by drugs and alcohol.' },
+  { id:'l25', cat:'Liver Function Tests & Assessment', q:'Which laboratory markers indicate liver synthetic function?', a:'Bilirubin, albumin, prothrombin time, and coagulation factors I, II, V, VII, IX, and X.' },
+  { id:'l26', cat:'Liver Function Tests & Assessment', q:'What does ultrasound reveal in hepatobiliary disease, and what does a bright echo signal indicate?', a:'It can detect liver lesions, gallstones, biliary obstruction, portal hypertension, and ascites. A bright echo signal indicates fatty liver infiltration; Doppler ultrasound assesses blood flow and venous occlusion.' },
+  { id:'l27', cat:'Liver Function Tests & Assessment', q:'What is liver biopsy used for, and how is it typically performed?', a:'Histological diagnosis of parenchymal liver disease, characterization of mass lesions, and staging of fibrosis to establish a diagnosis of cirrhosis; most are done percutaneously under ultrasound guidance.' },
+
+  { id:'l28', cat:'Hepatobiliary Disease Overview', q:'How does liver disease typically present clinically?', a:'It is often asymptomatic for years. Symptoms occur late and are characterized by jaundice or features of hepatic decompensation, such as ascites, peripheral edema, encephalopathy, or portal-hypertensive GI bleeding.' },
+  { id:'l29', cat:'Hepatobiliary Disease Overview', q:'List the major categories of liver disease.', a:'Acute liver injury, chronic liver disease, cirrhosis, and viral hepatitis (types A, B, C, D, E, and G).' },
+  { id:'l30', cat:'Hepatobiliary Disease Overview', q:'What symptoms characteristically present in biliary disorders?', a:'Upper abdominal pain, jaundice, and fever or weight loss.' },
+
+  { id:'l31', cat:'Acute Liver Failure', q:'Define acute liver failure.', a:'A rapid deterioration of liver function causing coagulopathy, usually an INR greater than 1.5, and altered mental status (encephalopathy) in a previously healthy individual; it often affects young people and carries high mortality.' },
+  { id:'l32', cat:'Acute Liver Failure', q:'List the key signs and symptoms of acute liver failure.', a:'- Encephalopathy\n- Cerebral edema, with signs of raised intracranial pressure\n- Jaundice, often present but not always\n- Ascites\n- Right upper quadrant tenderness\n- Change in liver span\n- Hematemesis or melena from GI bleeding\n- Hypotension and tachycardia' },
+  { id:'l33', cat:'Acute Liver Failure', q:'What is the most important diagnostic step in acute liver failure, and what mandates hospital admission?', a:'Identifying the underlying cause, since certain causes need immediate specific treatment and affect prognosis. Prolongation of prothrombin time or a change in mental status are grounds for hospital admission.' },
+  { id:'l34', cat:'Acute Liver Failure', q:'List the laboratory tests used to work up acute liver failure.', a:'- Complete blood count (may show thrombocytopenia)\n- Coagulation studies (PT/INR)\n- Liver function tests (AST, ALT, ALP)\n- Serum bilirubin\n- Acetaminophen and acetaminophen-protein adduct levels\n- Drug screening, blood cultures\n- Viral hepatitis serologies (A to E)' },
+  { id:'l35', cat:'Acute Liver Failure', q:'Which antidote is used for Amanita phalloides mushroom poisoning?', a:'Penicillin G; activated charcoal is also used.' },
+  { id:'l36', cat:'Acute Liver Failure', q:'What is silymarin, and what is its role in liver failure management?', a:'The active ingredient of milk thistle; it has antioxidant properties that may benefit liver disease management.' },
+  { id:'l37', cat:'Acute Liver Failure', q:'When is activated charcoal useful in acute liver failure?', a:'For acetaminophen toxicity if given within 4 hours of ingestion, and for Amanita phalloides mushroom poisoning.' },
+  { id:'l38', cat:'Acute Liver Failure', q:'What is the antidote for acetaminophen toxicity?', a:'N-acetylcysteine (NAC).' },
+  { id:'l39', cat:'Acute Liver Failure', q:'How are cerebral edema and intracranial hypertension managed in acute liver failure?', a:'- Osmotic diuretics (e.g., mannitol): effective short-term for cerebral edema\n- Barbiturates (pentobarbital, thiopental): for severe intracranial hypertension unresponsive to other measures\n- Benzodiazepines (e.g., midazolam): protect the airway during intubation\n- Anesthetics (e.g., propofol): decrease cerebral blood flow and intracranial hypertension' },
+
+  { id:'l40', cat:'Cirrhosis: Etiology', q:'Define cirrhosis.', a:'The final common pathway of a wide variety of chronic liver diseases; histologically a diffuse hepatic process with fibrosis (excess extracellular matrix deposition) and conversion of normal architecture into structurally abnormal nodules. It is generally not reversible.' },
+  { id:'l41', cat:'Cirrhosis: Etiology', q:'List the drug and toxin causes of cirrhosis.', a:'Alcohol, methotrexate, isoniazid, methyldopa, and amiodarone.' },
+  { id:'l42', cat:'Cirrhosis: Etiology', q:'List the infectious causes of cirrhosis.', a:'Viral hepatitis B and C, and schistosomiasis.' },
+  { id:'l43', cat:'Cirrhosis: Etiology', q:'List the immune-mediated causes of cirrhosis.', a:'Autoimmune hepatitis and primary sclerosing cholangitis.' },
+  { id:'l44', cat:'Cirrhosis: Etiology', q:'List the metabolic causes of cirrhosis.', a:'Hemochromatosis, porphyria, alpha-1-antitrypsin deficiency, and Wilson disease.' },
+  { id:'l45', cat:'Cirrhosis: Etiology', q:'List the biliary and cardiovascular causes of cirrhosis.', a:'Biliary: cystic fibrosis, strictures, gallstones. Cardiovascular: chronic right-sided heart failure, Budd-Chiari syndrome, and veno-occlusive disease.' },
+
+  { id:'l46', cat:'Cirrhosis: Pathophysiology', q:'What mechanisms raise portal blood pressure in cirrhosis?', a:'- Fibrotic changes within the hepatic sinusoids\n- Decreased vasodilators (nitric oxide) with increased vasoconstrictors (endothelin), raising resistance to flow\n- Increased systemic and splanchnic vasodilation and blood flow' },
+  { id:'l47', cat:'Cirrhosis: Pathophysiology', q:'What major clinical problems result from the pathophysiology of cirrhosis?', a:'Ascites, portal hypertension with esophageal varices, hepatic encephalopathy, and coagulation disorders; less commonly, hepatorenal syndrome, hepatopulmonary syndrome, and endocrine dysfunction.' },
+
+  { id:'l48', cat:'Cirrhosis: Portal Hypertension & Varices', q:'What is the gold-standard measurement for clinically significant portal hypertension (CSPH), and its diagnostic threshold?', a:'The hepatic venous pressure gradient (HVPG), with CSPH defined by the AASLD as an HVPG of at least 10 mmHg.' },
+  { id:'l49', cat:'Cirrhosis: Portal Hypertension & Varices', q:'Through which vein do the most clinically significant varices typically develop?', a:'The left gastric vein, giving rise to esophageal varices.' },
+  { id:'l50', cat:'Cirrhosis: Portal Hypertension & Varices', q:'What are the key bleeding statistics for esophageal varices in cirrhosis?', a:'Hemorrhage occurs in 25 to 40% of cirrhotic patients, each bleeding episode carries a 5 to 50% risk of death, and rebleeding occurs in 60 to 70% of patients within one year.' },
+
+  { id:'l51', cat:'Cirrhosis: Ascites, Encephalopathy & Other Complications', q:'What is the pathophysiologic mechanism of ascites formation in cirrhosis?', a:'Progressive systemic vasodilation and decreased effective arterial blood volume activate renal baroreceptors and the renin-angiotensin system, causing sodium and water retention, plasma volume expansion, and translocation of lymph fluid into the peritoneal cavity.' },
+  { id:'l52', cat:'Cirrhosis: Ascites, Encephalopathy & Other Complications', q:'What causes hepatic encephalopathy in cirrhosis, and how are symptoms graded?', a:'Accumulation of gut-derived nitrogenous substances, especially ammonia, in the systemic circulation due to portosystemic shunting, altering CNS neurotransmission (the gut-brain connection). Symptoms are graded on levels 0 to 4.' },
+  { id:'l53', cat:'Cirrhosis: Ascites, Encephalopathy & Other Complications', q:'What is the cellular basis of hepatic fibrosis?', a:'Activation of stellate cells into collagen-forming cells by various paracrine factors.' },
+  { id:'l54', cat:'Cirrhosis: Ascites, Encephalopathy & Other Complications', q:'What causes hepatorenal syndrome?', a:'Vasoconstriction of large and small renal arteries with resulting impaired renal perfusion, seen in patients with a combination of cirrhosis and ascites.' },
+  { id:'l55', cat:'Cirrhosis: Ascites, Encephalopathy & Other Complications', q:'What coagulation abnormalities occur in cirrhosis?', a:'Reduced synthesis and clearance of coagulation factors, especially the vitamin K-dependent factor VII, prolonging prothrombin time. About 40% of cirrhotic patients have bleeding time greater than 10 minutes and platelet counts below 100,000/mm cubed.' },
+  { id:'l56', cat:'Cirrhosis: Ascites, Encephalopathy & Other Complications', q:'What cutaneous signs are seen in cirrhosis?', a:'Jaundice, spider angiomata, paper-money skin telangiectasias, palmar erythema, white nails, and finger clubbing, alongside fatigue, anorexia, weight loss, and muscle wasting.' },
+
+  { id:'l57', cat:'Cirrhosis Management: Bleeding & Ascites', q:'What is primary prophylaxis for variceal bleeding?', a:'Non-selective beta-blockers, such as propranolol or nadolol, used to prevent the first variceal hemorrhage in patients with medium or large varices.' },
+  { id:'l58', cat:'Cirrhosis Management: Bleeding & Ascites', q:'Which vasoactive drugs are used for acute variceal bleeding, and how do they work?', a:'Octreotide, terlipressin, and somatostatin, synthetic vasopressin-related agents that cause selective mesenteric and splanchnic vasoconstriction.' },
+  { id:'l59', cat:'Cirrhosis Management: Bleeding & Ascites', q:'What endoscopic treatment is the recommended choice for acute variceal bleeding?', a:'Endoscopic variceal obliteration, using techniques such as sclerotherapy or band ligation.' },
+  { id:'l60', cat:'Cirrhosis Management: Bleeding & Ascites', q:'Which diuretics are used to manage ascites, and what is their mechanism?', a:'Spironolactone (50 to 100 mg/day) and furosemide, which block sodium reabsorption in the renal collecting tubules.' },
+  { id:'l61', cat:'Cirrhosis Management: Bleeding & Ascites', q:'What is paracentesis?', a:'An outpatient procedure in which a needle or catheter is inserted into the peritoneal cavity to obtain ascitic fluid for diagnostic or therapeutic purposes.' },
+  { id:'l62', cat:'Cirrhosis Management: Bleeding & Ascites', q:'What non-drug measures support ascites management?', a:'A low-salt diet and abstinence from alcohol.' },
+
+  { id:'l63', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What factors precipitate hepatic encephalopathy?', a:'GI bleeding, infection or sepsis, a high-protein diet, and drugs such as opioids.' },
+  { id:'l64', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What is the mainstay treatment for hepatic encephalopathy?', a:'Measures to lower blood ammonia concentration, primarily diet therapy and lactulose syrup.' },
+  { id:'l65', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What is the first-line treatment for pruritus of liver disease, and how does it work?', a:'Anion exchange resins, such as cholestyramine or colestipol (4 g once or twice daily), which bind bile acids and prevent their reabsorption in the GI tract.' },
+  { id:'l66', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What other agents are used to treat pruritus of liver disease?', a:'Antihistamines (cetirizine, loratadine), ursodeoxycholic acid (10 mg/kg/day in two divided doses, for long-term treatment), and opioid antagonists (naloxone, naltrexone, nalmefene).' },
+  { id:'l67', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'How is autoimmune hepatitis treated?', a:'Prednisone and azathioprine.' },
+  { id:'l68', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'How are hepatitis B and C treated, per this material?', a:'Interferon (IFN-alpha) and other antiviral agents.' },
+  { id:'l69', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'Which drugs should patients with liver disease avoid because of hepatotoxicity risk?', a:'NSAIDs, isoniazid, valproic acid, erythromycin, amoxicillin-clavulanate, ketoconazole, chlorpromazine, and ezetimibe.' },
+  { id:'l70', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What nutrition, exercise, and vaccination measures are recommended in cirrhosis?', a:'Multiple daily feedings including breakfast and a nighttime snack; regular exercise such as walking or swimming to prevent muscle wasting; and hepatitis A vaccination.' },
+  { id:'l71', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What is TIPS, and what is its purpose?', a:'Transjugular intrahepatic portosystemic shunt, a procedure used to reduce portal hypertension.' },
+  { id:'l72', cat:'Cirrhosis Management: Encephalopathy & Systemic', q:'What are contraindications to liver transplantation?', a:'Severe cardiovascular or pulmonary disease, active drug or alcohol abuse, malignancy outside the liver, sepsis, or psychosocial problems that might jeopardize the ability to follow the post-transplant medical regimen.' },
+
+  { id:'l73', cat:'Cirrhosis: Prognosis', q:'What scoring system is most commonly used to assess cirrhosis prognosis, and what score predicts a 50% one-year mortality?', a:'The Child-Turcotte-Pugh (CTP) system; a score of 10 or greater is associated with a 50% chance of death within one year.' },
+  { id:'l74', cat:'Cirrhosis: Prognosis', q:'What five parameters make up the Child-Turcotte-Pugh score?', a:'Ascites, encephalopathy, bilirubin, albumin, and prothrombin time, each scored from 1 to 3.' },
+  { id:'l75', cat:'Cirrhosis: Prognosis', q:'What are the CTP classes and their score ranges?', a:'Child A: score 5 to 6, well compensated. Child B: score 7 to 9, significant functional compromise. Child C: score 10 to 15, decompensated.' },
+  { id:'l76', cat:'Cirrhosis: Prognosis', q:'What is the MELD scoring system used for, and what is its score range?', a:'It assesses the relative severity of a patient liver disease, mainly for transplant prioritization; scores range from 6 to 40 points.' },
+  { id:'l77', cat:'Cirrhosis: Prognosis', q:'What is the MELD score formula?', a:'MELD = 3.78 x ln(serum bilirubin in mg/dL) + 11.2 x ln(INR) + 9.57 x ln(serum creatinine in mg/dL) + 6.43.' },
+];
+
+/* ---------- Roundcards app logic (validated standalone, then embedded) ---------- */
+(function () {
+  "use strict";
+  var e = React.createElement;
+  var useState = React.useState;
+  var useEffect = React.useEffect;
+  var useRef = React.useRef;
+  var useMemo = React.useMemo;
+  var useCallback = React.useCallback;
+
+  /* ---------------- storage ---------------- */
+  var STORAGE_KEY = "roundcards_v1";
+
+  function loadState() {
+    try {
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return null;
+      return parsed;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function saveState(state) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (err) {
+      /* storage unavailable (private mode, quota, etc) — app still works this session */
+    }
+  }
+
+  function freshDeckState(cards) {
+    return {
+      order: cards.map(function (c) { return c.id; }),
+      pos: 0,
+      status: {},
+      focusMode: false
+    };
+  }
+
+  function defaultState() {
+    return {
+      name: "",
+      stage: "name",
+      activeTopic: null,
+      decks: {
+        git: freshDeckState(window.GIT_CARDS),
+        liver: freshDeckState(window.LIVER_CARDS)
+      }
+    };
+  }
+
+  function shuffleArray(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function reconcileDeck(saved, cards) {
+    var validIds = cards.map(function (c) { return c.id; });
+    var validSet = {};
+    validIds.forEach(function (id) { validSet[id] = true; });
+    var order = (saved && Array.isArray(saved.order)) ? saved.order.filter(function (id) { return validSet[id]; }) : [];
+    var missing = validIds.filter(function (id) { return order.indexOf(id) === -1; });
+    order = order.concat(missing);
+    var status = {};
+    if (saved && saved.status) {
+      Object.keys(saved.status).forEach(function (id) {
+        if (validSet[id]) status[id] = saved.status[id];
+      });
+    }
+    var pos = (saved && typeof saved.pos === "number") ? Math.max(0, Math.min(saved.pos, order.length)) : 0;
+    var focusMode = saved ? !!saved.focusMode : false;
+    return { order: order, pos: pos, status: status, focusMode: focusMode };
+  }
+
+  function firstPos(order, status, focusMode) {
+    if (!focusMode) return 0;
+    for (var i = 0; i < order.length; i++) {
+      if (status[order[i]] !== "mastered") return i;
+    }
+    return order.length;
+  }
+
+  function prefersReducedMotion() {
+    try {
+      return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  /* ---------------- deck metadata ---------------- */
+  var DECKS = {
+    git: {
+      key: "git",
+      label: "GI",
+      title: "GERD & Peptic Ulcer Disease",
+      subtitle: "Gastrointestinal Tract Disorders",
+      tint: "amber",
+      colorVar: "--amber",
+      brightVar: "--amber-bright",
+      cards: window.GIT_CARDS
+    },
+    liver: {
+      key: "liver",
+      label: "HB",
+      title: "Liver & Biliary Tract Disorders",
+      subtitle: "Acute Liver Failure, Cirrhosis & Hepatobiliary Function",
+      tint: "garnet",
+      colorVar: "--garnet",
+      brightVar: "--garnet-bright",
+      cards: window.LIVER_CARDS
+    }
+  };
+
+  function cardsById(cards) {
+    var map = {};
+    cards.forEach(function (c) { map[c.id] = c; });
+    return map;
+  }
+
+  /* ---------------- small presentational helpers ---------------- */
+
+  function renderBody(text, className) {
+    if (!text) return null;
+    var lines = text.split("\n").map(function (l) { return l.trim(); }).filter(Boolean);
+    var isList = lines.length > 1 && lines.every(function (l) { return l.indexOf("-") === 0; });
+    if (isList) {
+      return e("ul", { className: className + " card-list" }, lines.map(function (l, i) {
+        return e("li", { key: i }, l.replace(/^-\s*/, ""));
+      }));
+    }
+    return e("p", { className: className }, text);
+  }
+
+  var PULSE_PATH_A = "M0,32 L34,32 L45,18 L55,46 L65,8 L75,56 L85,32 L112,32 L130,32 C139,32 143,16 150,32 C157,48 161,32 170,32 L300,32";
+  var PULSE_PATH_B = "M300,32 L334,32 L345,18 L355,46 L365,8 L375,56 L385,32 L412,32 L430,32 C439,32 443,16 450,32 C457,48 461,32 470,32 L600,32";
+
+  function PulseLine(props) {
+    var svgRef = useRef(null);
+    var tweenRef = useRef(null);
+    useEffect(function () {
+      if (!svgRef.current || typeof gsap === "undefined") return;
+      if (prefersReducedMotion()) return;
+      tweenRef.current = gsap.to(svgRef.current, {
+        xPercent: -50,
+        duration: props.speed || 7,
+        ease: "none",
+        repeat: -1
+      });
+      return function () {
+        if (tweenRef.current) tweenRef.current.kill();
+      };
+    }, [props.speed]);
+
+    return e(
+      "div",
+      { className: "pulse-strip", "aria-hidden": "true" },
+      e(
+        "svg",
+        {
+          ref: svgRef,
+          viewBox: "0 0 600 64",
+          preserveAspectRatio: "none",
+          className: "pulse-svg"
+        },
+        e("path", { d: PULSE_PATH_A, className: "pulse-path" }),
+        e("path", { d: PULSE_PATH_B, className: "pulse-path" })
+      )
+    );
+  }
+
+  function IconArrow(props) {
+    var dir = props.dir || "right";
+    var rotate = dir === "left" ? 180 : 0;
+    return e(
+      "svg",
+      { width: 16, height: 16, viewBox: "0 0 24 24", style: { transform: "rotate(" + rotate + "deg)" }, "aria-hidden": "true" },
+      e("path", { d: "M4 12h15M13 6l6 6-6 6", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" })
+    );
+  }
+
+  function IconShuffle() {
+    return e(
+      "svg",
+      { width: 16, height: 16, viewBox: "0 0 24 24", "aria-hidden": "true" },
+      e("path", {
+        d: "M3 6h3.5c2 0 3 1 4.5 3M3 18h3.5c2 0 3-1 4.5-3M16 6h5m0 0-3-3m3 3-3 3M16 18h5m0 0-3-3m3 3-3 3M13 12l2.5 3M13 12 15.5 9",
+        fill: "none", stroke: "currentColor", strokeWidth: 1.8, strokeLinecap: "round", strokeLinejoin: "round"
+      })
+    );
+  }
+
+  function IconCheck() {
+    return e(
+      "svg",
+      { width: 16, height: 16, viewBox: "0 0 24 24", "aria-hidden": "true" },
+      e("path", { d: "M4 12.5 9.5 18 20 6", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" })
+    );
+  }
+
+  /* ---------------- Name Screen ---------------- */
+  function NameScreen(props) {
+    var _n = useState(""); var name = _n[0]; var setName = _n[1];
+    var inputRef = useRef(null);
+    var headRef = useRef(null);
+
+    useEffect(function () {
+      if (typeof gsap === "undefined") return;
+      if (prefersReducedMotion()) return;
+      gsap.fromTo(
+        headRef.current.children,
+        { opacity: 0, y: 16 },
+        { opacity: 1, y: 0, duration: 0.7, stagger: 0.09, ease: "power3.out" }
+      );
+    }, []);
+
+    function handleSubmit(ev) {
+      ev.preventDefault();
+      var trimmed = name.trim();
+      if (!trimmed) {
+        if (inputRef.current) {
+          inputRef.current.focus();
+          if (typeof gsap !== "undefined" && !prefersReducedMotion()) {
+            gsap.fromTo(inputRef.current, { x: -6 }, { x: 0, duration: 0.4, ease: "elastic.out(1, 0.3)" });
+          }
+        }
+        return;
+      }
+      props.onSubmit(trimmed);
+    }
+
+    return e(
+      "div",
+      { className: "screen screen-name" },
+      e(
+        "div",
+        { className: "container container-narrow", ref: headRef },
+        e("p", { className: "eyebrow" }, "Organ Systems Pharmacotherapeutics \u00B7 Exam Prep"),
+        e("h1", { className: "display-hero" }, "Round", e("span", { className: "hero-italic" }, "cards")),
+        e("p", { className: "lede" }, "Short-answer drills covering GERD, peptic ulcer disease, and liver and biliary tract disorders, built straight from the lecture material. Study once, know it cold."),
+        e(PulseLine, { speed: 8 }),
+        e(
+          "form",
+          { className: "name-form", onSubmit: handleSubmit },
+          e("label", { className: "field-label", htmlFor: "name-input" }, "Who is on rounds tonight?"),
+          e("div", { className: "name-input-row" },
+            e("input", {
+              id: "name-input",
+              ref: inputRef,
+              className: "input",
+              type: "text",
+              placeholder: "Enter your name",
+              value: name,
+              maxLength: 40,
+              autoFocus: true,
+              onChange: function (ev) { setName(ev.target.value); }
+            }),
+            e("button", { type: "submit", className: "btn btn-primary" }, "Begin", e(IconArrow, null))
+          )
+        ),
+        e("p", { className: "fine-print" }, "Your progress saves automatically on this device, so you can close the tab and pick up right where you left off.")
+      )
+    );
+  }
+
+  /* ---------------- Topics Screen ---------------- */
+  function TopicCard(props) {
+    var deck = props.deck;
+    var deckState = props.deckState;
+    var total = deck.cards.length;
+    var masteredCount = Object.keys(deckState.status).filter(function (id) {
+      return deckState.status[id] === "mastered";
+    }).length;
+    var started = deckState.pos > 0 || masteredCount > 0;
+    var pct = Math.min(100, Math.round((Math.min(deckState.pos, total) / total) * 100));
+
+    var cardRef = useRef(null);
+
+    function handleEnter() {
+      if (typeof gsap === "undefined" || prefersReducedMotion()) return;
+      gsap.to(cardRef.current, { y: -4, duration: 0.25, ease: "power2.out" });
+    }
+    function handleLeave() {
+      if (typeof gsap === "undefined" || prefersReducedMotion()) return;
+      gsap.to(cardRef.current, { y: 0, duration: 0.3, ease: "power2.out" });
+    }
+
+    return e(
+      "button",
+      {
+        ref: cardRef,
+        className: "topic-card theme-" + deck.tint,
+        onClick: function () { props.onSelect(deck.key); },
+        onMouseEnter: handleEnter,
+        onMouseLeave: handleLeave
+      },
+      e("div", { className: "topic-card-top" },
+        e("span", { className: "topic-monogram" }, deck.label),
+        e("span", { className: "topic-count" }, total + " cards")
+      ),
+      e("h3", { className: "topic-title" }, deck.title),
+      e("p", { className: "topic-subtitle" }, deck.subtitle),
+      e("div", { className: "topic-progress-track" },
+        e("div", { className: "topic-progress-fill", style: { width: pct + "%" } })
+      ),
+      e("div", { className: "topic-meta-row" },
+        e("span", null, masteredCount + " / " + total + " mastered"),
+        e("span", { className: "topic-cta" }, started ? "Continue" : "Start deck", e(IconArrow, null))
+      )
+    );
+  }
+
+  function TopicsScreen(props) {
+    var wrapRef = useRef(null);
+    useEffect(function () {
+      if (typeof gsap === "undefined" || prefersReducedMotion()) return;
+      gsap.fromTo(
+        wrapRef.current.querySelectorAll(".fade-in-item"),
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.6, stagger: 0.08, ease: "power3.out" }
+      );
+    }, []);
+
+    return e(
+      "div",
+      { className: "screen screen-topics", ref: wrapRef },
+      e(
+        "div",
+        { className: "container" },
+        e("div", { className: "topics-header fade-in-item" },
+          e("div", null,
+            e("p", { className: "eyebrow" }, "Welcome back"),
+            e("h1", { className: "display-h2" }, props.name + ".")
+          ),
+          e("button", { className: "link-btn", onClick: props.onSwitchUser }, "Not you? Switch")
+        ),
+        e(PulseLine, { speed: 9 }),
+        e("p", { className: "section-note fade-in-item" }, "Choose a deck to pick up your rounds."),
+        e(
+          "div",
+          { className: "topics-grid fade-in-item" },
+          e(TopicCard, { deck: DECKS.git, deckState: props.state.decks.git, onSelect: props.onSelectTopic }),
+          e(TopicCard, { deck: DECKS.liver, deckState: props.state.decks.liver, onSelect: props.onSelectTopic })
+        )
+      )
+    );
+  }
+
+  /* ---------------- Deck Screen ---------------- */
+  function DeckScreen(props) {
+    var deck = DECKS[props.topicKey];
+    var deckState = props.state.decks[props.topicKey];
+    var byId = useMemo(function () { return cardsById(deck.cards); }, [props.topicKey]);
+
+    var _flipped = useState(false); var flipped = _flipped[0]; var setFlipped = _flipped[1];
+    var dirRef = useRef(0);
+    var cardOuterRef = useRef(null);
+    var cardInnerRef = useRef(null);
+
+    var total = deck.cards.length;
+    var isComplete = deckState.pos >= deckState.order.length;
+    var currentId = !isComplete ? deckState.order[deckState.pos] : null;
+    var currentCard = currentId ? byId[currentId] : null;
+
+    function updateDeck(updater) {
+      props.onUpdateDeck(props.topicKey, updater);
+    }
+
+    function goNext() {
+      if (isComplete) return;
+      dirRef.current = 1;
+      updateDeck(function (d) {
+        var pos = d.pos;
+        var n = d.order.length;
+        do { pos += 1; } while (d.focusMode && pos < n && d.status[d.order[pos]] === "mastered");
+        pos = Math.min(pos, n);
+        return Object.assign({}, d, { pos: pos });
+      });
+      setFlipped(false);
+    }
+
+    function goPrev() {
+      dirRef.current = -1;
+      updateDeck(function (d) {
+        var n = d.order.length;
+        var pos = d.pos >= n ? n - 1 : d.pos - 1;
+        while (d.focusMode && pos > 0 && d.status[d.order[pos]] === "mastered") pos -= 1;
+        pos = Math.max(0, pos);
+        return Object.assign({}, d, { pos: pos });
+      });
+      setFlipped(false);
+    }
+
+    function doShuffle() {
+      dirRef.current = 0;
+      updateDeck(function (d) {
+        var newOrder = shuffleArray(d.order);
+        return Object.assign({}, d, { order: newOrder, pos: 0 });
+      });
+      setFlipped(false);
+    }
+
+    function toggleFlip() {
+      if (!currentCard) return;
+      var next = !flipped;
+      setFlipped(next);
+      if (next) {
+        updateDeck(function (d) {
+          if (d.status[currentId]) return d;
+          var status = Object.assign({}, d.status);
+          status[currentId] = "seen";
+          return Object.assign({}, d, { status: status });
+        });
+      }
+    }
+
+    function toggleMastered() {
+      if (!currentCard) return;
+      updateDeck(function (d) {
+        var cur = d.status[currentId];
+        var status = Object.assign({}, d.status);
+        status[currentId] = cur === "mastered" ? "seen" : "mastered";
+        return Object.assign({}, d, { status: status });
+      });
+      if (typeof gsap !== "undefined" && !prefersReducedMotion() && cardOuterRef.current) {
+        gsap.fromTo(cardOuterRef.current, { scale: 1 }, { scale: 1.025, duration: 0.16, yoyo: true, repeat: 1, ease: "power1.inOut" });
+      }
+    }
+
+    function toggleFocusMode() {
+      dirRef.current = 0;
+      updateDeck(function (d) {
+        var nextFocus = !d.focusMode;
+        var pos = nextFocus ? firstPos(d.order, d.status, true) : d.pos;
+        return Object.assign({}, d, { focusMode: nextFocus, pos: pos });
+      });
+      setFlipped(false);
+    }
+
+    function restartDeck(focusOnly) {
+      dirRef.current = 0;
+      updateDeck(function (d) {
+        var pos = focusOnly ? firstPos(d.order, d.status, true) : 0;
+        return Object.assign({}, d, { focusMode: !!focusOnly, pos: pos });
+      });
+      setFlipped(false);
+    }
+
+    /* entrance animation on card change */
+    useEffect(function () {
+      if (!cardOuterRef.current) return;
+      if (typeof gsap === "undefined" || prefersReducedMotion()) return;
+      var dir = dirRef.current;
+      var fromX = dir === 0 ? 0 : dir * 26;
+      gsap.fromTo(
+        cardOuterRef.current,
+        { opacity: dir === 0 ? 1 : 0, x: fromX },
+        { opacity: 1, x: 0, duration: 0.38, ease: "power3.out" }
+      );
+    }, [currentId]);
+
+    /* flip animation */
+    useEffect(function () {
+      if (!cardInnerRef.current) return;
+      if (typeof gsap === "undefined") {
+        return;
+      }
+      if (prefersReducedMotion()) {
+        gsap.set(cardInnerRef.current, { rotateY: flipped ? 180 : 0 });
+        return;
+      }
+      gsap.to(cardInnerRef.current, { rotateY: flipped ? 180 : 0, duration: 0.55, ease: "power2.inOut" });
+    }, [flipped, currentId]);
+
+    /* keyboard shortcuts */
+    useEffect(function () {
+      function onKey(ev) {
+        if (ev.target && (ev.target.tagName === "INPUT" || ev.target.tagName === "TEXTAREA")) return;
+        if (ev.code === "Space") { ev.preventDefault(); toggleFlip(); }
+        else if (ev.code === "ArrowRight") { goNext(); }
+        else if (ev.code === "ArrowLeft") { goPrev(); }
+        else if (ev.key === "s" || ev.key === "S") { doShuffle(); }
+        else if (ev.key === "m" || ev.key === "M") { toggleMastered(); }
+      }
+      window.addEventListener("keydown", onKey);
+      return function () { window.removeEventListener("keydown", onKey); };
+    });
+
+    /* touch swipe */
+    var touchStartX = useRef(null);
+    function onTouchStart(ev) { touchStartX.current = ev.touches[0].clientX; }
+    function onTouchEnd(ev) {
+      if (touchStartX.current === null) return;
+      var dx = ev.changedTouches[0].clientX - touchStartX.current;
+      if (Math.abs(dx) > 55) {
+        if (dx < 0) goNext(); else goPrev();
+      }
+      touchStartX.current = null;
+    }
+
+    var masteredCount = Object.keys(deckState.status).filter(function (id) { return deckState.status[id] === "mastered"; }).length;
+    var seenCount = Object.keys(deckState.status).filter(function (id) { return deckState.status[id] === "seen"; }).length;
+    var newCount = total - masteredCount - seenCount;
+    var unmasteredCount = total - masteredCount;
+
+    var themeClass = "theme-" + deck.tint;
+
+    if (isComplete) {
+      return e(
+        "div",
+        { className: "screen screen-deck " + themeClass },
+        e("div", { className: "container container-narrow" },
+          e(
+            "div",
+            { className: "complete-panel" },
+            e("span", { className: "eyebrow" }, deck.title),
+            e("h2", { className: "display-h2" }, "Deck complete."),
+            e("p", { className: "lede" }, "You have been through all " + total + " cards. " + masteredCount + " marked mastered."),
+            e("div", { className: "complete-stats" },
+              e("div", { className: "stat-pill" }, e("strong", null, masteredCount), " mastered"),
+              e("div", { className: "stat-pill" }, e("strong", null, unmasteredCount), " to review"),
+              e("div", { className: "stat-pill" }, e("strong", null, total), " total")
+            ),
+            e("div", { className: "complete-actions" },
+              unmasteredCount > 0 ? e("button", { className: "btn btn-primary", onClick: function () { restartDeck(true); } }, "Review unmastered (" + unmasteredCount + ")") : null,
+              e("button", { className: "btn", onClick: function () { restartDeck(false); } }, "Restart full deck"),
+              e("button", { className: "btn btn-ghost", onClick: props.onBack }, "Back to topics")
+            )
+          )
+        )
+      );
+    }
+
+    return e(
+      "div",
+      { className: "screen screen-deck " + themeClass },
+      e(
+        "div",
+        { className: "container" },
+        e(
+          "div",
+          { className: "deck-header" },
+          e("button", { className: "link-btn", onClick: props.onBack }, e(IconArrow, { dir: "left" }), " Topics"),
+          e("div", { className: "deck-header-title" },
+            e("span", { className: "eyebrow" }, deck.subtitle),
+            e("h2", { className: "deck-title" }, deck.title)
+          ),
+          e("span", { className: "deck-counter" }, (deckState.pos + 1) + " / " + total)
+        ),
+        e(PulseLine, { speed: 6 }),
+        e(
+          "div",
+          { className: "progress-track", "aria-hidden": "true" },
+          e("div", { className: "progress-fill", style: { width: Math.round(((deckState.pos) / total) * 100) + "%" } }),
+          e("div", { className: "progress-mastered", style: { width: Math.round((masteredCount / total) * 100) + "%" } })
+        ),
+        e(
+          "div",
+          { className: "card-stage", onTouchStart: onTouchStart, onTouchEnd: onTouchEnd },
+          e(
+            "div",
+            { className: "card-outer", ref: cardOuterRef },
+            e(
+              "div",
+              { className: "card-inner", ref: cardInnerRef, onClick: toggleFlip, role: "button", tabIndex: 0, "aria-label": "Flip card" },
+              e(
+                "div",
+                { className: "card-face card-front" },
+                e("span", { className: "card-eyebrow" }, currentCard.cat),
+                e("div", { className: "card-body-wrap" }, renderBody(currentCard.q, "card-question")),
+                e("div", { className: "card-hint" }, e(IconArrow, null), " Tap to reveal the answer")
+              ),
+              e(
+                "div",
+                { className: "card-face card-back" },
+                e("span", { className: "card-eyebrow card-eyebrow-answer" }, "Answer"),
+                e("div", { className: "card-body-wrap" }, renderBody(currentCard.a, "card-answer")),
+                e("div", { className: "card-hint" }, "Tap to see the question again")
+              )
+            )
+          )
+        ),
+        e(
+          "div",
+          { className: "controls-row" },
+          e("button", { className: "btn btn-icon", onClick: doShuffle, title: "Shuffle (S)" }, e(IconShuffle, null), e("span", { className: "btn-label" }, "Shuffle")),
+          e("button", { className: "btn btn-icon", onClick: goPrev, title: "Previous (\u2190)" }, e(IconArrow, { dir: "left" }), e("span", { className: "btn-label" }, "Prev")),
+          e("button", { className: "btn btn-primary btn-flip", onClick: toggleFlip, title: "Flip (space)" }, flipped ? "Show question" : "Reveal answer"),
+          e("button", { className: "btn btn-icon", onClick: goNext, title: "Next (\u2192)" }, e("span", { className: "btn-label" }, "Next"), e(IconArrow, null)),
+          e(
+            "button",
+            { className: "btn btn-icon btn-mastered" + ((deckState.status[currentId] === "mastered") ? " is-active" : ""), onClick: toggleMastered, title: "Mark mastered (M)" },
+            e(IconCheck, null), e("span", { className: "btn-label" }, "Mastered")
+          )
+        ),
+        e(
+          "div",
+          { className: "deck-footer" },
+          e("label", { className: "focus-toggle" },
+            e("input", { type: "checkbox", checked: deckState.focusMode, onChange: toggleFocusMode }),
+            e("span", null, "Focus mode \u2014 unmastered only")
+          ),
+          e("div", { className: "stats-row" },
+            e("span", null, newCount + " new"),
+            e("span", null, seenCount + " reviewing"),
+            e("span", null, masteredCount + " mastered")
+          )
+        ),
+        e("p", { className: "keys-hint" }, "\u2190 \u2192 navigate \u00B7 space flip \u00B7 M master \u00B7 S shuffle")
+      )
+    );
+  }
+
+  /* ---------------- App ---------------- */
+  function App() {
+    var _state = useState(function () {
+      var loaded = loadState();
+      if (loaded && loaded.name) {
+        var savedDecks = loaded.decks || {};
+        var activeTopic = (loaded.activeTopic === "git" || loaded.activeTopic === "liver") ? loaded.activeTopic : null;
+        var stage = (loaded.stage === "deck" && activeTopic) || loaded.stage === "topics" ? loaded.stage : "topics";
+        return {
+          name: loaded.name,
+          stage: stage,
+          activeTopic: activeTopic,
+          decks: {
+            git: reconcileDeck(savedDecks.git, window.GIT_CARDS),
+            liver: reconcileDeck(savedDecks.liver, window.LIVER_CARDS)
+          }
+        };
+      }
+      return defaultState();
+    });
+    var state = _state[0]; var setState = _state[1];
+    var overlayRef = useRef(null);
+    var rootRef = useRef(null);
+
+    useEffect(function () {
+      saveState(state);
+    }, [state]);
+
+    function transition(mutate, tintVar) {
+      if (typeof gsap === "undefined" || prefersReducedMotion() || !overlayRef.current) {
+        mutate();
+        return;
+      }
+      var el = overlayRef.current;
+      if (tintVar) {
+        el.style.setProperty("--scan-tint", "var(" + tintVar + ")");
+      }
+      var tl = gsap.timeline();
+      tl.set(el, { xPercent: -130, opacity: 1 })
+        .to(el, { xPercent: 0, duration: 0.3, ease: "power2.in" })
+        .add(mutate)
+        .to(el, { xPercent: 130, duration: 0.42, ease: "power2.out" });
+    }
+
+    function handleNameSubmit(name) {
+      transition(function () {
+        setState(function (s) { return Object.assign({}, s, { name: name, stage: "topics" }); });
+      }, "--slate");
+    }
+
+    function handleSwitchUser() {
+      try { window.localStorage.removeItem(STORAGE_KEY); } catch (err) {}
+      transition(function () {
+        setState(defaultState());
+      }, "--slate");
+    }
+
+    function handleSelectTopic(topicKey) {
+      var tintVar = DECKS[topicKey].colorVar;
+      transition(function () {
+        setState(function (s) { return Object.assign({}, s, { activeTopic: topicKey, stage: "deck" }); });
+      }, tintVar);
+    }
+
+    function handleBackToTopics() {
+      transition(function () {
+        setState(function (s) { return Object.assign({}, s, { stage: "topics" }); });
+      }, "--slate");
+    }
+
+    function handleUpdateDeck(topicKey, updater) {
+      setState(function (s) {
+        var nextDecks = Object.assign({}, s.decks);
+        nextDecks[topicKey] = updater(s.decks[topicKey]);
+        return Object.assign({}, s, { decks: nextDecks });
+      });
+    }
+
+    var body = null;
+    if (state.stage === "name") {
+      body = e(NameScreen, { onSubmit: handleNameSubmit });
+    } else if (state.stage === "topics") {
+      body = e(TopicsScreen, {
+        name: state.name,
+        state: state,
+        onSelectTopic: handleSelectTopic,
+        onSwitchUser: handleSwitchUser
+      });
+    } else if (state.stage === "deck" && state.activeTopic) {
+      body = e(DeckScreen, {
+        topicKey: state.activeTopic,
+        state: state,
+        onUpdateDeck: handleUpdateDeck,
+        onBack: handleBackToTopics
+      });
+    }
+
+    return e(
+      "div",
+      { className: "app-root", ref: rootRef },
+      e("div", { className: "scan-overlay", ref: overlayRef, "aria-hidden": "true" }),
+      body,
+      e("footer", { className: "app-footer" }, "Roundcards \u00B7 built for pharmacy exam prep")
+    );
+  }
+
+  var rootEl = document.getElementById("root");
+  var root = ReactDOM.createRoot(rootEl);
+  root.render(e(App, null));
+})();
+
+</script>
+</body>
+</html>
