@@ -1757,20 +1757,8 @@ window.LIVER_CARDS = [
     }, [state]);
 
     function transition(mutate, tintVar) {
-      if (typeof gsap === "undefined" || prefersReducedMotion() || !overlayRef.current) {
-        mutate();
-        return;
-      }
-      var el = overlayRef.current;
-      if (tintVar) {
-        el.style.setProperty("--scan-tint", "var(" + tintVar + ")");
-      }
-      var tl = gsap.timeline();
-      tl.set(el, { xPercent: -130, opacity: 1 })
-        .to(el, { xPercent: 0, duration: 0.3, ease: "power2.in" })
-        .add(mutate)
-        .to(el, { xPercent: 130, duration: 0.42, ease: "power2.out" });
-    }
+  mutate();
+}
 
     function handleNameSubmit(name) {
       transition(function () {
@@ -1825,10 +1813,7 @@ window.LIVER_CARDS = [
       });
     }
 
-    return e(
-      "div",
-      { className: "app-root", ref: rootRef },
-      e("div", { className: "scan-overlay", ref: overlayRef, "aria-hidden": "true" }),
+    return 
       body,
       e("footer", { className: "app-footer" }, "Roundcards \u00B7 built for pharmacy exam prep")
     );
