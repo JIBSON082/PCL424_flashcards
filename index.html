@@ -68,11 +68,7 @@ html, body {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(1100px 720px at 12% -8%, #172136 0%, transparent 60%),
-    radial-gradient(900px 620px at 108% 8%, #16202f 0%, transparent 55%),
-    var(--bg);
-  background-attachment: fixed;
+  background: var(--bg);
   color: var(--text);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
@@ -93,7 +89,6 @@ body::before {
     linear-gradient(rgba(150, 163, 196, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(150, 163, 196, 0.035) 1px, transparent 1px);
   background-size: 42px 42px;
-  mask-image: radial-gradient(1200px 800px at 50% 0%, black, transparent 75%);
 }
 
 h1, h2, h3, p, ul, li, button, input, label {
