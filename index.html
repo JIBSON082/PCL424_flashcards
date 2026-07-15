@@ -1821,7 +1821,60 @@ window.INFERTILITY_CARDS = [
               e("div", { className: "stat-pill" }, e("strong", null, total), " total")
             ),
             e("div", { className: "complete-actions" },
-              unmasteredCount > 0 ? e("button", { className     e("div", { className: "card-hint" }, "Tap to see the question again")
+              unmasteredCount > 0 ? e("button", { className: "btn btn-primary", onClick: function () { restartDeck(true); } }, "Review unmastered (" + unmasteredCount + ")") : null,
+              e("button", { className: "btn", onClick: function () { restartDeck(false); } }, "Restart full deck"),
+              e("button", { className: "btn btn-ghost", onClick: props.onBack }, "Back to topics")
+            )
+          )
+        )
+      );
+    }
+
+    return e(
+      "div",
+      { className: "screen screen-deck " + themeClass },
+      e(
+        "div",
+        { className: "container" },
+        e(
+          "div",
+          { className: "deck-header" },
+          e("button", { className: "link-btn", onClick: props.onBack }, e(IconArrow, { dir: "left" }), " Topics"),
+          e("div", { className: "deck-header-title" },
+            e("span", { className: "eyebrow" }, deck.subtitle),
+            e("h2", { className: "deck-title" }, deck.title)
+          ),
+          e("span", { className: "deck-counter" }, (deckState.pos + 1) + " / " + total)
+        ),
+        e(PulseLine, { speed: 6 }),
+        e(
+          "div",
+          { className: "progress-track", "aria-hidden": "true" },
+          e("div", { className: "progress-fill", style: { width: Math.round(((deckState.pos) / total) * 100) + "%" } }),
+          e("div", { className: "progress-mastered", style: { width: Math.round((masteredCount / total) * 100) + "%" } })
+        ),
+        e(
+          "div",
+          { className: "card-stage", onTouchStart: onTouchStart, onTouchEnd: onTouchEnd },
+          e(
+            "div",
+            { className: "card-outer", ref: cardOuterRef },
+            e(
+              "div",
+              { className: "card-inner", ref: cardInnerRef, onClick: toggleFlip, role: "button", tabIndex: 0, "aria-label": "Flip card" },
+              e(
+                "div",
+                { className: "card-face card-front" },
+                e("span", { className: "card-eyebrow" }, currentCard.cat),
+                e("div", { className: "card-body-wrap" }, renderBody(currentCard.q, "card-question")),
+                e("div", { className: "card-hint" }, e(IconArrow, null), " Tap to reveal the answer")
+              ),
+              e(
+                "div",
+                { className: "card-face card-back" },
+                e("span", { className: "card-eyebrow card-eyebrow-answer" }, "Answer"),
+                e("div", { className: "card-body-wrap" }, renderBody(currentCard.a, "card-answer")),
+                e("div", { className: "card-hint" }, "Tap to see the question again")
               )
             )
           )
