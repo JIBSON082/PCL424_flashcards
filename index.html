@@ -49,6 +49,10 @@
   --mint-bright: #5ec49f;
   --mint-soft: rgba(73, 169, 136, 0.16);
 
+  --rose: #b5567a;
+  --rose-bright: #d1749a;
+  --rose-soft: rgba(181, 86, 122, 0.16);
+
   --slate: #7c89a6;
 
   --accent: var(--slate);
@@ -74,6 +78,8 @@
 .theme-violet { --accent: var(--violet); --accent-bright: var(--violet-bright); --accent-soft: var(--violet-soft); }
 .theme-teal { --accent: var(--teal); --accent-bright: var(--teal-bright); --accent-soft: var(--teal-soft); }
 .theme-sage { --accent: var(--sage); --accent-bright: var(--sage-bright); --accent-soft: var(--sage-soft); }
+.theme-mint { --accent: var(--mint); --accent-bright: var(--mint-bright); --accent-soft: var(--mint-soft); }
+.theme-rose { --accent: var(--rose); --accent-bright: var(--rose-bright); --accent-soft: var(--rose-soft); }
 
 * { box-sizing: border-box; }
 
@@ -1254,6 +1260,288 @@ window.INFERTILITY_CARDS = [
   { id:'i36', cat:'Referrals & Broader Role', q:'How does a pharmacist providing infertility services contribute to community information and awareness?', a:'By staying current on the epidemiology of infertility and STIs locally, serving as a resource for researchers and epidemiologists, providing accurate statistical data, and acting as an advocate for appropriate political programs at the community or local government level.' },
 ];
 
+/* ===================================================================
+   Flashcard data — PEM, Vitamin & Mineral Deficiency Diseases
+   =================================================================== */
+window.PEM_CARDS = [
+  { id:'p1', cat:'PEM Foundations', q:'What is Protein-Energy Malnutrition (PEM)?', a:'The deficiency of macronutrients or energy and protein in the diet; a spectrum of biological disorders caused by lack of food.' },
+  { id:'p2', cat:'PEM Foundations', q:'Despite its name, what underlying deficiency does PEM actually reflect?', a:'PEM does not necessarily mean the individual is experiencing a lack of protein, but rather a deficiency of total energy; dietary proteins that would normally be used for tissue repair or growth are also diverted for use as energy.' },
+  { id:'p3', cat:'PEM Foundations', q:'In which populations is PEM typically found?', a:'It is rare in the developed world and is generally associated with children suffering from neglect or malnourished elderly patients, particularly from backward and downtrodden communities usually found in low- and middle-income countries (LMICs).' },
+
+  { id:'p4', cat:'PEM Classification', q:'What are the clinical forms of severe PEM?', a:'Kwashiorkor, marasmus, and marasmic kwashiorkor.' },
+  { id:'p5', cat:'PEM Classification', q:'What are the sub-clinical forms of PEM?', a:'Underweight, wasting, and stunting.' },
+  { id:'p6', cat:'PEM Classification', q:'How do the treatment and management of kwashiorkor, marasmus, and marasmic kwashiorkor compare?', a:'Children with marasmus, marasmic kwashiorkor, and kwashiorkor all have severe PEM, and the treatment and management of these three forms of severe malnutrition are the same.' },
+
+  { id:'p7', cat:'Kwashiorkor', q:'What does the word kwashiorkor mean, and what age group is most affected?', a:'An African word meaning "disease of the displaced child," who is deprived of adequate nutrition; it mostly occurs in children between the ages of 1 and 3 years, when they are completely weaned off the breast.' },
+  { id:'p8', cat:'Kwashiorkor', q:'What are the three essential manifestations or signs of kwashiorkor?', a:'Oedema (swelling of the feet), growth failure, and mental changes.' },
+  { id:'p9', cat:'Kwashiorkor', q:'Describe the pattern of oedema in kwashiorkor.', a:'Fluid accumulates in the tissues, usually beginning as slight swelling in the feet that gradually spreads up the legs; later the hands and face may also develop oedema.' },
+  { id:'p10', cat:'Kwashiorkor', q:'Describe growth failure in kwashiorkor.', a:'Growth retardation is the earliest manifestation; the child is lighter and shorter than normal peers of the same age, weighing about 80% or less of normal, and is wasted with thin arms and legs, though gross swelling can sometimes make body weight appear relatively higher.' },
+  { id:'p11', cat:'Kwashiorkor', q:'Describe the mental changes seen in kwashiorkor.', a:'The child has no interest in the surroundings, is irritable, and prefers to stay at one place and in one position.' },
+  { id:'p12', cat:'Kwashiorkor', q:'Describe the hair changes seen in kwashiorkor.', a:'The hair loses its healthy sheen, becomes silkier and thinner, and takes on a coppery red discoloration; small tufts of hair can easily be plucked without causing pain, referred to as easy pluckability.' },
+  { id:'p13', cat:'Kwashiorkor', q:'Describe the skin and facial changes seen in kwashiorkor.', a:'Dermatosis (changes in the skin) is common, especially in areas of friction, and moon face may develop, in which the cheeks appear swollen with fluid or fatty tissue and slightly sagging.' },
+  { id:'p14', cat:'Kwashiorkor', q:'Which micronutrient deficiencies commonly accompany kwashiorkor?', a:'Almost all affected children manifest some degree of anaemia due to iron deficiency, along with eye signs of vitamin A deficiency and manifestations of vitamin B-complex deficiency.' },
+
+  { id:'p15', cat:'Marasmus', q:'What age group is typically affected by marasmus?', a:'Children below the age of 2 years.' },
+  { id:'p16', cat:'Marasmus', q:'List the signs and symptoms of marasmus.', a:'- Extreme muscle wasting, "skin and bones," with very little subcutaneous fat, skin hanging loosely especially over the buttocks\n- Loose and hanging skin folds\n- Aged (old-man) or monkey face\n- Absolute weakness\n- Absence of oedema\n- Frequent diarrhoeal episodes leading to dehydration and micronutrient deficiencies of vitamin A, iron, and B-complex' },
+  { id:'p17', cat:'Marasmus', q:'How does the presence of oedema distinguish marasmus from kwashiorkor?', a:'Oedema is absent in marasmus, whereas it is one of the three cardinal features of kwashiorkor.' },
+
+  { id:'p18', cat:'Marasmic Kwashiorkor', q:'What is marasmic kwashiorkor?', a:'A form of severe PEM in which malnourished children exhibit features of both kwashiorkor and marasmus; such changes could occur during the transition from one form of severe PEM to another.' },
+  { id:'p19', cat:'Marasmic Kwashiorkor', q:'List the signs and symptoms of marasmic kwashiorkor.', a:'- Extreme muscle wasting of different degrees, "skin and bones"\n- Loose and hanging skin folds\n- Aged (old-man) or monkey-like face\n- Absolute weakness\n- Oedema' },
+
+  { id:'p20', cat:'PEM Management', q:'What are the priorities alongside a balanced diet in managing PEM?', a:'Restoration of diet, and prevention or cure of infection, severe anaemia, hypoglycaemia, and vitamin A deficiency, all of which also have high priority.' },
+  { id:'p21', cat:'PEM Management', q:'What energy and protein intakes are recommended for a child with PEM?', a:'Energy: 170 to 200 kcal per kg of body weight. Protein: 3 to 4 g per kg of body weight; both are required in larger quantities than normal.' },
+  { id:'p22', cat:'PEM Management', q:'Why is control of infections and infestations a management priority in PEM?', a:'Because infections are the immediate cause of death in many children, appropriate antibiotics should be started immediately, and children with intestinal infestations such as giardiasis and ascariasis should be treated.' },
+  { id:'p23', cat:'PEM Management', q:'Why does oral rehydration take first priority in PEM management, and how is mild-to-moderate dehydration treated?', a:'Dehydration is one of the most dangerous complications of PEM due to episodes of diarrhoea; mild-to-moderate dehydration is treated with home-made salt-sugar mixture or commercial oral rehydration solution (ORS), 50 to 100 mL per kg of body weight given in the first 4 to 6 hours in small quantities every few minutes.' },
+  { id:'p24', cat:'PEM Management', q:'How is severe dehydration in PEM treated?', a:'With intravenous fluids, specifically Ringer lactate.' },
+  { id:'p25', cat:'PEM Management', q:'What mineral and vitamin supplementation is required in severe PEM?', a:'All cases of severe PEM require a multivitamin preparation to meet increased demands during recovery; iron (60 mg) and folic acid (100 mg) may be given daily to correct anaemia, along with potassium and vitamins A, C, B-complex, and D.' },
+
+  { id:'p26', cat:'PEM Prevention & Programmes', q:'What is the aim of supplementary feeding programmes in combating malnutrition, and what guiding principle underlies prevention efforts?', a:'To improve the nutritional status of vulnerable groups through distribution of food supplements, guided by the principle that "prevention is better than cure."' },
+  { id:'p27', cat:'PEM Prevention & Programmes', q:'What is the National Community Food Bank Programme?', a:'An initiative launched by the Nigerian Government, through the Office of the First Lady, the Federal Ministry of Health, and the National Primary Health Care Development Agency (NPHCDA), that tackles child malnutrition by increasing access to safe and nutritious food.' },
+  { id:'p28', cat:'PEM Prevention & Programmes', q:'What is the Targeted Supplementary Feeding Programme (TSFP), and where does it mainly operate?', a:'A programme backed by the World Food Programme (WFP) and organizations such as the Food and Agriculture Organization (FAO), operating heavily in conflict-affected northern Nigerian states such as Sokoto, Borno, Yobe, and Adamawa.' },
+  { id:'p29', cat:'PEM Prevention & Programmes', q:'What other targeted micronutrient supplementation programme is mentioned for young children?', a:'Vitamin A supplementation in children under 5 years of age.' },
+
+  { id:'p30', cat:'Vitamins: History & Basics', q:'What did the scientist Cornelius AP propose about milk in 1905?', a:'That milk contained "some unrecognized substances...in very small quantities that was necessary for normal growth and maintenance."' },
+  { id:'p31', cat:'Vitamins: History & Basics', q:'Who is regarded as the father of vitamins, and how did the term vitamine originate?', a:'Casimir F, who in 1912 isolated an organic "factor" (presumably from the liver) that he described as an amine; because the amine was vital to life, he combined the two words to coin the term "vitamine."' },
+  { id:'p32', cat:'Vitamins: History & Basics', q:'How are vitamins defined?', a:'Non-energy-producing organic compounds, essential for human metabolism, that must be present, usually in small quantity, in a given diet.' },
+  { id:'p33', cat:'Vitamins: History & Basics', q:'What causes vitamin deficiencies to occur?', a:'Inadequate intake, mal-absorption, increased tissue needs, increased excretion, certain genetic abnormalities, and drug-vitamin interactions.' },
+  { id:'p34', cat:'Vitamins: History & Basics', q:'What myths have contributed to the over-promotion, over-prescription, and over-use of vitamins?', a:'Beliefs such as "they energize the body," "any physical illness is accompanied by vitamin deficiency," "vitamin intake in diet is marginal," and "vitamins make the skin smooth."' },
+
+  { id:'p35', cat:'Vitamins: Classification', q:'How are vitamins broadly classified, and which vitamins belong to each group?', a:'Fat-soluble vitamins: A, D, E, and K. Water-soluble vitamins: C and the B-complex (B1, B2, B3, B6, B12, and others).' },
+  { id:'p36', cat:'Vitamins: Classification', q:'How do the storage and toxicity risks of fat-soluble versus water-soluble vitamins differ?', a:'Fat-soluble vitamins (except K) are stored in the body for a long period and are liable to cause cumulative toxicity following regular ingestion of large amounts; water-soluble vitamins are stored only in meagre quantities, with only little chance of toxicity.' },
+  { id:'p37', cat:'Vitamins: Classification', q:'What functional role do water-soluble vitamins typically play in the body?', a:'They usually act as organic co-factors or co-enzymes for specific enzymes, such as vitamin B1 forming thiamine pyrophosphate.' },
+
+  { id:'p38', cat:'Vitamin A', q:'Which compounds make up the vitamin A group?', a:'Retinol, retinal, retinoic acid, and several pro-vitamin A carotenoids, among which beta-carotene is the most important.' },
+  { id:'p39', cat:'Vitamin A', q:'List the animal and plant sources of vitamin A.', a:'Animal: fish liver oil, butter, milk, cheese, egg yolk. Plants: yellow-orange, red, and dark green fruits and vegetables such as tomatoes, carrots, spinach, papayas, mangoes, corn, and sweet potato.' },
+  { id:'p40', cat:'Vitamin A', q:'What are the recommended dietary allowances (RDA) of vitamin A by group?', a:'Infants and children: 400 to 600 mcg per day. Adults (men and women): 600 to 800 mcg per day. Pregnant or lactating mothers: 1000 to 1200 mcg per day.' },
+  { id:'p41', cat:'Vitamin A', q:'How is vitamin A activity expressed, and what are the unit conversions?', a:'As Retinol Equivalent (RE) or International Unit (IU): 1 RE equals 1 mcg of retinol or 6 mcg of beta-carotene; 1 IU equals 0.3 mcg of retinol, 0.34 mcg of retinyl acetate, or 0.6 mcg of beta-carotene.' },
+  { id:'p42', cat:'Vitamin A', q:'Explain the role of vitamin A in vision.', a:'Retinal is a component of the light-sensitive chemical rhodopsin, synthesized by rods during dark adaptation (its absence causes night blindness or nyctalopia); a similar chemical, the cone or color pigment, is synthesized by cones (its absence causes color blindness).' },
+  { id:'p43', cat:'Vitamin A', q:'How does vitamin A participate in gene transcription?', a:'The retinoic acid form plays an important role in gene transcription or expression, due to its activity as a ligand for nuclear receptors.' },
+  { id:'p44', cat:'Vitamin A', q:'List the additional physiological functions of vitamin A beyond vision and gene transcription.', a:'- Immune function\n- Embryonic development, since deficiency is associated with foetal malformation\n- Reproduction, since deficiency decreases spermatogenesis in males and affects fertilization, implantation, and degenerates the ova in females\n- Bone metabolism, since deficiency is associated with poor bone metabolism, especially decreased resorption\n- Skin health\n- Anti-oxidant activity' },
+  { id:'p45', cat:'Vitamin A', q:'How is vitamin A, specifically retinoic acid, used therapeutically in dermatology?', a:'Pharmacological retinoid therapeutic agents, such as isotretinoin, are used in the treatment of dermatological disorders such as acne.' },
+  { id:'p46', cat:'Vitamin A', q:'List the causes of vitamin A deficiency.', a:'- Dietary insufficiency of vitamin A or its precursor\n- Interference with absorption from the intestine, due to diarrhoea, mal-absorption syndrome, or bile salt deficiency\n- Defects in transport due to protein malnutrition (kwashiorkor)\n- Defects in storage due to liver disease' },
+  { id:'p47', cat:'Vitamin A', q:'List the ocular manifestations of vitamin A deficiency.', a:'- Xerophthalmia, excessive dryness of the conjunctiva and cornea\n- Night blindness (nyctalopia), from defective rhodopsin formation, which can lead to total blindness\n- Conjunctival xerosis (dryness), which can lead to conjunctival thickening and pigmentation\n- Corneal xerosis, a dry appearance of the cornea which can lead to corneal ulceration' },
+  { id:'p48', cat:'Vitamin A', q:'What doses of vitamin A are used for prophylaxis versus treatment of established deficiency?', a:'Prophylaxis to prevent deficiency during infancy, pregnancy, lactation, hepato-biliary disease, or steatorrhoea: 3000 to 5000 IU per day. Treatment of established vitamin A deficiency: 50,000 to 100,000 IU intramuscularly or orally for 1 to 3 days.' },
+  { id:'p49', cat:'Vitamin A', q:'List the notable interactions involving vitamin A.', a:'- Vitamin E promotes storage and utilization of retinol and decreases its toxicity\n- Regular use of liquid paraffin can result in vitamin A deficiency\n- Long-term oral neomycin induces steatorrhoea, which interferes with vitamin A absorption' },
+
+  { id:'p50', cat:'Vitamin E', q:'What are the sources of vitamin E, and which tocopherol form is most abundant?', a:'Wheat-germ oil, cereals, nuts, spinach, and egg yolk; alpha-tocopherol is the most abundant form of the tocopherols, with beta, gamma, and delta being other forms.' },
+  { id:'p51', cat:'Vitamin E', q:'What is the unit conversion for vitamin E activity?', a:'1 mg of alpha-tocopherol (alpha-tocopherol equivalent) equals 1.49 IU of the natural form of vitamin E.' },
+  { id:'p52', cat:'Vitamin E', q:'What is the main mechanism of action of vitamin E?', a:'It essentially acts as an anti-oxidant, protecting unsaturated lipids in cell membranes, coenzyme Q, and other components from free radical oxidation damage, hence preventing generation of toxic products.' },
+  { id:'p53', cat:'Vitamin E', q:'What clinical conditions are associated with vitamin E deficiency?', a:'There is no clear-cut deficiency syndrome in humans, but deficiency is implicated in recurrent abortion, haemolytic anaemia, and degenerative changes in the spinal cord, skeletal muscles, and heart.' },
+  { id:'p54', cat:'Vitamin E', q:'What supplemental dose of vitamin E is given to at-risk patients, and why?', a:'10 to 30 mg per day, given because primary vitamin E deficiency does not occur clinically, so only supplemental doses are sometimes given to patients at risk.' },
+  { id:'p55', cat:'Vitamin E', q:'List the conditions in which vitamin E supplementation has been used or promoted.', a:'G6PD deficiency (to increase erythrocyte survival time), hypervitaminosis A, nocturnal muscle cramps, intermittent claudication, fibrocystic breast disease, acanthocytosis, recurrent abortion, sterility, menopausal syndrome, toxaemia of pregnancy, atherosclerosis, ischaemic heart disease, and prevention of neurodegenerative disorders.' },
+
+  { id:'p56', cat:'Vitamin D', q:'What is vitamin D, and which minerals does it help the intestine absorb?', a:'A group of fat-soluble secosteroids responsible for enhancing intestinal absorption of calcium, iron, magnesium, phosphate, and zinc.' },
+  { id:'p57', cat:'Vitamin D', q:'Which two forms of vitamin D are most important in humans, and what are the other recognized forms?', a:'D3 (cholecalciferol) and D2 (ergocalciferol) are most important; others are D1 (ergocalciferol with lumisterol, 1:1), D4 (22-dihydroergocalciferol), and D5 (sitocalciferol).' },
+  { id:'p58', cat:'Vitamin D', q:'Why are dark-skinned people less efficient at synthesizing vitamin D, and what is its major source?', a:'Melanin in the skin hinders vitamin D synthesis; the major source is synthesis in the skin on exposure to sunlight, especially for D3, along with diet, supplements, mushrooms, cod liver oil, egg yolk, and intestinal synthesis.' },
+  { id:'p59', cat:'Vitamin D', q:'Describe rickets.', a:'A childhood disease characterized by impeded growth and soft, weak, deformed long bones that bend and bow under body weight as children start to walk, occurring as a sequel to calcium or phosphorous deficiency.' },
+  { id:'p60', cat:'Vitamin D', q:'Describe osteomalacia.', a:'A disease in adults that results from vitamin D deficiency, characterized by bone fragility and increased risk of fracture.' },
+  { id:'p61', cat:'Vitamin D', q:'List proposed uses of vitamin D beyond bone health, noting their evidence strength.', a:'- Reducing risk of death in the elderly (debatable)\n- Prevention of osteoporosis (no good evidence)\n- Reduction of cancer risk (inconsistent evidence)\n- Boosting the immune system\n- Prevention of gestational diabetes and pre-eclampsia in pregnancy' },
+
+  { id:'p62', cat:'Vitamin B1 (Thiamine)', q:'What are the sources of vitamin B1 (thiamine, aneurine)?', a:'Cereals (polished rice), pulses, nuts, green vegetables, yeast, egg, and meat.' },
+  { id:'p63', cat:'Vitamin B1 (Thiamine)', q:'What is the mechanism of action of vitamin B1?', a:'It is converted in the body to thiamine pyrophosphate, which acts as a co-enzyme in carbohydrate metabolism; it also plays roles in neuromuscular transmission.' },
+  { id:'p64', cat:'Vitamin B1 (Thiamine)', q:'Describe dry beri-beri.', a:'A form of thiamine deficiency characterized mainly by neurological symptoms: tingling, polyneuritis with numbness, hyperesthesia, muscular weakness and atrophy resulting in "wrist drop" or "foot drop," paralysis of the whole limb, sluggishness, poor memory, loss of appetite, and constipation.' },
+  { id:'p65', cat:'Vitamin B1 (Thiamine)', q:'Describe wet beri-beri.', a:'A form of thiamine deficiency consisting mainly of cardiovascular effects, such as palpitation, breathlessness, high cardiac output, and ECG changes.' },
+  { id:'p66', cat:'Vitamin B1 (Thiamine)', q:'List the therapeutic uses of vitamin B1.', a:'- Prophylactically in infants, pregnant women, and chronic diarrhoea\n- Treatment of beri-beri\n- Acute alcoholic intoxication, which causes decreased B1 absorption\n- Neurological and cardiovascular disorders' },
+
+  { id:'p67', cat:'Vitamin B2 (Riboflavin)', q:'What are the sources of vitamin B2?', a:'Milk, egg, liver, green leafy vegetables, and grains.' },
+  { id:'p68', cat:'Vitamin B2 (Riboflavin)', q:'Describe the absorption, storage, and excretion of vitamin B2.', a:'It is well absorbed by active transport and phosphorylated in the intestine, is not significantly stored in the body, and is excreted unchanged in urine.' },
+  { id:'p69', cat:'Vitamin B2 (Riboflavin)', q:'List the deficiency symptoms of vitamin B2 (ariboflavinosis).', a:'Sore tongue, lips, and throat; ulcers in the mouth (canker sores); dry, scaly skin; loss of hair; anaemia; and neuropathy.' },
+  { id:'p70', cat:'Vitamin B2 (Riboflavin)', q:'What clinical signs characterize ariboflavinosis, and how is it treated?', a:'Dry lips and a magenta tongue characterize it, arising from inadequate intake of B2; it is treated to prevent and treat ariboflavinosis or hyporiboflavinosis, usually together with other B vitamins.' },
+
+  { id:'p71', cat:'Vitamin B3 (Niacin)', q:'What are the alternate names and historical term for vitamin B3?', a:'Nicotinic acid and nicotinamide; it used to be termed the "pellagra preventing factor."' },
+  { id:'p72', cat:'Vitamin B3 (Niacin)', q:'What are the sources of vitamin B3, and what precursor relationship exists with tryptophan?', a:'Liver, fish, meat, cereal husk, nuts, and pulses; the amino acid tryptophan is partially converted in the body to nicotinic acid and is hence considered a provitamin (60 mg tryptophan equals 1 mg nicotinic acid).' },
+  { id:'p73', cat:'Vitamin B3 (Niacin)', q:'Why do maize eaters commonly suffer from pellagra?', a:'Maize flour is poor in tryptophan and is also believed to contain a niacin antagonist.' },
+  { id:'p74', cat:'Vitamin B3 (Niacin)', q:'List the "4 Ds" of pellagra.', a:'- Dermatitis, rashes on the hands, legs, and face with thick, scaly, or cracked skin\n- Diarrhoea, including enteritis, stomatitis, glossitis, salivation, nausea, and vomiting\n- Dementia, including hallucination, insomnia, and amnesia\n- Death' },
+  { id:'p75', cat:'Vitamin B3 (Niacin)', q:'What are the prophylactic and treatment doses of niacin for pellagra, and what other conditions is it used for?', a:'Prophylaxis in people at risk: 20 to 50 mg per day orally. Treatment of pellagra: 200 to 500 mg per day in divided doses, orally or parenterally. It is also used in peripheral vascular disease and in hyperlipidemia.' },
+
+  { id:'p76', cat:'Vitamin B5 (Pantothenic Acid)', q:'What are the sources and absorption route of vitamin B5?', a:'Meat, whole grain, vegetables, cereals, groundnuts, mushrooms, rice, wheat, yeast, and fish; it is absorbed from the GI tract by an active transport system.' },
+  { id:'p77', cat:'Vitamin B5 (Pantothenic Acid)', q:'What are the symptoms of vitamin B5 deficiency?', a:'Deficiency is very rare but may include irritability, fatigue, and apathy; neurological symptoms may include numbness, paresthesia, and muscle cramps; others may include hypoglycemia and adrenal insufficiency.' },
+  { id:'p78', cat:'Vitamin B5 (Pantothenic Acid)', q:'List the therapeutic uses of vitamin B5.', a:'- Diabetic foot ulceration\n- Hyperlipidemia, having a hypolipidemic effect\n- Enhancing wound healing by increasing cell proliferation\n- In cosmetics, to prevent loss of hair color or skin irritation' },
+
+  { id:'p79', cat:'Vitamin B6 (Pyridoxine)', q:'What are the three related forms of vitamin B6, and what are its sources?', a:'Pyridoxine, pyridoxal, and pyridoxamine; sources include liver, meat, egg, soybeans, vegetables, and grain.' },
+  { id:'p80', cat:'Vitamin B6 (Pyridoxine)', q:'What are the symptoms of vitamin B6 deficiency?', a:'Deficiency usually occurs together with that of other B vitamins; symptoms may include seborrheic dermatitis, glossitis, growth retardation, mental confusion, convulsion, and anaemia.' },
+  { id:'p81', cat:'Vitamin B6 (Pyridoxine)', q:'What prophylactic dose of vitamin B6 is used, and in whom?', a:'2 to 5 mg daily, used prophylactically in alcoholics, infants, and other patients with B deficiency.' },
+  { id:'p82', cat:'Vitamin B6 (Pyridoxine)', q:'How is vitamin B6 used to manage drug-induced neurological disturbances?', a:'10 to 50 mg per day, used to prevent and treat isoniazid-, hydralazine-, and cycloserine-induced neurological disturbances.' },
+  { id:'p83', cat:'Vitamin B6 (Pyridoxine)', q:'What other specific uses does vitamin B6 have, including in rare genetic disorders?', a:'50 mg daily to treat mental symptoms in women on oral contraceptives; 50 to 200 mg per day for rare genetic disorders such as pyridoxine-responsive anaemia (due to defective haem synthesis) and homocystinuria; and for convulsion in infants and children.' },
+
+  { id:'p84', cat:'Vitamin B7 (Biotin)', q:'What are the sources of biotin?', a:'Nuts, green vegetables, egg yolk, and liver; supplements are also available.' },
+  { id:'p85', cat:'Vitamin B7 (Biotin)', q:'List the deficiency symptoms of biotin.', a:'Alopecia, conjunctivitis, seborrheic dermatitis, diabetes, and neurological disturbances such as lethargy and hallucination.' },
+  { id:'p86', cat:'Vitamin B7 (Biotin)', q:'What non-nutritional industrial use does biotin have?', a:'It is widely used in biotechnology industries to conjugate proteins for biochemical assays such as Enzyme-Linked Immunosorbent Assay (ELISA).' },
+
+  { id:'p87', cat:'Vitamin B12 (Cobalamin)', q:'What is the main physiological role of vitamin B12?', a:'It is needed to produce an adequate amount of healthy red blood cells in the bone marrow.' },
+  { id:'p88', cat:'Vitamin B12 (Cobalamin)', q:'What are the dietary sources of vitamin B12?', a:'It is available only in animal foods, such as meat and dairy products, or yeast extracts, such as brewer yeast.' },
+  { id:'p89', cat:'Vitamin B12 (Cobalamin)', q:'What condition results from vitamin B12 deficiency, and how is it defined?', a:'Pernicious anemia; vitamin B12 deficiency is defined by low levels of stored B12 in the body that can result in a lower-than-normal number of red blood cells.' },
+  { id:'p90', cat:'Vitamin B12 (Cobalamin)', q:'List the symptoms of vitamin B12 deficiency.', a:'Numbness and tingling in the hands and feet, difficulty walking, muscle weakness, irritability, memory loss, dementia, depression, and psychosis.' },
+
+  { id:'p91', cat:'Vitamin C (Ascorbic Acid)', q:'What are the sources of vitamin C?', a:'Citrus fruits (lemon, oranges) and blackcurrant are the major sources; others are tomato, potato, cabbage, and other vegetables. Human milk is richer in vitamin C than cow milk.' },
+  { id:'p92', cat:'Vitamin C (Ascorbic Acid)', q:'List the metabolic actions of vitamin C.', a:'It plays a role in many oxidative and other metabolic reactions, such as conversion of folic acid to folinic acid, and biosynthesis of adrenal steroids, catecholamines, oxytocin, and vasopressin.' },
+  { id:'p93', cat:'Vitamin C (Ascorbic Acid)', q:'Describe scurvy and the population most affected.', a:'Severe vitamin C deficiency, mostly seen in malnourished infants, children, the elderly, alcoholics, and drug addicts, and historically common among sailors; common symptoms include anemia, gingivitis causing red, soft, tender gums that bleed easily, tooth decay, and skin haemorrhages.' },
+  { id:'p94', cat:'Vitamin C (Ascorbic Acid)', q:'What doses of vitamin C are used for prevention versus treatment of scurvy?', a:'Prevention of deficiency in individuals at risk and in infants: 100 mg per day. Treatment of scurvy: 0.5 to 1.5 g per day.' },
+  { id:'p95', cat:'Vitamin C (Ascorbic Acid)', q:'What is the role of vitamin C in post-operative care and wound healing?', a:'500 mg daily post-operatively; it does not itself enhance healing, but suboptimal healing can be guarded against, and it has also been found to accelerate healing of bed sores and chronic leg ulcers.' },
+  { id:'p96', cat:'Vitamin C (Ascorbic Acid)', q:'How is vitamin C used in anaemia and urinary tract infections?', a:'In anaemia, it enhances iron absorption and is frequently combined with ferrous salts; for acidification of urine in UTIs, it is given as 1 g three to four times daily (tds/qid).' },
+  { id:'p97', cat:'Vitamin C (Ascorbic Acid)', q:'What other conditions have high-dose vitamin C been tried for, with what result?', a:'Common cold, infertility, atherosclerosis, psychological symptoms, asthma, and cancers, but results have remained inconsistent.' },
+
+  { id:'p98', cat:'Mineral Deficiencies Overview', q:'How are dietary minerals classified by the amount required?', a:'Macrominerals, needed in large amounts, such as calcium, magnesium, potassium, chlorine, phosphorus, sodium, and sulphur; and trace minerals or elements, needed in small amounts, such as copper, chromium, cobalt, fluoride, iodine, zinc, iron, manganese, and selenium.' },
+
+  { id:'p99', cat:'Calcium', q:'What body functions is calcium essential for?', a:'The maintenance of normal bones and teeth, normal blood clotting, normal muscle and nervous system function, and normal function of digestive enzymes.' },
+  { id:'p100', cat:'Calcium', q:'What are the dietary sources of calcium?', a:'Milk, cheese, and other dairy foods, and green leafy vegetables such as curly kale and okra, but not spinach.' },
+  { id:'p101', cat:'Calcium', q:'List the deficiency symptoms of calcium.', a:'- Knocked knees or bowed legs\n- Bones that break or fracture easily\n- Poor posture and tooth decay\n- Pain in the bones of the legs and lower back' },
+
+  { id:'p102', cat:'Magnesium', q:'In how many enzyme systems does magnesium act as a cofactor, and what processes does it regulate?', a:'More than 300 enzyme systems, regulating protein synthesis (synthesis of DNA, RNA, and the antioxidant glutathione), active transport of calcium and potassium ions across cell membranes (nerve impulse conduction, muscle contraction, and normal heart rhythm), blood glucose control (energy production, oxidative phosphorylation, and glycolysis), and blood pressure regulation.' },
+  { id:'p103', cat:'Magnesium', q:'What are the sources of magnesium, and what proportion is typically absorbed?', a:'Green leafy vegetables, legumes, nuts, seeds, whole grains, certain beverages, and fortified foods such as breakfast cereals; approximately 30% to 40% of the magnesium obtained from food and beverages is absorbed by the body.' },
+  { id:'p104', cat:'Magnesium', q:'What are the early signs and symptoms of magnesium deficiency?', a:'Loss of appetite, nausea, vomiting, fatigue, and weakness.' },
+  { id:'p105', cat:'Magnesium', q:'What symptoms occur as magnesium deficiency progresses, and what condition is it also attributed to?', a:'Numbness, muscle contractions and cramps, seizures, abnormal heart rhythms, and coronary spasms; low levels of magnesium are also attributed to migraines.' },
+
+  { id:'p106', cat:'Iodine', q:'List the deficiency symptoms of iodine.', a:'Goitre or swelling in the neck, flabby muscles, dry skin, and in severe deficiency, stunted growth (cretinism) and mental retardation.' },
+  { id:'p107', cat:'Iodine', q:'How can iodine deficiency be prevented?', a:'Use of iodized salt can prevent deficiency of iodine.' },
+
+  { id:'p108', cat:'Zinc', q:'What are the sources of zinc?', a:'Red meat, lobster, oyster, liver, groundnuts, wheat, beans, various seeds, and blackcurrant.' },
+  { id:'p109', cat:'Zinc', q:'What are the physiological functions of zinc?', a:'It has antioxidant properties that may protect against accelerated aging of the skin and muscles of the body, helps speed up the healing process after an injury, and is beneficial to the body immune system.' },
+  { id:'p110', cat:'Zinc', q:'What is the therapeutic role of zinc in gastroenteritis?', a:'Ingestion of zinc strongly stops gastroenteritis, likely due to a direct antimicrobial action of the zinc ion in the GI tract, making it a critical tool for treating diarrheal episodes among children in the developing world.' },
+  { id:'p111', cat:'Zinc', q:'List other therapeutic uses of zinc.', a:'- Prostate cancer, where it is capable of killing cells rapidly\n- Lozenges for the common cold\n- Topical preparations against sunburn\n- Inclusion as an anti-dandruff ingredient in some shampoos\n- Trials in infertile men to improve spermatogenesis' },
+
+  { id:'p112', cat:'Fluoride', q:'What are the sources of fluoride?', a:'Fluoride is present naturally in low concentrations in drinking water and foods; tea leaves, table wine, potato, and carrots are other sources.' },
+  { id:'p113', cat:'Fluoride', q:'What is the main function of fluoride, and how is it delivered for this purpose?', a:'It is a naturally occurring mineral that helps prevent cavities in children and adults by making the outer surface of the teeth (enamel) more resistant to the acid attacks that cause tooth decay; for this reason, it is used in toothpaste and water fluoridation.' },
+  { id:'p114', cat:'Fluoride', q:'What are the effects of excess fluoride intake, and what is the maximum safe daily intake for an adult?', a:'At much higher doses, fluoride causes health complications such as skeletal and dental fluorosis and can be toxic; reported daily intakes range from 0.46 to 5.40 mg per day, with a maximum of 10 mg for an adult.' },
+  { id:'p115', cat:'Fluoride', q:'What conditions result from fluoride deficiency?', a:'Increased dental caries (tooth decay) and possibly osteoporosis.' },
+  { id:'p116', cat:'Fluoride', q:'How is fluoride administered systemically, and when is this unnecessary?', a:'As an additive to drinking water, salt, or milk, or as an ingredient in tablets, lozenges, or drops; where public water is fluoridated, other systemic therapies are not necessary or recommended.' },
+
+  { id:'p117', cat:'Selenium', q:'What are the sources and main function of selenium?', a:'Sources include fish, thyroid glands, nuts, cereals, and mushrooms; selenium functions as a cofactor in the reduction of antioxidant enzymes.' },
+  { id:'p118', cat:'Selenium', q:'List the therapeutic uses of selenium.', a:'- An ingredient in many multivitamins and other dietary supplements, including infant formula\n- Improving spermatogenesis in infertile men\n- An active ingredient in some anti-dandruff shampoos' },
+
+  { id:'p119', cat:'Clinical Case Review', q:'A 25-year-old female presents with muscle weakness, bone pain, and difficulty walking. What is the likely diagnosis?', a:'Vitamin D deficiency; vitamin D is necessary for the absorption of calcium and the maintenance of strong bones, and deficiency can occur due to insufficient dietary intake or lack of sunlight exposure.' },
+  { id:'p120', cat:'Clinical Case Review', q:'A 70-year-old male presents with weakness, fatigue, numbness and tingling in the hands and feet, and red, tender, bleeding gums. What is the likely diagnosis?', a:'Vitamin B12 deficiency together with scurvy (vitamin C deficiency); vitamin B12 is necessary for the formation of red blood cells and nerve function, and vitamin C deficiency causes gingival bleeding and connective tissue weakness.' },
+  { id:'p121', cat:'Clinical Case Review', q:'A 6-year-old male presents with night blindness, dry eyes, and increased susceptibility to infections. What is the likely diagnosis?', a:'Vitamin A deficiency; vitamin A is necessary for vision, immune function, and skin health, and deficiency can occur due to insufficient dietary intake, malabsorption, or liver disease.' },
+  { id:'p122', cat:'Clinical Case Review', q:'A 45-year-old male presents with muscle weakness, fatigue, and irregular heartbeat. What is the likely diagnosis?', a:'Magnesium deficiency; magnesium is necessary for muscle and nerve function, heart health, and bone health, and deficiency can occur due to insufficient dietary intake or malabsorption.' },
+  { id:'p123', cat:'Clinical Case Review', q:'A 3-year-old male presents with moon face, oedema on the legs, a protruded belly, mental changes, and poor growth. What is the likely diagnosis?', a:'Kwashiorkor.' },
+];
+
+/* ===================================================================
+   Flashcard data — Menstruation-Related Disorders
+   =================================================================== */
+window.MENSTRUATION_CARDS = [
+  { id:'m1', cat:'Menstrual Cycle Physiology', q:'What is a single menstrual cycle, and when does menarche typically occur?', a:'The time between the onset of one menstrual flow and the beginning of the next; menarche (the initial menstrual cycle) typically occurs around age 12, though normal menarche may occur as early as age 9 or as late as age 16.' },
+  { id:'m2', cat:'Menstrual Cycle Physiology', q:'What factors can influence the onset of menstruation?', a:'Race, genetics, nutritional status, and body mass.' },
+  { id:'m3', cat:'Menstrual Cycle Physiology', q:'What are the average and normal ranges for menstrual cycle length, and how is day 1 defined?', a:'The average menstrual cycle lasts 28 days, with a normal range of 21 to 25 days; the first day of the menstrual flow is called day 1 of the cycle.' },
+  { id:'m4', cat:'Menstrual Cycle Physiology', q:'How long does menses typically last, and when does most blood loss occur?', a:'Menses usually lasts 5 days (plus or minus 2 days), with most of the blood loss occurring during days 1 and 2.' },
+  { id:'m5', cat:'Menstrual Cycle Physiology', q:'What are the major components of menstrual fluid, and what defines abnormal blood loss?', a:'Endometrial cellular debris and blood; average blood loss is 30 to 50 mL (range 20 to 60 mL) per cycle, and a loss of more than 80 mL per cycle is considered abnormal and is associated with anaemia.' },
+  { id:'m6', cat:'Menstrual Cycle Physiology', q:'What are the two principal hormonally-controlled reproductive events of each menstrual cycle?', a:'Maturation and release of an ovum (egg) from the ovaries, and preparation of the endometrial lining of the uterus for implantation of a fertilized ovum.' },
+  { id:'m7', cat:'Menstrual Cycle Physiology', q:'In what two ways can the phases of the menstrual cycle be described?', a:'By changes in the ovary (follicular/ovulatory and luteal phases), or by changes in the uterine endometrium (menstrual/proliferative and secretory phases).' },
+  { id:'m8', cat:'Menstrual Cycle Physiology', q:'According to the lecture notes, how does the follicular/ovulatory phase correlate with the uterine phases?', a:'The notes state that the follicular/ovulatory phase correlates with the secretory phase of the uterine cycle.' },
+  { id:'m9', cat:'Menstrual Cycle Physiology', q:'Which axis controls the menstrual cycle, and what role does the hypothalamus play?', a:'The hypothalamic-pituitary-ovarian axis; the hypothalamus plays the key role in regulating the menstrual cycle by producing gonadotropin-releasing hormone (GnRH).' },
+  { id:'m10', cat:'Menstrual Cycle Physiology', q:'What triggers the hypothalamus to release GnRH at the end of the previous cycle?', a:'Low levels of estradiol and progesterone, which occur at the end of the previous menstrual cycle.' },
+  { id:'m11', cat:'Menstrual Cycle Physiology', q:'What does GnRH stimulate the pituitary to do?', a:'GnRH stimulates pituitary gonadotroph cells to synthesize and secrete luteinizing hormone (LH) and follicle-stimulating hormone (FSH).' },
+
+  { id:'m12', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'What marks the beginning of the follicular phase in the ovary and the menstrual/proliferative phase in the uterus?', a:'Cycle day 1, the first day of menstrual blood flow.' },
+  { id:'m13', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'How variable is the follicular phase in length?', a:'It is quite variable, lasting an average of 14 days but ranging in length between 3 and 21 days.' },
+  { id:'m14', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'What happens during the follicular phase in terms of FSH and follicle development?', a:'FSH stimulates the maturation of a group of ovarian follicles, which secrete the estrogen estradiol, promoting growth of the uterine endometrium; by about cycle day 8, a single dominant follicle emerges, usually resulting in ovulation of only one egg.' },
+  { id:'m15', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'How long is the ovulatory phase, and what event characterizes it?', a:'Approximately 3 days in length; it is characterized by the LH surge, a 48-hour period during which high levels of LH are secreted by the pituitary.' },
+  { id:'m16', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'What does the LH surge trigger?', a:'It catalyzes the final steps in the maturation of the ovum, and stimulates production of prostaglandins and proteolytic enzymes, which are necessary for ovulation.' },
+  { id:'m17', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'What happens to estradiol levels during the LH surge, and what can this cause?', a:'Levels of estradiol decrease, sometimes accompanied by mid-cycle endometrial bleeding.' },
+  { id:'m18', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'When does ovulation typically occur relative to the start of the LH surge?', a:'Ovulation typically occurs within 35 to 44 hours after the beginning of the LH surge.' },
+  { id:'m19', cat:'Menstrual Cycle: Follicular & Ovulatory Phase', q:'What is released at ovulation, and what symptom can this cause?', a:'Ovulation releases 5 to 10 mL of follicular fluid containing the oocyte mass; this event may cause abdominal pain, called mittelschmerz, for some women.' },
+
+  { id:'m20', cat:'Menstrual Cycle: Luteal Phase', q:'Define the luteal phase and its typical length.', a:'The time between ovulation and the beginning of menstrual blood flow; it is more constant in length than the follicular phase, lasting about 14 days (plus or minus 2 days).' },
+  { id:'m21', cat:'Menstrual Cycle: Luteal Phase', q:'What is the corpus luteum, and what does it secrete?', a:'The structure formed after the follicle ruptures at ovulation; it secretes progesterone, estradiol, and androgens for about 10 to 12 days, its functional period.' },
+  { id:'m22', cat:'Menstrual Cycle: Luteal Phase', q:'How do rising estrogen and progesterone levels affect the endometrium during the luteal phase?', a:'They alter the uterine endometrial lining; glands mature, proliferate, and become secretory in nature (secretory phase) as the uterus prepares for implantation of a fertilized egg.' },
+  { id:'m23', cat:'Menstrual Cycle: Luteal Phase', q:'What happens to LH and FSH levels as progesterone and estrogen peak mid-luteal phase?', a:'Progesterone and estrogen levels reach their peaks in the middle of the luteal phase, whereas levels of LH and FSH decline in response to the increase in these two hormones.' },
+  { id:'m24', cat:'Menstrual Cycle: Luteal Phase', q:'What supports the corpus luteum if pregnancy occurs?', a:'Human chorionic gonadotropin, released by the developing embryo, supports the function of the corpus luteum until the placenta develops enough to begin secreting estrogen and progesterone.' },
+  { id:'m25', cat:'Menstrual Cycle: Luteal Phase', q:'What happens to the corpus luteum, and to estrogen and progesterone levels, if pregnancy does not occur?', a:'The corpus luteum ceases to function, and oestrogen and progesterone levels decline.' },
+  { id:'m26', cat:'Menstrual Cycle: Luteal Phase', q:'What happens to the endometrium as estrogen and progesterone decline at the end of the luteal phase?', a:'The endometrial lining of the uterus becomes oedematous and necrotic, and the decrease in progesterone also allows prostaglandin synthesis.' },
+  { id:'m27', cat:'Menstrual Cycle: Luteal Phase', q:'What events lead directly to menstrual bleeding?', a:'Following prostaglandin-initiated vasoconstriction and uterine contractions, the sloughing of the outer two endometrial layers occurs.' },
+  { id:'m28', cat:'Menstrual Cycle: Luteal Phase', q:'What restarts the menstrual cycle after menstruation begins?', a:'The decline in estrogen and progesterone results in an increase in GnRH and in the renewed production of LH and FSH, which begins a new menstrual cycle.' },
+
+  { id:'m29', cat:'Dysmenorrhea: Definitions & Epidemiology', q:'Define dysmenorrhea and its two subtypes.', a:'Difficult or painful menstruation; primary dysmenorrhea is idiopathic, associated with cramp-like abdominal pain at the time of menstruation with no identifiable organic pelvic disease, while secondary dysmenorrhea is usually associated with pelvic pathology.' },
+  { id:'m30', cat:'Dysmenorrhea: Definitions & Epidemiology', q:'In which population is dysmenorrhea prevalence highest, and when does it typically develop?', a:'The prevalence of dysmenorrhea is highest in adolescent women; it usually develops within 6 to 12 months of menarche and generally affects women during their teenage years and early 20s.' },
+  { id:'m31', cat:'Dysmenorrhea: Definitions & Epidemiology', q:'During which type of menstrual cycles does primary dysmenorrhea occur, and what is its significance for school and work?', a:'Primary dysmenorrhea occurs only during ovulatory cycles, and has been described as the single greatest cause of school absenteeism and lost working hours among adolescent girls and young women.' },
+  { id:'m32', cat:'Dysmenorrhea: Definitions & Epidemiology', q:'Why does the prevalence and severity of dysmenorrhea decrease in women in their late 20s and older?', a:'This decrease may be partially explained by oral contraceptive use and pregnancy.' },
+
+  { id:'m33', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'To what is the cause of primary dysmenorrhea related, and how do prostaglandin levels compare between women with and without dysmenorrhea?', a:'It is known to be related to prostaglandin levels; prostaglandin serum and endometrial levels are three to four times greater in women with dysmenorrhea than in women without it, and are highest during the first 2 days of menses.' },
+  { id:'m34', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'Which uterine tissues synthesize prostaglandins, and what other inflammatory mediators are elevated in dysmenorrhea?', a:'Both the endometrium and the myometrium of the uterus have the capacity to synthesize prostaglandins; leukotrienes, inflammatory mediators known to cause vasoconstriction and uterine contractions, have also been found to be elevated in women with dysmenorrhea.' },
+  { id:'m35', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'What role may leukotrienes play in women who do not respond to NSAID therapy?', a:'It has been suggested that leukotrienes may contribute significantly to dysmenorrhea in women who do not respond to therapy with prostaglandin inhibitors, such as NSAIDs.' },
+  { id:'m36', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'What hormonal change at the end of the luteal phase initiates the pathophysiologic cascade of primary dysmenorrhea?', a:'At the end of the luteal phase, progesterone levels decrease, resulting in an increase in arachidonic acid, which is the precursor to both prostaglandins (notably PGF2a) and leukotrienes.' },
+  { id:'m37', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'What are the effects of prostaglandins on the uterus, and what else do they release?', a:'Prostaglandins stimulate uterine contractions and cervical narrowing, and release vasopressin.' },
+  { id:'m38', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'What effect do leukotrienes have on uterine pain fibers?', a:'Leukotrienes are potent smooth muscle-stimulating substances that increase the sensitivity of uterine pain fibers.' },
+  { id:'m39', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'How do normal menstrual uterine contractions compare with those in dysmenorrhea, in pressure, duration, and frequency?', a:'During normal menses, contraction pressure is 50 to 80 mmHg, each contraction lasts about 15 to 30 seconds, and about one to four contractions occur every 10 minutes. With dysmenorrhea, contraction pressure can exceed 400 mmHg, contractions may last longer than 90 seconds, and the time between contractions may be less than 15 seconds.' },
+  { id:'m40', cat:'Dysmenorrhea: Etiology & Pathophysiology', q:'How do elevated intrauterine pressure and contraction frequency ultimately cause pain in dysmenorrhea?', a:'Both intrauterine pressure and the frequency of uterine contractions contribute to ischemia and tissue hypoxia, and thus to pain.' },
+
+  { id:'m41', cat:'Dysmenorrhea: Clinical Presentation', q:'Describe the character and location of primary dysmenorrhea pain.', a:'Cramping pain in the lower mid-abdominal or suprapubic region, which may radiate to the lower back and upper thighs.' },
+  { id:'m42', cat:'Dysmenorrhea: Clinical Presentation', q:'What associated symptoms may accompany the pain of dysmenorrhea?', a:'Nausea, vomiting, fatigue, weakness, nervousness, dizziness, diarrhoea, and headache.' },
+  { id:'m43', cat:'Dysmenorrhea: Clinical Presentation', q:'When does the pain of primary dysmenorrhea typically begin, and how long does it last?', a:'The onset of pain is several hours prior to or coincident with the onset of menses, and it usually lasts less than 24 hours but may persist up to 48 to 72 hours.' },
+  { id:'m44', cat:'Dysmenorrhea: Clinical Presentation', q:'In relation to menarche, when does primary dysmenorrhea usually first occur?', a:'Usually within the first 3 years after menarche, but not within the first 6 months after the onset of menses.' },
+  { id:'m45', cat:'Dysmenorrhea: Clinical Presentation', q:'What clinical criteria support a diagnosis of primary dysmenorrhea without further workup?', a:'If the pain is mild to moderate and the patient responds to NSAID therapy, this clinical presentation can be adequate for the diagnosis of primary dysmenorrhea.' },
+  { id:'m46', cat:'Dysmenorrhea: Clinical Presentation', q:'What features suggest secondary rather than primary dysmenorrhea?', a:'Onset during the first several menstrual cycles or years after menarche, or at 25 years of age or older; pelvic pain occurring at times other than during menses and unrelated to the first day of menses; irregular menstrual cycles; menorrhagia; or a history of pelvic inflammatory disease (PID) or infertility.' },
+  { id:'m47', cat:'Dysmenorrhea: Clinical Presentation', q:'List the recognized causes of secondary dysmenorrhea.', a:'Endometriosis, PID, ovarian cysts, benign uterine tumors, uterine fibroids, adhesions, cervical stenosis, congenital abnormalities, and the presence of an intrauterine device (IUD).' },
+  { id:'m48', cat:'Dysmenorrhea: Clinical Presentation', q:'Why is medical evaluation necessary when secondary dysmenorrhea is suspected?', a:'Because symptoms of dysmenorrhea are similar to those of endometriosis, ectopic pregnancy, and PID, medical evaluation is necessary to rule out the presence of secondary causes of dysmenorrhea.' },
+
+  { id:'m49', cat:'Dysmenorrhea: Treatment Approach', q:'What are the goals of treating primary dysmenorrhea?', a:'To provide relief and limit discomfort and minimize the disruption in usual activities.' },
+  { id:'m50', cat:'Dysmenorrhea: Treatment Approach', q:'What proportion of women with dysmenorrhea can be successfully treated, and with what therapies?', a:'Approximately 80% to 90% of women with dysmenorrhea can be successfully treated with NSAIDs, oral contraceptives, or a combination of both.' },
+  { id:'m51', cat:'Dysmenorrhea: Treatment Approach', q:'What is the role of non-pharmacologic measures such as heating pads, exercise, and other lifestyle modifications?', a:'They serve as adjuncts to drug therapy and are rarely adequate as sole therapy for primary dysmenorrhea.' },
+  { id:'m52', cat:'Dysmenorrhea: Treatment Approach', q:'When should a patient with dysmenorrhea be referred to a primary care provider?', a:'The patient with more severe dysmenorrhea, or dysmenorrhea that does not respond to non-prescription therapy, should be referred to their primary care provider; a trial with other prescription NSAIDs or therapy with an oral contraceptive may then be prescribed.' },
+  { id:'m53', cat:'Dysmenorrhea: Treatment Approach', q:'Which other menstrual cycling conditions should prompt referral rather than self-treatment?', a:'Amenorrhea, menorrhagia, and dysfunctional uterine bleeding; none of these conditions is amenable to self-treatment, and the patient should be advised to seek medical evaluation.' },
+
+  { id:'m54', cat:'Dysmenorrhea: Nonpharmacologic Therapy', q:'According to a study of 289 adolescents, what nondrug measures were most commonly used, and how effective were they rated?', a:'Common nondrug measures were rest (90% of respondents), heat (74%), wearing loose clothing (67%), exercise (57%), and rubbing or massaging where it hurt (54%); except for wearing of loose clothing, these measures were reported to be about 50% effective in relieving discomfort.' },
+  { id:'m55', cat:'Dysmenorrhea: Nonpharmacologic Therapy', q:'How effective was an abdominal heat patch compared with placebo and with drug therapy?', a:'It was significantly better than placebo in relieving pain; its analgesic effect had a faster onset than drug therapy, and it added to the relief provided by ibuprofen.' },
+  { id:'m56', cat:'Dysmenorrhea: Nonpharmacologic Therapy', q:'For which patients is nondrug therapy especially useful?', a:'Nondrug therapy may be especially useful for the estimated 15% of women who cannot tolerate or who do not respond to non-prescription medications.' },
+  { id:'m57', cat:'Dysmenorrhea: Nonpharmacologic Therapy', q:'How does smoking affect dysmenorrhea severity, and what is the proposed mechanism?', a:'Smoking has been associated with more severe dysmenorrhea, with severity reportedly increasing with the number of cigarettes smoked per day; the basis for this effect is unknown, but nicotine-induced vasoconstriction has been hypothesized to be involved.' },
+  { id:'m58', cat:'Dysmenorrhea: Nonpharmacologic Therapy', q:'What does the evidence say about exercise as a treatment for dysmenorrhea?', a:'Evidence regarding the benefit of exercise is conflicting, though participation in regular exercise may lessen the symptoms of primary dysmenorrhea for some women.' },
+
+  { id:'m59', cat:'Dysmenorrhea: Pharmacotherapy', q:'Which three non-prescription analgesics are most commonly used to treat dysmenorrhea, and how do acetaminophen and aspirin compare with nonsalicylate NSAIDs?', a:'Acetaminophen, aspirin, and ibuprofen are the three non-prescription analgesic medications most commonly used; acetaminophen and aspirin are less effective than nonsalicylate NSAIDs for treating dysmenorrhea.' },
+  { id:'m60', cat:'Dysmenorrhea: Pharmacotherapy', q:'Why is aspirin not recommended for adolescents with dysmenorrhea?', a:'Aspirin is not recommended for use by adolescents because of its association with Reye syndrome.' },
+  { id:'m61', cat:'Dysmenorrhea: Pharmacotherapy', q:'What are the recommended and maximum daily doses of acetaminophen for dysmenorrhea?', a:'650 to 1000 mg every 4 to 6 hours, with a maximum daily dose of 4000 mg.' },
+  { id:'m62', cat:'Dysmenorrhea: Pharmacotherapy', q:'What are the recommended and maximum daily doses of aspirin for dysmenorrhea?', a:'650 to 1000 mg every 4 to 6 hours, with a maximum daily dose of 4000 mg.' },
+  { id:'m63', cat:'Dysmenorrhea: Pharmacotherapy', q:'What are the recommended and maximum daily doses of ibuprofen for dysmenorrhea?', a:'200 to 400 mg every 4 to 6 hours, with a maximum daily dose of 1200 mg.' },
+  { id:'m64', cat:'Dysmenorrhea: Pharmacotherapy', q:'What are the recommended and maximum daily doses of ketoprofen for dysmenorrhea?', a:'12.5 to 25 mg every 4 to 8 hours, not more than 25 mg within 4 to 6 hours, with a maximum daily dose of 75 mg.' },
+  { id:'m65', cat:'Dysmenorrhea: Pharmacotherapy', q:'What are the recommended and maximum daily doses of naproxen sodium for dysmenorrhea?', a:'220 to 440 mg initially, then 220 mg every 8 to 12 hours, with a maximum daily dose of 660 mg.' },
+  { id:'m66', cat:'Dysmenorrhea: Pharmacotherapy', q:'How effective is aspirin for treating dysmenorrhea?', a:'Aspirin may be adequate for treating mild symptoms of dysmenorrhea, but it is only moderately effective in women with more than minimal symptoms.' },
+  { id:'m67', cat:'Dysmenorrhea: Pharmacotherapy', q:'What is the recommended dosing and administration advice for aspirin in dysmenorrhea?', a:'When used for menstrual discomfort, the adult dose is 650 to 1000 mg every 4 to 6 hours as needed, not to exceed 4000 mg per day; aspirin is best taken with food or with a full glass of water.' },
+  { id:'m68', cat:'Dysmenorrhea: Pharmacotherapy', q:'Besides GI effects, what other adverse effect can aspirin have that is relevant to menstruation?', a:'Aspirin may increase menstrual flow.' },
+  { id:'m69', cat:'Dysmenorrhea: Pharmacotherapy', q:'List the clinically significant drug-drug interactions of aspirin.', a:'Anticoagulants, methotrexate, valproate, probenecid, phenytoin, oral hypoglycaemics, and high doses of antacids.' },
+  { id:'m70', cat:'Dysmenorrhea: Pharmacotherapy', q:'What conditions are contraindications or relative contraindications to aspirin therapy?', a:'Patients who are allergic or intolerant to aspirin should not use this agent; disease states that are relative contraindications to aspirin therapy include peptic ulcer disease, gastritis, bleeding disorders, asthma, or renal insufficiency.' },
+
+  { id:'m71', cat:'Dysmenorrhea: Patient Counselling', q:'What key reassurance should adolescents and young women with dysmenorrhea receive?', a:'They should be educated about the condition so they realize it can be treated with products that can provide symptomatic relief, and reassured about the prevalence, or normality, of primary dysmenorrhea.' },
+  { id:'m72', cat:'Dysmenorrhea: Patient Counselling', q:'What is the recommended approach if a patient response to the first nonsalicylate NSAID tried is inadequate?', a:'If response to the first agent is not adequate, other nonsalicylate NSAIDs can be tried before a primary care provider is consulted, since not all women will respond to the same agent.' },
+  { id:'m73', cat:'Dysmenorrhea: Patient Counselling', q:'How soon should symptom improvement be expected after taking an analgesic for dysmenorrhea, and what is required for optimal effect?', a:'Symptoms should improve within an hour or so of taking an analgesic; the optimal effect of drug therapy may not be seen, however, until the woman has used the medication on a scheduled basis.' },
+  { id:'m74', cat:'Dysmenorrhea: Patient Counselling', q:'What should follow-up monitoring for dysmenorrhea patients include?', a:'A follow-up phone call to discuss treatment effectiveness (continued or altered symptoms) and the importance of scheduled dosing, and to inquire about the dose of medication being taken and discuss an adequate dose.' },
+  { id:'m75', cat:'Dysmenorrhea: Patient Counselling', q:'What should be advised for a patient with persistent dysmenorrhea symptoms despite therapy?', a:'The patient with persistent symptoms should be advised to try another non-prescription nonsalicylic NSAID or to see a primary care provider for evaluation.' },
+
+  { id:'m76', cat:'PMS & PMDD: Definitions', q:'Define premenstrual syndrome (PMS).', a:'A cyclic disorder composed of a combination of physical and emotional (mood) changes that occur during the luteal phase of the menstrual cycle, improve significantly or disappear within the first several days of menstrual flow, and are absent during the first week following menses.' },
+  { id:'m77', cat:'PMS & PMDD: Definitions', q:'How is a diagnosis of PMS made?', a:'The diagnosis of PMS can be made based on physical or mood symptoms that occur in a cyclic fashion.' },
+  { id:'m78', cat:'PMS & PMDD: Definitions', q:'Define premenstrual dysphoric disorder (PMDD), and what does its diagnosis require?', a:'A severe form of PMS; the diagnosis of this condition requires that a specific constellation of symptoms are present on a cyclic basis and that the symptoms are severe enough to cause functional impairment, interfering with social or occupational functioning.' },
+
+  { id:'m79', cat:'PMS & PMDD: Signs & Symptoms', q:'When do PMS symptoms typically begin, and during what part of the cycle should a symptom-free interval occur?', a:'PMS symptoms typically begin or intensify about a week prior to the onset of menses; a woman with PMS or PMDD should experience an essentially symptom-free interval during days 4 to 12 of her menstrual cycle.' },
+  { id:'m80', cat:'PMS & PMDD: Signs & Symptoms', q:'How does the severity of PMS/PMDD symptoms change across reproductive life?', a:'Symptoms of PMS/PMDD appear worse early in reproductive life and tend to improve toward menopause, when ovulation may be intermittent and hormonal fluctuation lessens.' },
+  { id:'m81', cat:'PMS & PMDD: Signs & Symptoms', q:'List the common symptoms of PMS.', a:'Minor weight gain, abdominal bloating, fatigue, irritability, anxiety or tension, mood lability, food cravings, breast tenderness, depression, acne, oversensitivity, crying spells, forgetfulness, and difficulty concentrating.' },
+  { id:'m82', cat:'PMS & PMDD: Signs & Symptoms', q:'What are the most common affective symptoms reported by women with PMDD?', a:'Depressed mood, hopelessness, and self-depreciation; affective lability; irritability and anger; fatigability; and decreased interest.' },
+  { id:'m83', cat:'PMS & PMDD: Signs & Symptoms', q:'List other symptoms of PMDD beyond the core affective symptoms.', a:'Difficulty concentrating, lethargy, hypersomnia or insomnia, and physical symptoms.' },
+  { id:'m84', cat:'PMS & PMDD: Signs & Symptoms', q:'How much functional impairment does PMDD cause on average, and what tool is used to establish its diagnosis?', a:'The severity of symptoms results in an average of 2.6 days of impairment or disability per month; a daily rating of symptoms for several cycles is used to establish a diagnosis of PMDD, and these symptoms should have occurred during most menstrual cycles over the past year.' },
+  { id:'m85', cat:'PMS & PMDD: Signs & Symptoms', q:'What does the absence of a symptom-free interval suggest?', a:'Lack of a symptom-free interval suggests that the patient has a psychiatric disorder (such as anxiety or panic disorder) or another health condition (such as perimenopause) rather than PMS.' },
+
+  { id:'m86', cat:'PMS & PMDD: Treatment', q:'What are the treatment goals for PMS?', a:'First, an understanding of PMS, and second, symptom improvement or resolution.' },
+  { id:'m87', cat:'PMS & PMDD: Treatment', q:'What does initial, conservative treatment of PMS consist of?', a:'Education and nondrug measures such as dietary modifications, physical exercise, and stress management; women with PMS should be educated about the syndrome and encouraged to elicit family support and understanding.' },
+  { id:'m88', cat:'PMS & PMDD: Treatment', q:'Which nonpharmacologic therapies may provide some amelioration of PMS symptoms?', a:'Aerobic exercise, dietary modifications, and cognitive-behavioural therapy.' },
+  { id:'m89', cat:'PMS & PMDD: Treatment', q:'Which non-prescription or complementary agents might be suggested for symptoms not responsive to nondrug therapy?', a:'Calcium, magnesium, vitamin E, pyridoxine, and chasteberry; use of a non-prescription diuretic or ginkgo may prove helpful for women with fluid retention.' },
+  { id:'m90', cat:'PMS & PMDD: Treatment', q:'How much improvement is estimated from nondrug measures plus calcium or magnesium?', a:'Use of the nondrug measures, plus either calcium or magnesium, is estimated to provide significant improvement to about 25% of patients.' },
+  { id:'m91', cat:'PMS & PMDD: Treatment', q:'When should prescription therapy be considered for PMS, and what does it include?', a:'Prescription therapy should be considered if treatment fails or if the patient suffers from severe PMS or PMDD; it includes psychotropic medications (such as alprazolam and SSRIs) and menstrual cycle modifiers (such as oral contraceptives, danazol, and GnRH agonists).' },
+
+  { id:'m92', cat:'PMS & PMDD: Patient Counselling', q:'What should patient counselling for PMS emphasize regarding symptom timing and compliance?', a:'Patient counselling requires that women be educated about the timing of symptoms and what might control them, which may increase compliance with recommended therapies.' },
+  { id:'m93', cat:'PMS & PMDD: Patient Counselling', q:'What should patients be told about the timeframe for treatment measures to work?', a:'The patient should be advised that treatment measures must be implemented during every menstrual cycle because it may take several cycles for symptomatic relief to occur.' },
+  { id:'m94', cat:'PMS & PMDD: Patient Counselling', q:'What does monitoring for PMS treatment involve, and what should trigger referral to a primary care provider?', a:'Monitoring is accomplished by having the patient report whether symptoms are resolved, which may take several menstrual cycles to ascertain; reasons for advising the patient to see a primary care provider are persistent symptoms, or symptoms disruptive to personal relationships or to the ability to engage in usual activities.' },
+
+  { id:'m95', cat:'Toxic Shock Syndrome', q:'What was toxic shock syndrome (TSS) originally described as, and in whom was it recognized?', a:'A severe multisystem illness characterized by high fever, profound hypotension, severe diarrhoea, mental confusion, renal failure, erythroderma, and skin desquamation, originally recognized as affecting a relatively large number of young, previously healthy, menstruating women.' },
+  { id:'m96', cat:'Toxic Shock Syndrome', q:'How is TSS commonly divided, and when does menstrual TSS usually occur in the cycle?', a:'TSS is commonly divided into menstrual and non-menstrual cases; menstrual TSS usually occurs toward the middle or at the end of menses.' },
+  { id:'m97', cat:'Toxic Shock Syndrome', q:'What prodromal symptoms precede TSS, and for how long?', a:'Malaise, myalgias, and chills, occurring for 2 to 3 days prior to TSS.' },
+  { id:'m98', cat:'Toxic Shock Syndrome', q:'What GI symptoms occur early in TSS, and how many patients are affected?', a:'GI symptoms, including vomiting, diarrhoea, and abdominal pain, typically occur early in the illness and affect almost all patients.' },
+  { id:'m99', cat:'Toxic Shock Syndrome', q:'Describe the full-blown presentation of TSS.', a:'High fever, myalgias, vomiting and diarrhoea, erythroderma, decreased urine output, severe hypotension, and shock.' },
+  { id:'m100', cat:'Toxic Shock Syndrome', q:'What neurologic manifestations occur in TSS, and how commonly?', a:'Neurologic manifestations, including headache, confusion, agitation, lethargy, and seizures, occur in almost all cases.' },
+  { id:'m101', cat:'Toxic Shock Syndrome', q:'What other organ system complications are common in TSS?', a:'Acute renal failure, cardiac involvement, and adult respiratory distress syndrome.' },
+  { id:'m102', cat:'Toxic Shock Syndrome', q:'What dermatologic findings are required for a definite diagnosis of TSS, and what is their typical timing?', a:'Both an early rash and subsequent skin desquamation are required for a definite diagnosis; about 5 to 12 days after the onset of TSS, desquamation of the skin on the face, trunk, and extremities, including the soles of the feet and palms of the hands, occurs.' },
+  { id:'m103', cat:'Toxic Shock Syndrome', q:'How can women reduce the risk of menstrual TSS to nearly zero?', a:'By using sanitary pads instead of tampons during their menstrual cycle.' },
+  { id:'m104', cat:'Toxic Shock Syndrome', q:'What other prevention measures for TSS are recommended beyond avoiding tampons?', a:'Prevention of TSS also includes avoiding IUDs and contraceptive sponges.' },
+  { id:'m105', cat:'Toxic Shock Syndrome', q:'What counselling points should practitioners emphasize regarding tampon use?', a:'The importance of washing the hands before inserting a tampon and changing tampons at least every 6 hours, while emphasizing that the risk for this condition is quite small.' },
+  { id:'m106', cat:'Toxic Shock Syndrome', q:'What should a patient with early symptoms of TSS be advised to do?', a:'She should be advised to remove the tampon or any barrier contraceptive device and to seek emergency medical treatment.' },
+];
+
 /* ---------- Roundcards app logic (validated standalone, then embedded) ---------- */
 (function () {
   "use strict";
@@ -1306,7 +1594,9 @@ window.INFERTILITY_CARDS = [
         liver: freshDeckState(window.LIVER_CARDS),
         hrt: freshDeckState(window.HRT_CARDS),
         contraception: freshDeckState(window.CONTRACEPTION_CARDS),
-        infertility: freshDeckState(window.INFERTILITY_CARDS)
+        infertility: freshDeckState(window.INFERTILITY_CARDS),
+        pem: freshDeckState(window.PEM_CARDS),
+        menstruation: freshDeckState(window.MENSTRUATION_CARDS)
       }
     };
   }
@@ -1405,6 +1695,26 @@ window.INFERTILITY_CARDS = [
       colorVar: "--sage",
       brightVar: "--sage-bright",
       cards: window.INFERTILITY_CARDS
+    },
+    pem: {
+      key: "pem",
+      label: "PN",
+      title: "PEM, Vitamin & Mineral Deficiencies",
+      subtitle: "Protein-Energy Malnutrition, Vitamins & Minerals",
+      tint: "mint",
+      colorVar: "--mint",
+      brightVar: "--mint-bright",
+      cards: window.PEM_CARDS
+    },
+    menstruation: {
+      key: "menstruation",
+      label: "MC",
+      title: "Menstruation-Related Disorders",
+      subtitle: "Cycle Physiology, Dysmenorrhea, PMS/PMDD & TSS",
+      tint: "rose",
+      colorVar: "--rose",
+      brightVar: "--rose-bright",
+      cards: window.MENSTRUATION_CARDS
     }
   };
 
@@ -1533,7 +1843,7 @@ window.INFERTILITY_CARDS = [
         { className: "container container-narrow", ref: headRef },
         e("p", { className: "eyebrow" }, "Organ Systems Pharmacotherapeutics \u00B7 Exam Prep"),
         e("h1", { className: "display-hero" }, "Round", e("span", { className: "hero-italic" }, "cards")),
-        e("p", { className: "lede" }, "Short-answer drills covering GERD, peptic ulcer disease, and liver and biliary tract disorders, built straight from the lecture material. Study once, know it cold."),
+        e("p", { className: "lede" }, "Short-answer drills covering GERD, peptic ulcer disease, liver and biliary tract disorders, PEM and micronutrient deficiencies, and menstruation-related disorders, built straight from the lecture material. Study once, know it cold."),
         e(PulseLine, { speed: 8 }),
         e(
           "form",
@@ -1639,7 +1949,9 @@ window.INFERTILITY_CARDS = [
           e(TopicCard, { deck: DECKS.liver, deckState: props.state.decks.liver, onSelect: props.onSelectTopic }),
           e(TopicCard, { deck: DECKS.hrt, deckState: props.state.decks.hrt, onSelect: props.onSelectTopic }),
           e(TopicCard, { deck: DECKS.contraception, deckState: props.state.decks.contraception, onSelect: props.onSelectTopic }),
-          e(TopicCard, { deck: DECKS.infertility, deckState: props.state.decks.infertility, onSelect: props.onSelectTopic })
+          e(TopicCard, { deck: DECKS.infertility, deckState: props.state.decks.infertility, onSelect: props.onSelectTopic }),
+          e(TopicCard, { deck: DECKS.pem, deckState: props.state.decks.pem, onSelect: props.onSelectTopic }),
+          e(TopicCard, { deck: DECKS.menstruation, deckState: props.state.decks.menstruation, onSelect: props.onSelectTopic })
         )
       )
     );
@@ -1916,7 +2228,7 @@ window.INFERTILITY_CARDS = [
       var loaded = loadState();
       if (loaded && loaded.name) {
         var savedDecks = loaded.decks || {};
-        var validTopics = { git: true, liver: true, hrt: true, contraception: true, infertility: true };
+        var validTopics = { git: true, liver: true, hrt: true, contraception: true, infertility: true, pem: true, menstruation: true };
         var activeTopic = (loaded.activeTopic && validTopics[loaded.activeTopic]) ? loaded.activeTopic : null;
         var stage = (loaded.stage === "deck" && activeTopic) || loaded.stage === "topics" ? loaded.stage : "topics";
         return {
@@ -1928,7 +2240,9 @@ window.INFERTILITY_CARDS = [
             liver: reconcileDeck(savedDecks.liver, window.LIVER_CARDS),
             hrt: reconcileDeck(savedDecks.hrt, window.HRT_CARDS),
             contraception: reconcileDeck(savedDecks.contraception, window.CONTRACEPTION_CARDS),
-            infertility: reconcileDeck(savedDecks.infertility, window.INFERTILITY_CARDS)
+            infertility: reconcileDeck(savedDecks.infertility, window.INFERTILITY_CARDS),
+            pem: reconcileDeck(savedDecks.pem, window.PEM_CARDS),
+            menstruation: reconcileDeck(savedDecks.menstruation, window.MENSTRUATION_CARDS)
           }
         };
       }
