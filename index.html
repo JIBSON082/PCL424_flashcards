@@ -33,6 +33,18 @@
   --garnet-bright: #cf5064;
   --garnet-soft: rgba(166, 58, 76, 0.14);
 
+  --violet: #8868b0;
+  --violet-bright: #a684c9;
+  --violet-soft: rgba(136, 104, 176, 0.14);
+
+  --teal: #3e8fa0;
+  --teal-bright: #56aebd;
+  --teal-soft: rgba(62, 143, 160, 0.14);
+
+  --sage: #6b8f5c;
+  --sage-bright: #86ab77;
+  --sage-soft: rgba(107, 143, 92, 0.14);
+
   --mint: #49a988;
   --mint-bright: #5ec49f;
   --mint-soft: rgba(73, 169, 136, 0.16);
@@ -59,6 +71,9 @@
 
 .theme-amber { --accent: var(--amber); --accent-bright: var(--amber-bright); --accent-soft: var(--amber-soft); }
 .theme-garnet { --accent: var(--garnet); --accent-bright: var(--garnet-bright); --accent-soft: var(--garnet-soft); }
+.theme-violet { --accent: var(--violet); --accent-bright: var(--violet-bright); --accent-soft: var(--violet-soft); }
+.theme-teal { --accent: var(--teal); --accent-bright: var(--teal-bright); --accent-soft: var(--teal-soft); }
+.theme-sage { --accent: var(--sage); --accent-bright: var(--sage-bright); --accent-soft: var(--sage-soft); }
 
 * { box-sizing: border-box; }
 
@@ -135,7 +150,7 @@ a { color: inherit; }
 
 .container {
   width: 100%;
-  max-width: 920px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
@@ -151,27 +166,6 @@ a { color: inherit; }
   text-transform: uppercase;
   color: var(--text-faint);
   padding: 18px 20px 26px;
-}
-
-/* ---------------- scan-line transition overlay ---------------- */
-
-.scan-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  pointer-events: none;
-  transform: translateX(-130%);
-  opacity: 0;
-  --scan-tint: var(--slate);
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--scan-tint) 46%,
-    var(--scan-tint) 54%,
-    transparent 100%
-  );
-  mix-blend-mode: screen;
-  filter: blur(6px);
 }
 
 /* ---------------- typography ---------------- */
@@ -419,15 +413,9 @@ a { color: inherit; }
 
 .topics-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
   margin-top: 8px;
-}
-
-@media (max-width: 760px) {
-  .topics-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .topic-card {
@@ -1108,6 +1096,164 @@ window.LIVER_CARDS = [
   { id:'l77', cat:'Cirrhosis: Prognosis', q:'What is the MELD score formula?', a:'MELD = 3.78 x ln(serum bilirubin in mg/dL) + 11.2 x ln(INR) + 9.57 x ln(serum creatinine in mg/dL) + 6.43.' },
 ];
 
+
+/* ===================================================================
+   Flashcard data — Hormone Replacement Therapy
+   =================================================================== */
+window.HRT_CARDS = [
+  { id:'h1', cat:'HRT Foundations', q:'What is hormone replacement therapy (HRT) and what hormones does it use?', a:'A treatment, also called menopausal hormone therapy or oestrogen replacement therapy, that uses the female hormones oestrogen and progesterone to treat common symptoms of menopause and aging by replacing hormones the body no longer makes.' },
+  { id:'h2', cat:'HRT Foundations', q:'Define menopause and state the average age it occurs.', a:'The time in a woman life when her periods stop, occurring when the ovaries stop producing an egg approximately every four weeks. The average age in the UK is 51, though it can occur in the 30s or 40s.' },
+  { id:'h3', cat:'HRT Foundations', q:'What is premature menopause, and when is menopause considered to have been reached?', a:'Menopause before the age of 40 is premature menopause. A woman has reached menopause once she has not had a period for one full year, though changes and symptoms can start years earlier.' },
+  { id:'h4', cat:'HRT Foundations', q:'List the early changes and symptoms that can signal the approach of menopause.', a:'- A change in periods: shorter or longer, lighter or heavier, with more or less time between them\n- Hot flashes and/or night sweats\n- Trouble sleeping\n- Vaginal dryness\n- Mood swings\n- Trouble focusing\n- Less hair on the head, more on the face' },
+  { id:'h5', cat:'HRT Foundations', q:'What is the perimenopause, and what hormonal change drives it?', a:'The lead-up period to menopause, during which oestrogen levels decrease, causing the ovaries to stop ovulating each month.' },
+  { id:'h6', cat:'HRT Foundations', q:'What roles does oestrogen normally play in a woman of child-bearing age?', a:'It regulates the menstrual periods, prepares the uterus to receive a fertilized egg, controls how the body uses calcium to strengthen bones, and raises good cholesterol in the blood.' },
+  { id:'h7', cat:'HRT Foundations', q:'What physical and emotional symptoms result from the drop in oestrogen around menopause?', a:'- Hot flushes\n- Night sweats\n- Mood swings\n- Vaginal dryness' },
+
+  { id:'h8', cat:'Non-Hormonal & Adjunct Measures', q:'What non-drug lifestyle changes can help relieve oestrogen deficiency symptoms?', a:'Eating a healthy, balanced diet and taking plenty of regular exercise, which help avoid extra weight gain; a diet including all food groups helps keep bones strong, and combining aerobic activity with strength and flexibility exercise maintains bone strength and muscle mass.' },
+  { id:'h9', cat:'Non-Hormonal & Adjunct Measures', q:'What non-hormonal treatments are used for vaginal dryness and for hot flushes?', a:'Vaginal lubricants are used to treat vaginal dryness, and antidepressants are sometimes prescribed for treating hot flushes.' },
+
+  { id:'h10', cat:'HRT Regimens', q:'In what forms is hormone replacement therapy available?', a:'Tablets, cream or gel, a skin patch, or an implant.' },
+  { id:'h11', cat:'HRT Regimens', q:'Why must a woman with an intact uterus not take oestrogen alone, and how does progesterone address this?', a:'Unopposed oestrogen raises the risk of endometrial cancer, because endometrial cells no longer leave the body through menstruation and build up in the uterus. Progesterone lowers this risk by thinning the endometrial lining.' },
+  { id:'h12', cat:'HRT Regimens', q:'Who is oestrogen-only therapy generally recommended for, and in what forms does oestrogen come?', a:'A low dose of oestrogen is generally suggested for women who have had a hysterectomy (surgical removal of the uterus). It comes as a daily pill, patch (the most popular forms), vaginal ring, gel, or spray.' },
+  { id:'h13', cat:'HRT Regimens', q:'What is combination hormone therapy, and who is it meant for?', a:'Also called oestrogen/progesterone/progestin therapy, it combines doses of oestrogen and progestin (the synthetic form of progesterone), and is meant for women who still have their uterus.' },
+
+  { id:'h14', cat:'Benefits & Risks of HRT', q:'What benefits does the oestrogen component of HRT provide?', a:'It greatly relieves menopause symptoms such as hot flushes and vaginal dryness, can lower the risk of colon cancer and age-related macular degeneration, and helps protect bone strength.' },
+  { id:'h15', cat:'Benefits & Risks of HRT', q:'What happens to menopausal symptoms when HRT is discontinued?', a:'Symptoms may return slightly but will likely taper off over several months to a year; for some women, however, symptoms may be lifelong.' },
+  { id:'h16', cat:'Benefits & Risks of HRT', q:'What did the Women Health Initiative (WHI) study find about combination HRT?', a:'In this 15-year study of over 161,800 healthy postmenopausal women, women who took combination therapy had an increased risk of heart disease, breast cancer, stroke, and blood clots, and the overall risks of long-term use outweighed the benefits.' },
+  { id:'h17', cat:'Benefits & Risks of HRT', q:'What did a Fred Hutchinson Cancer Research Centre study find regarding antidepressants and low-dose oestrogen?', a:'That antidepressants offer benefits similar to low-dose oestrogen without the associated risks.' },
+  { id:'h18', cat:'Benefits & Risks of HRT', q:'List the conditions in which women should avoid HRT.', a:'- Blood clots\n- Cancer, such as breast, uterine, or endometrial\n- Heart or liver disease\n- Heart attack\n- Known or suspected pregnancy\n- Stroke' },
+  { id:'h19', cat:'Benefits & Risks of HRT', q:'List the side effects of HRT that should prompt a call to the doctor.', a:'- Bloating\n- Breast swelling or tenderness\n- Headaches\n- Mood changes\n- Nausea\n- Vaginal bleeding' },
+  { id:'h20', cat:'Benefits & Risks of HRT', q:'What principle governs the dose and duration of HRT, and what happens with use beyond five years?', a:'HRT should be used for the shortest time possible and at the lowest effective dose, since evidence shows serious health risks such as blood clots, breast cancer, and stroke increase after five years of use.' },
+
+  { id:'h21', cat:'Non-Hormonal Symptom Relief & Bone Health', q:'What lifestyle measures can ease hot flashes, night sweats, insomnia, vaginal dryness, and lost libido?', a:'- Regular exercise\n- Eating a healthy diet\n- Relaxation techniques\n- Quitting smoking (smokers tend to reach menopause earlier)\n- Lubricants to ease vaginal dryness and heighten sexual sensation\n- SSRIs, for women who are not good candidates for hormone therapy or prefer not to use hormones' },
+  { id:'h22', cat:'Non-Hormonal Symptom Relief & Bone Health', q:'What natural remedies have been studied for menopause symptoms, and what caveats apply?', a:'Soy may help hot flashes and night sweats but might be dangerous for women at risk of hormone-related cancers of the breast, ovaries, and uterus. Black cohosh may help hot flashes, night sweats, mood swings, and insomnia, but has mixed research and has been linked to liver problems. Other tried remedies include chaste berry, red clover, dong quai, kava, and evening primrose oil.' },
+  { id:'h23', cat:'Non-Hormonal Symptom Relief & Bone Health', q:'Besides oestrogen therapy, what other measures protect bone health against menopause-related osteoporosis?', a:'- Regular weight-bearing exercise\n- A diet high in calcium and vitamin D\n- Bone-building medications\n(Note: hormones should not be given solely to prevent or treat osteoporosis.)' },
+];
+
+
+/* ===================================================================
+   Flashcard data — Hormonal Contraception
+   =================================================================== */
+window.CONTRACEPTION_CARDS = [
+  { id:'c1', cat:'Contraception Overview', q:'List the categories of hormonal contraceptive methods covered in this material.', a:'- Oral options (daily): combined oral contraceptive pill, progestagen-only mini-pill\n- Injectable options: Depo Provera\n- Implantable devices: Norplant (discontinued), Implanon\n- Intrauterine devices: Copper-T IUD, Mirena\n- Other options: vaginal contraceptive ring (NuvaRing), contraceptive patch (Ortho Evra)' },
+  { id:'c2', cat:'Contraception Overview', q:'What does hormonal contraception involve pharmacologically?', a:'The use of a progestin alone, or in combination with an estrogen.' },
+
+  { id:'c3', cat:'Pharmacology', q:'What is the source of most of the contraceptive effect in hormonal methods, and what is the role of estrogen?', a:'The progestin compound provides most of the contraceptive benefit on its own, while estrogen mainly serves to regulate bleeding.' },
+  { id:'c4', cat:'Pharmacology', q:'Name the three molecularly distinct classes of progestins and give an example compound from each.', a:'- Estranes: e.g. norethindrone, norethindrone acetate, ethynodiol diacetate, lynestrenol\n- Gonanes: e.g. desogestrel, norgestimate, gestodene, levonorgestrel\n- Pregnanes: used in injectable methods, e.g. medroxyprogesterone acetate, megestrol acetate' },
+  { id:'c5', cat:'Pharmacology', q:'How do gonanes and estranes differ from one another?', a:'They differ in their half-life and in their estrogenic and anti-estrogenic effects.' },
+  { id:'c6', cat:'Pharmacology', q:'Which two estrogenic compounds are used in hormonal contraceptives, and how do they differ?', a:'Ethinyl estradiol (EE), which is pharmacologically active on its own, and mestranol, which must first be converted into EE to become active. Contraceptives on the market contain 35 micrograms of estrogen or less.' },
+
+  { id:'c7', cat:'Mechanism of Action', q:'What is the primary mechanism of action of hormonal contraception?', a:'Suppression of ovulation.' },
+  { id:'c8', cat:'Mechanism of Action', q:'List the progestational effects that contribute to contraception.', a:'- Inhibition of ovulation by suppressing luteinizing hormone (LH)\n- Thickening of cervical mucus, hampering sperm transport\n- Possible inhibition of sperm capacitation' },
+  { id:'c9', cat:'Mechanism of Action', q:'List the estrogenic effects that contribute to contraception.', a:'- Partial inhibition of ovulation, in part through suppression of follicle stimulating hormone (FSH) and LH, depending on dose\n- Alteration of secretions and cellular structures of the endometrium within the uterus' },
+
+  { id:'c10', cat:'Efficacy', q:'Distinguish perfect use from typical use failure rates.', a:'Perfect use measures efficacy when a method is used perfectly, consistently, and according to guidelines (comparable to the laboratory method failure rate). Typical use estimates the probability of pregnancy over a first year of ordinary use, accounting for occasional non-use and incorrect use.' },
+  { id:'c11', cat:'Efficacy', q:'What are the perfect use and typical use failure rates of oral contraceptive pills?', a:'Perfect use failure rate is approximately 0.1 to 0.5 percent; typical use failure rate is about 5 percent.' },
+  { id:'c12', cat:'Efficacy', q:'What are the perfect use failure rates of Depo-Provera and Norplant, and how does typical use compare?', a:'0.03 percent for Depo-Provera and 0.05 percent for Norplant; typical use failure rates are almost identical to perfect use for both.' },
+
+  { id:'c13', cat:'COC Benefits & Risks', q:'List the non-contraceptive benefits of combined oral contraceptives (COCs).', a:'- Reversibility and quick return to fertility\n- Reduced risk of ovarian and endometrial cancer\n- Reduced risk of benign ovarian tumors and cysts\n- Reduced risk of colorectal cancer\n- Reduced dysfunctional uterine bleeding\n- Decreased perimenopausal vasomotor symptoms\n- Decreased benign breast disease\n- Favourable bone mineral density profile\n- Decreased menstrual flow, menorrhagia, and primary dysmenorrhea\n- Decreased risk of iron deficiency anemia\n- Improved hirsutism and acne\n- Decreased risk of PMS/PMDD\n- Reduced risk of cardiovascular outcomes' },
+  { id:'c14', cat:'COC Benefits & Risks', q:'List the disadvantages of oral contraceptives.', a:'- No protection against sexually transmitted infections\n- Requires daily administration\n- Unwanted menstrual cycle changes (breakthrough bleeding)\n- Nausea and vomiting\n- Headaches\n- Increased cervical ectopy and chlamydia infection\n- Potential increased cardiovascular risk with increased age, BMI, and smoking\n- Acceleration of gall bladder disease\n- Hepatocellular adenoma' },
+  { id:'c15', cat:'COC Benefits & Risks', q:'List the medical contraindications to combined oral contraceptive use.', a:'- Known or history of deep venous thrombosis or pulmonary embolism\n- History of stroke, coronary artery disease, or ischemic heart disease\n- Diabetes with microvascular complications, duration over 20 years, or age over 35\n- History of estrogen-dependent cancer, including breast cancer\n- Current pregnancy\n- Migraines with aura, focal neurological symptoms, or vascular risk after age 35\n- Smoking more than 20 cigarettes a day and age over 35\n- Untreated hypertension greater than 160/100 or with vascular disease\n- Liver disease\n- Major surgery with prolonged immobilization or leg surgery\n- Personal or family history of hypercoagulable disorder\n- Less than 2 weeks postpartum\n- Systemic lupus erythematosus\n- Hypertriglyceridemia' },
+  { id:'c16', cat:'COC Benefits & Risks', q:'Besides the medical contraindications, what other client factors should prompt caution before prescribing a hormonal contraceptive?', a:'Being on anticoagulants or having a blood clotting disorder, a history of severe depression, diabetes, high blood pressure, or irregular periods spaced at long intervals.' },
+  { id:'c17', cat:'COC Benefits & Risks', q:'What does the doctor evaluation include before starting a hormonal contraceptive?', a:'Taking a medical history, measuring weight and blood pressure, and performing a breast check, pelvic exam, and Pap smear.' },
+
+  { id:'c18', cat:'Combined Oral Contraceptives', q:'What is a combined oral contraceptive, and what are the two types by hormone pattern?', a:'A preparation of synthetic oestrogen and progestagen highly effective at preventing pregnancy. Monophasic pills give a fixed hormone concentration throughout the cycle; multiphasic pills vary the concentration in 2 (biphasic) or 3 (triphasic) steps.' },
+  { id:'c19', cat:'Combined Oral Contraceptives', q:'Describe the two packet formats COCs are available in.', a:'A 21-pill pack, taken daily for 21 days followed by a 7-day pill-free break; or a pack where a hormone pill is taken daily for 21 days followed by 7 placebo pills instead of a break.' },
+
+  { id:'c20', cat:'Progestagen-Only Pill (POP)', q:'What distinguishes the progestagen-only pill (POP) from the combined pill, and what progestagen dose does it contain?', a:'It contains only a progestagen, at a tenth to a half the dose used in combined pills (0.03 to 0.6 mg, depending on the progestagen type), and comes from the norethisterone or levonorgestrel groups.' },
+  { id:'c21', cat:'Progestagen-Only Pill (POP)', q:'How is the POP taken, and how does its effectiveness compare with the COC?', a:'It is taken every day at the same time (within a 2 to 4 hour window), without a break, regardless of bleeding pattern. It is slightly less effective than the COC, especially in younger women, but similar in effectiveness to the COC in women over 35.' },
+  { id:'c22', cat:'Progestagen-Only Pill (POP)', q:'What common side effects may occur with the pill, and when do they typically resolve?', a:'Breakthrough bleeding, breast tenderness, headaches, bloating, nausea, weight change, and mood changes; these usually resolve after 2 to 6 months as the body adjusts.' },
+  { id:'c23', cat:'Progestagen-Only Pill (POP)', q:'What does the ACHES acronym stand for, and what does it represent?', a:'Abdominal pain (severe) or yellow skin/eyes, Chest pain (severe), Headaches (severe), Eye problems, and Severe leg pain or swelling — the warning signs of a serious pill-related problem that should prompt contacting a health provider immediately.' },
+
+  { id:'c24', cat:'Injectables (Depo Provera)', q:'How often is the Depo Provera shot given, and by whom?', a:'Every 12 weeks (4 times a year), given by a trained health care provider in the arm or buttock.' },
+  { id:'c25', cat:'Injectables (Depo Provera)', q:'How does the timing of the first Depo shot affect the need for back-up contraception?', a:'If given during the first 5 days of the period, protection is immediate. If given at another time, a back-up method such as condoms is needed for 7 days.' },
+  { id:'c26', cat:'Injectables (Depo Provera)', q:'List the common side effects of Depo Provera and when they typically resolve.', a:'Irregular bleeding, changes in period pattern, and weight gain, which usually resolve during the first 6 to 12 months as the body adjusts.' },
+  { id:'c27', cat:'Injectables (Depo Provera)', q:'List the less common side effects of Depo Provera.', a:'Mood changes (irritability), tiredness, headache, vaginal dryness, increased or decreased sex drive, and hair loss.' },
+  { id:'c28', cat:'Injectables (Depo Provera)', q:'Which warning signs on Depo Provera should prompt contacting a health provider?', a:'Heavy vaginal bleeding, frequent very painful headaches, severe belly pain, and depression.' },
+  { id:'c29', cat:'Injectables (Depo Provera)', q:'List the benefits of Depo Provera.', a:'Very effective (more so than the pill), long-lasting (only 4 visits a year), lighter or absent periods after 8 to 12 months, less menstrual pain, no daily pills, private, and safe for women who cannot take estrogen.' },
+  { id:'c30', cat:'Injectables (Depo Provera)', q:'List the disadvantages of Depo Provera.', a:'No protection against HIV or other STIs, requires a clinic visit every 12 weeks, has a long-lasting effect that cannot be reversed immediately, and is not recommended for women with osteoporosis.' },
+
+  { id:'c31', cat:'Emergency Contraception', q:'What is emergency contraception (EC), and what is the maximum window for use after unprotected sex?', a:'A special, stronger dose of birth control pills used to prevent pregnancy after unprotected sex; it can be used up to 5 days (120 hours) after intercourse, though sooner is better. It is not an abortion pill.' },
+  { id:'c32', cat:'Emergency Contraception', q:'Name the two kinds of EC available and describe the dosing schedule.', a:'Progestin-only pills (such as Plan B) and combined estrogen/progestin pills (such as Preven); both are taken as two doses, the first as soon as possible within 5 days, and the second exactly 12 hours after the first.' },
+  { id:'c33', cat:'Emergency Contraception', q:'What is the most common side effect of EC, and how can nausea be minimized?', a:'Nausea, lasting about a day; it can be minimized by choosing the progestin-only EC (less nausea than the combined type), eating food such as bread or crackers about 30 minutes before taking EC, or taking anti-nausea medicine 1 to 2 hours beforehand (which can cause drowsiness).' },
+  { id:'c34', cat:'Emergency Contraception', q:'List the benefits and disadvantages of emergency contraception.', a:'Benefits: prevents pregnancy up to 120 hours after sex, no long-lasting side effects, safe for almost all women, and can be kept on hand. Disadvantages: less effective than regular methods like the pill or condoms, an increased relative risk of ectopic pregnancy if EC fails, and no protection against HIV or other STIs.' },
+
+  { id:'c35', cat:'Transdermal Patch', q:'How does the contraceptive patch work, and how often is it changed?', a:'It releases hormones similar to those in birth control pills through the skin into the bloodstream. A new patch is applied once a week.' },
+  { id:'c36', cat:'Transdermal Patch', q:'Describe the patch application cycle over 4 weeks.', a:'A new patch is applied each week for 3 weeks in a row (3 patches total), then no patch is worn during week 4 (the Patch Free Week), during which the period occurs; a new 4-week cycle then starts even if still bleeding.' },
+  { id:'c37', cat:'Transdermal Patch', q:'Where on the body can the patch be applied?', a:'The outer upper arm, the upper body (front or back), the buttocks, or the belly — never the breasts.' },
+  { id:'c38', cat:'Transdermal Patch', q:'What is the maximum number of days a woman should go without wearing a patch?', a:'7 days.' },
+  { id:'c39', cat:'Transdermal Patch', q:'List the benefits and a key disadvantage of the patch related to body weight.', a:'Benefits: as effective as the pill, no daily dosing, regular lighter and shorter periods, and does not interrupt sex. Disadvantage: it is less effective in women who weigh 198 pounds (about 90 kg) or more, and it does not protect against HIV or other STIs.' },
+
+  { id:'c40', cat:'Vaginal Contraceptive Ring', q:'How does the vaginal contraceptive ring (NuvaRing) work, and how long is each ring worn?', a:'It releases hormones similar to those in birth control pills into the body through the vagina; each ring is worn continuously for 3 weeks, followed by a Ring Free Week during which the period occurs.' },
+  { id:'c41', cat:'Vaginal Contraceptive Ring', q:'When is a new ring inserted after the Ring Free Week, and what is the maximum time without a ring?', a:'A new ring is inserted exactly 1 week after the old one was removed, even if still bleeding; a woman should never go more than 7 days without a ring.' },
+  { id:'c42', cat:'Vaginal Contraceptive Ring', q:'List the benefits of the vaginal ring.', a:'As effective as the pill, no daily pills, regular lighter and shorter periods, a very low hormone dose, private, and it can be used to skip periods under provider guidance.' },
+
+  { id:'c43', cat:'Subdermal Implants', q:'Compare Norplant and Implanon as subdermal implant systems.', a:'Norplant was a set of 6 small levonorgestrel-filled capsules but is no longer produced; Implanon, a single-rod system, is now used in its place.' },
+  { id:'c44', cat:'Subdermal Implants', q:'How quickly does the implant become effective, and by what mechanisms does it prevent pregnancy?', a:'It becomes effective within 24 hours of implantation. The released progestin thickens cervical mucus to block sperm, may suppress ovulation, and thins the uterine lining to hinder implantation.' },
+  { id:'c45', cat:'Subdermal Implants', q:'What is the duration of protection offered by implants, and are they safe during breastfeeding?', a:'Continuous protection for up to five years; they are safe for women who are breastfeeding.' },
+  { id:'c46', cat:'Subdermal Implants', q:'List the side effects and complications associated with implants.', a:'Menstrual disturbances and irregularities, headaches or migraines, increased acne, weight gain, nausea, anxiety, unwanted hair growth or loss, ovarian cysts, and an increased risk of ectopic pregnancy, which is a medical emergency if it occurs.' },
+
+  { id:'c47', cat:'Intrauterine Device (IUD)', q:'What is the IUD, and what two substances can modern IUDs release to increase effectiveness?', a:'A small, T-shaped, flexible plastic device placed inside the uterus; modern IUDs release either copper or progestin.' },
+  { id:'c48', cat:'Intrauterine Device (IUD)', q:'What precautions and follow-up are needed after IUD insertion?', a:'Avoid putting anything in the vagina for the first 5 to 7 days, call the clinic for fever or unusual pain/bleeding, return for a follow-up visit 4 to 6 weeks after insertion, and check the IUD string weekly for the first few months, then monthly thereafter.' },
+  { id:'c49', cat:'Intrauterine Device (IUD)', q:'How does timing of IUD insertion affect the need for back-up contraception?', a:'Insertion during the period gives immediate protection; insertion at another time requires a back-up method such as condoms for 7 days.' },
+  { id:'c50', cat:'Intrauterine Device (IUD)', q:'How do periods typically change with the copper IUD versus the progestin IUD?', a:'The copper IUD (hormone-free) keeps periods regular but a few days longer and heavier than usual. The progestin IUD causes irregular bleeding and cramping in the first 3 to 6 months, then shorter, lighter, less painful periods by 1 year, with one in five women having no period after a year; periods return to normal after removal.' },
+  { id:'c51', cat:'Intrauterine Device (IUD)', q:'What side effects are specific to the progestin IUD, beyond bleeding pattern changes?', a:'Moodiness, headaches, and skin changes, because it releases a hormone.' },
+  { id:'c52', cat:'Intrauterine Device (IUD)', q:'List the benefits of the IUD, including its duration by type.', a:'Very effective, more so than the pill; long-lasting, 5 years for the progestin IUD and 10 years for the copper IUD; easy to use, requiring only a monthly string check; a good option for women with at least one child; and usable while breastfeeding.' },
+  { id:'c53', cat:'Intrauterine Device (IUD)', q:'What are the disadvantages of the IUD, and what warning signs suggest a serious problem?', a:'It does not protect against HIV or other STIs, requires a trained provider for insertion and removal, and insertion can be uncomfortable. The most serious problem is uterine infection, signaled by severe belly pain or cramps, deep pain during sex, severe chills, bad-smelling vaginal discharge, or very heavy bleeding.' },
+];
+
+
+/* ===================================================================
+   Flashcard data — Infertility & the Pharmacist Role
+   =================================================================== */
+window.INFERTILITY_CARDS = [
+  { id:'i1', cat:'Infertility Foundations', q:'Define infertility, and how does it differ from sterility?', a:'Infertility is an inability to achieve pregnancy despite regular unprotected intercourse, usually for a period of 1 year. Sterility is more definite and absolute, referring to an irreversible state, whereas infertility (sometimes called childlessness) is not necessarily permanent.' },
+  { id:'i2', cat:'Infertility Foundations', q:'What proportion of couples with regular unprotected intercourse achieve pregnancy at 6, 12, and 18 to 24 months?', a:'About 60% achieve pregnancy within 6 months, 90% within 12 months, and 95% within 18 to 24 months.' },
+
+  { id:'i3', cat:'Epidemiology', q:'Describe the geographic extent of the recognized infertility belt in Africa.', a:'It extends from West African countries (Senegal, Mali, Burkina Faso, Niger, and northern Nigeria) through Cameroon, Gabon, Congo, Zaire, Zambia, Central African Republic, and southwest Sudan, to East African countries (Uganda, southwestern Kenya, Ethiopia, and Tanzania).' },
+  { id:'i4', cat:'Epidemiology', q:'How does the African infertility belt relate to the AIDS belt, and why?', a:'The infertility belt corresponds closely with the AIDS belt, because both infertility and AIDS are associated with sexually transmitted infections.' },
+  { id:'i5', cat:'Epidemiology', q:'What is the estimated scope of infertility in Nigeria, and what infertility rate range is seen across developing countries?', a:'Over 800,000 couples in Nigeria are estimated to have difficulty achieving a desired pregnancy. Across developing countries, infertility rates range from 8.6% to 21.5%, with Eastern Africa having the lowest rate and Southern Africa the highest.' },
+  { id:'i6', cat:'Epidemiology', q:'What proportion of infertile African women have a diagnosis attributable to a previous STI, and which pathogens are most implicated?', a:'An estimated 85% of infertile African women have a diagnosis attributable to a previous sexually transmitted infection. Gonorrhea and Chlamydia are the most commonly responsible pathogens, with the human papilloma virus also sometimes involved; nearly 75% of infertility in Africa relates to gonorrhea or Chlamydia that has spread to the upper reproductive tract.' },
+  { id:'i7', cat:'Epidemiology', q:'What are the major preventable causes of infertility in most developing countries?', a:'Sexually transmitted infections, postpartum infection, and post-abortion infection.' },
+
+  { id:'i8', cat:'Etiology', q:'In what proportion of infertility cases can a cause be identified, and how often is more than one cause present?', a:'A cause can be found in about 90% of cases, though about 10% of couples never learn why they cannot conceive. Between 10% and 30% of cases have more than one contributing cause.' },
+  { id:'i9', cat:'Etiology', q:'What is usually responsible for male infertility?', a:'Defects in sperm quantity and quality.' },
+  { id:'i10', cat:'Etiology', q:'What is pelvic inflammatory disease (PID), and why is it significant in infertility?', a:'PID is the major cause of infertility worldwide; it is a variety of infections, including gonorrhea and Chlamydia, that affect the reproductive organs, appendix, and parts of the intestine in the pelvic area. The fallopian tube is the site most often implicated, a condition called salpingitis.' },
+  { id:'i11', cat:'Etiology', q:'How does endometriosis cause infertility, and how commonly is it implicated?', a:'It accounts for about 5% or more of infertility cases, with some studies citing up to 30%. It develops when fragments of the endometrial lining are carried upward through the tubes and implant elsewhere in the pelvis; these implants respond to hormonal changes, growing with each cycle and eventually causing scarring and inflammation.' },
+  { id:'i12', cat:'Etiology', q:'List other recognized causes of female infertility beyond PID and endometriosis.', a:'Hypothalamic-pituitary disorders, polycystic ovarian syndrome, ovarian cysts, premature ovarian failure, luteal phase defect, benign uterine fibroids, surgical adhesions, ectopic pregnancies, certain drugs, inflammatory bowel disease, celiac sprue, epilepsy, thyroid disorders (hyper- and hypothyroidism), and physical damage from intrauterine devices.' },
+
+  { id:'i13', cat:'Pharmacist Role: Prevention', q:'What preventive steps should a pharmacist take to help prevent infertility related to STIs and PID?', a:'- Stay current on preventing, diagnosing, and treating STIs and PID\n- Recognize that contraceptive choice influences PID risk\n- Provide public health education on the consequences of untreated sexual infections\n- Ensure access to early, confidential STI diagnosis and treatment, including for minors\n- Help young people identify STI risk factors\n- Encourage use of condoms, diaphragms, and spermicides alongside other contraceptive methods' },
+  { id:'i14', cat:'Pharmacist Role: Prevention', q:'Since IUDs increase PID risk, what precautions should a pharmacist take around IUD recommendation and use?', a:'- Be conservative recommending IUDs to nulliparous women planning children\n- Avoid recommending IUDs to women at higher risk of STIs/PID, especially adolescents\n- Screen for STIs in all patients receiving an IUD\n- Never insert an IUD into a woman with an untreated STI\n- Consider antibiotic prophylaxis in high-STI-incidence areas\n- Treat any vaginal discharge in an IUD user as infection until proven otherwise\n- Ensure clients know the danger signs of pelvic infection and where to seek help' },
+  { id:'i15', cat:'Pharmacist Role: Prevention', q:'What should a pharmacist emphasize regarding sterilization and induced abortion?', a:'The permanence of sterilization, since reversal is an expensive procedure with uncertain prognosis, and the risk of infertility from abortions, especially when performed by untrained personnel without adequate hygiene or equipment.' },
+
+  { id:'i16', cat:'Infertility Work-Up', q:'List the situations in which an infertility evaluation should begin promptly rather than advising the couple to wait and see.', a:'- The woman is in her late 30s (fertility declines steeply after 40; women over 35 get priority)\n- The woman has irregular menses, which may signal sporadic ovulation or premature ovarian failure\n- The couple history includes mumps in the man, or repeated miscarriage, ectopic pregnancy, or PID in the woman, or prior pelvic surgery\n- The woman has severe progressive dysmenorrhea or dyspareunia, suggesting endometriosis\n- The woman has a history of IUD use, pelvic infection, or ovarian/tubal/uterine surgery\n- The couple lives in an area with high endemic STI incidence' },
+  { id:'i17', cat:'Infertility Work-Up', q:'What basic initial work-up services can a pharmacist provide?', a:'Educating the patients, gathering pertinent historical information, providing a thorough physical examination, and providing a resource for reassurance, counseling, and emotional stability, including referrals as needed.' },
+  { id:'i18', cat:'Infertility Work-Up', q:'How should history-taking be structured when counseling an infertile couple?', a:'Interview the couple together first about factors affecting reproductive performance (anatomical, infectious, and toxic), then interview the man and woman separately to obtain confidential information.' },
+  { id:'i19', cat:'Infertility Work-Up', q:'What should the physical examination of an infertile woman assess?', a:'Hair distribution and body/breast development for signs of endocrinopathies (hypogonadism, adrenal hyperplasia, hypothyroidism, ovarian dysfunction, hyperprolactinemia), plus a pelvic exam checking for uterine hypoplasia, adnexal tumours, cervical lesions, and whether dyspareunia may be a problem.' },
+  { id:'i20', cat:'Infertility Work-Up', q:'What should the physical examination of an infertile man assess?', a:'Sexual characteristics for endocrinopathies such as hypogonadism or Klinefelter syndrome, and a penile exam for hypospadias, phimosis, cysts, cryptorchidism, vas thickening or absence, hydrocele, or varicocele.' },
+
+  { id:'i21', cat:'Counseling & Semen Evaluation', q:'What does fertility counseling typically evaluate?', a:'Fertility awareness techniques and optimal coital timing, screening for asymptomatic STIs, whether ovulation is occurring (via basal body temperature or cervical mucus records), and semen analysis.' },
+  { id:'i22', cat:'Counseling & Semen Evaluation', q:'What instructions should a man follow before providing a semen sample for evaluation?', a:'Abstain from ejaculation for at least 3 and no more than 5 days; avoid alcohol or a hot shower/bath just before producing the sample; ejaculate into a small, sterile, dry, wide-mouth jar; deliver it to the laboratory within an hour; and keep it close to body temperature.' },
+  { id:'i23', cat:'Counseling & Semen Evaluation', q:'According to WHO criteria, what defines a normal semen sample?', a:'Concentration greater than 20 x 10^6 sperm/mL, greater than 40% progressive motility, greater than 50% normal morphology (forms), greater than 60% viability (alive), no significant agglutination, normal appearance and viscosity of seminal fluid, and less than 10^6 white blood cells/mL.' },
+  { id:'i24', cat:'Counseling & Semen Evaluation', q:'Why might more than one semen evaluation be necessary, and what does WHO recommend?', a:'Because a single result, particularly if borderline, may not accurately reflect sperm and semen status; WHO recommends two samples taken at least 2 weeks apart.' },
+
+  { id:'i25', cat:'Management: Male Infertility', q:'How is male infertility due to azospermia or impotence typically managed, and what safety measure is required for donor sperm?', a:'With insemination using donor sperm. The sperm must be frozen and quarantined for 6 months, and only released if the donor remains HIV antibody negative after that period, to avoid transmitting STIs including HIV.' },
+
+  { id:'i26', cat:'Management: Female Infertility', q:'How are cervical mucus problems that impair conception managed?', a:'With insemination or uterine instillation of a small amount of specially prepared sperm.' },
+  { id:'i27', cat:'Management: Female Infertility', q:'What is cervical incompetence, and how is it managed?', a:'A condition where the cervix cannot maintain a pregnancy; it is managed with cerclage, bed rest, or both. Cerclage involves passing strong suture material around the cervix like a purse string to prevent premature dilation.' },
+  { id:'i28', cat:'Management: Female Infertility', q:'How are ovulation disorders treated, including in women with hyperprolactinemia?', a:'With drugs that induce ovulation, such as clomiphene citrate, which suppresses estrogen suppressive effect on ovulation. In women whose ovulation is suppressed by hyperprolactinemia, drugs that suppress prolactin, such as bromocriptine, may induce ovulation.' },
+  { id:'i29', cat:'Management: Female Infertility', q:'How is infertility from significant ovarian damage (torsion, surgical removal, hemorrhagic cyst, or premature menopause) addressed?', a:'Only through high-technology fertility medicine using ova donated from another woman.' },
+  { id:'i30', cat:'Management: Female Infertility', q:'How are uterine or tubal abnormalities that cause infertility corrected?', a:'By surgical procedures.' },
+
+  { id:'i31', cat:'High-Technology Approaches', q:'Describe gamete intra-fallopian tube transfer (GIFT) and its typical indication.', a:'A procedure that places a mixture of ova and sperm directly into the fallopian tube; it is used primarily for unexplained infertility where the fallopian tubes appear normal.' },
+  { id:'i32', cat:'High-Technology Approaches', q:'Describe the process of in vitro fertilization (IVF).', a:'Mature ova, harvested via laparoscopy or trans-vaginally, are combined with specially prepared sperm in a laboratory culture medium and incubated to allow fertilization; fertilized ova that reach sufficient maturity are placed in the uterus via a trans-cervical catheter.' },
+  { id:'i33', cat:'High-Technology Approaches', q:'What do high-technology fertility approaches like GIFT and IVF frequently use to increase the number of ova available for harvest?', a:'Ovulation stimulation drugs.' },
+
+  { id:'i34', cat:'Referrals & Broader Role', q:'When should a pharmacist refer an infertile couple onward, and to whom?', a:'When couples require more specialized care that may need high-technology approaches, they should be referred to infertility specialists or obstetrics and gynecology consultants skilled in fertility issues, ensuring procedures are not duplicated unnecessarily.' },
+  { id:'i35', cat:'Referrals & Broader Role', q:'Beyond clinical referral, what other referral option might a pharmacist discuss with an infertile couple?', a:'Referral to adoption agencies or other legal homes for adoption, though this is not common practice in Africa, it may be the only solution for some couples.' },
+  { id:'i36', cat:'Referrals & Broader Role', q:'How does a pharmacist providing infertility services contribute to community information and awareness?', a:'By staying current on the epidemiology of infertility and STIs locally, serving as a resource for researchers and epidemiologists, providing accurate statistical data, and acting as an advocate for appropriate political programs at the community or local government level.' },
+];
+
 /* ---------- Roundcards app logic (validated standalone, then embedded) ---------- */
 (function () {
   "use strict";
@@ -1157,7 +1303,10 @@ window.LIVER_CARDS = [
       activeTopic: null,
       decks: {
         git: freshDeckState(window.GIT_CARDS),
-        liver: freshDeckState(window.LIVER_CARDS)
+        liver: freshDeckState(window.LIVER_CARDS),
+        hrt: freshDeckState(window.HRT_CARDS),
+        contraception: freshDeckState(window.CONTRACEPTION_CARDS),
+        infertility: freshDeckState(window.INFERTILITY_CARDS)
       }
     };
   }
@@ -1226,6 +1375,36 @@ window.LIVER_CARDS = [
       colorVar: "--garnet",
       brightVar: "--garnet-bright",
       cards: window.LIVER_CARDS
+    },
+    hrt: {
+      key: "hrt",
+      label: "HR",
+      title: "Hormone Replacement Therapy",
+      subtitle: "Menopause & Hormonal Management",
+      tint: "violet",
+      colorVar: "--violet",
+      brightVar: "--violet-bright",
+      cards: window.HRT_CARDS
+    },
+    contraception: {
+      key: "contraception",
+      label: "HC",
+      title: "Hormonal Contraception",
+      subtitle: "Pills, Injectables, Implants, Rings & IUDs",
+      tint: "teal",
+      colorVar: "--teal",
+      brightVar: "--teal-bright",
+      cards: window.CONTRACEPTION_CARDS
+    },
+    infertility: {
+      key: "infertility",
+      label: "IF",
+      title: "Infertility & the Pharmacist Role",
+      subtitle: "Evaluation, Counseling & Management",
+      tint: "sage",
+      colorVar: "--sage",
+      brightVar: "--sage-bright",
+      cards: window.INFERTILITY_CARDS
     }
   };
 
@@ -1354,7 +1533,7 @@ window.LIVER_CARDS = [
         { className: "container container-narrow", ref: headRef },
         e("p", { className: "eyebrow" }, "Organ Systems Pharmacotherapeutics \u00B7 Exam Prep"),
         e("h1", { className: "display-hero" }, "Round", e("span", { className: "hero-italic" }, "cards")),
-        e("p", { className: "lede" }, "Short-answer drills covering GERD, peptic ulcer disease, and liver and biliary tract disorders, built straight from the lecture material. Study once, know it well."),
+        e("p", { className: "lede" }, "Short-answer drills covering GERD, peptic ulcer disease, and liver and biliary tract disorders, built straight from the lecture material. Study once, know it cold."),
         e(PulseLine, { speed: 8 }),
         e(
           "form",
@@ -1457,7 +1636,10 @@ window.LIVER_CARDS = [
           "div",
           { className: "topics-grid fade-in-item" },
           e(TopicCard, { deck: DECKS.git, deckState: props.state.decks.git, onSelect: props.onSelectTopic }),
-          e(TopicCard, { deck: DECKS.liver, deckState: props.state.decks.liver, onSelect: props.onSelectTopic })
+          e(TopicCard, { deck: DECKS.liver, deckState: props.state.decks.liver, onSelect: props.onSelectTopic }),
+          e(TopicCard, { deck: DECKS.hrt, deckState: props.state.decks.hrt, onSelect: props.onSelectTopic }),
+          e(TopicCard, { deck: DECKS.contraception, deckState: props.state.decks.contraception, onSelect: props.onSelectTopic }),
+          e(TopicCard, { deck: DECKS.infertility, deckState: props.state.decks.infertility, onSelect: props.onSelectTopic })
         )
       )
     );
@@ -1639,60 +1821,7 @@ window.LIVER_CARDS = [
               e("div", { className: "stat-pill" }, e("strong", null, total), " total")
             ),
             e("div", { className: "complete-actions" },
-              unmasteredCount > 0 ? e("button", { className: "btn btn-primary", onClick: function () { restartDeck(true); } }, "Review unmastered (" + unmasteredCount + ")") : null,
-              e("button", { className: "btn", onClick: function () { restartDeck(false); } }, "Restart full deck"),
-              e("button", { className: "btn btn-ghost", onClick: props.onBack }, "Back to topics")
-            )
-          )
-        )
-      );
-    }
-
-    return e(
-      "div",
-      { className: "screen screen-deck " + themeClass },
-      e(
-        "div",
-        { className: "container" },
-        e(
-          "div",
-          { className: "deck-header" },
-          e("button", { className: "link-btn", onClick: props.onBack }, e(IconArrow, { dir: "left" }), " Topics"),
-          e("div", { className: "deck-header-title" },
-            e("span", { className: "eyebrow" }, deck.subtitle),
-            e("h2", { className: "deck-title" }, deck.title)
-          ),
-          e("span", { className: "deck-counter" }, (deckState.pos + 1) + " / " + total)
-        ),
-        e(PulseLine, { speed: 6 }),
-        e(
-          "div",
-          { className: "progress-track", "aria-hidden": "true" },
-          e("div", { className: "progress-fill", style: { width: Math.round(((deckState.pos) / total) * 100) + "%" } }),
-          e("div", { className: "progress-mastered", style: { width: Math.round((masteredCount / total) * 100) + "%" } })
-        ),
-        e(
-          "div",
-          { className: "card-stage", onTouchStart: onTouchStart, onTouchEnd: onTouchEnd },
-          e(
-            "div",
-            { className: "card-outer", ref: cardOuterRef },
-            e(
-              "div",
-              { className: "card-inner", ref: cardInnerRef, onClick: toggleFlip, role: "button", tabIndex: 0, "aria-label": "Flip card" },
-              e(
-                "div",
-                { className: "card-face card-front" },
-                e("span", { className: "card-eyebrow" }, currentCard.cat),
-                e("div", { className: "card-body-wrap" }, renderBody(currentCard.q, "card-question")),
-                e("div", { className: "card-hint" }, e(IconArrow, null), " Tap to reveal the answer")
-              ),
-              e(
-                "div",
-                { className: "card-face card-back" },
-                e("span", { className: "card-eyebrow card-eyebrow-answer" }, "Answer"),
-                e("div", { className: "card-body-wrap" }, renderBody(currentCard.a, "card-answer")),
-                e("div", { className: "card-hint" }, "Tap to see the question again")
+              unmasteredCount > 0 ? e("button", { className     e("div", { className: "card-hint" }, "Tap to see the question again")
               )
             )
           )
@@ -1734,7 +1863,8 @@ window.LIVER_CARDS = [
       var loaded = loadState();
       if (loaded && loaded.name) {
         var savedDecks = loaded.decks || {};
-        var activeTopic = (loaded.activeTopic === "git" || loaded.activeTopic === "liver") ? loaded.activeTopic : null;
+        var validTopics = { git: true, liver: true, hrt: true, contraception: true, infertility: true };
+        var activeTopic = (loaded.activeTopic && validTopics[loaded.activeTopic]) ? loaded.activeTopic : null;
         var stage = (loaded.stage === "deck" && activeTopic) || loaded.stage === "topics" ? loaded.stage : "topics";
         return {
           name: loaded.name,
@@ -1742,14 +1872,16 @@ window.LIVER_CARDS = [
           activeTopic: activeTopic,
           decks: {
             git: reconcileDeck(savedDecks.git, window.GIT_CARDS),
-            liver: reconcileDeck(savedDecks.liver, window.LIVER_CARDS)
+            liver: reconcileDeck(savedDecks.liver, window.LIVER_CARDS),
+            hrt: reconcileDeck(savedDecks.hrt, window.HRT_CARDS),
+            contraception: reconcileDeck(savedDecks.contraception, window.CONTRACEPTION_CARDS),
+            infertility: reconcileDeck(savedDecks.infertility, window.INFERTILITY_CARDS)
           }
         };
       }
       return defaultState();
     });
     var state = _state[0]; var setState = _state[1];
-    var overlayRef = useRef(null);
     var rootRef = useRef(null);
 
     useEffect(function () {
@@ -1757,8 +1889,8 @@ window.LIVER_CARDS = [
     }, [state]);
 
     function transition(mutate, tintVar) {
-  mutate();
-}
+      mutate();
+    }
 
     function handleNameSubmit(name) {
       transition(function () {
@@ -1825,6 +1957,7 @@ window.LIVER_CARDS = [
   var root = ReactDOM.createRoot(rootEl);
   root.render(e(App, null));
 })();
+
 </script>
 </body>
 </html>
